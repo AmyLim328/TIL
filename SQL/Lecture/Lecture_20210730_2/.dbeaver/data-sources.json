@@ -1,7 +1,7 @@
 {
 	"folders": {},
 	"connections": {
-		"oracle_thin-17af56153a6-15d698bab916cd2d": {
+		"oracle_thin-17af5615c2a-30e1e19cce5a1ddf": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
 			"name": "xe",

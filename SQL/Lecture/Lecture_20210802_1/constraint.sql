@@ -9,7 +9,8 @@
  * 3) PRIMARY KEY (기본키): 유일한 값 + NULL을 허용하지 않음
  * (하나의 테이블에 하나만 지정할 수 있음)
  * 4) FOREIGN KEY (외래키): 다른 테이블의 열 참조하는 값만 입력 가능
- * 5) CHECK: 조건식에 만족하는 데이터만 입력 가능
+ * 5) CHECK: 조건식에 만족하는 데이터만 입력 가능 
+ * 6) DEFAULT: 열에 들어갈 데이터 기본값을 지정할 수 있음 (제약조건은 아님)
  * 
  * * 테이블이 생성될 때 제약조건을 같이 지정 (보통)
  * * 나중에 테이블 변경시에도 지정할 수는 있음
@@ -22,6 +23,7 @@
 -- LASTDATE DATE
 
 -- 1) NOT NULL
+DROP TABLE GAME_ID_PASS;
 CREATE TABLE GAME_ID_PASS(
 	GAME_ID VARCHAR(20) NOT NULL,
 	GAME_PASS VARCHAR(20) NOT NULL,
@@ -50,7 +52,9 @@ SET GAME_PASS = NULL
 WHERE GAME_ID = 'eunbin';
 
 -- 제약 조건 조회
-SELECT * FROM USER_CONSTRAINTS;
+SELECT * 
+FROM USER_CONSTRAINTS 
+WHERE TABLE_NAME = 'GAME_ID_PASS';
 /* OWNER: 제약 조건 소유 계정
  * CONSTRAINT_NAME: 제약 조건 이름 (생략시 오라클 자동 생성)
  * CONSTRAINT_TYPE: 제약 조건 종류
@@ -127,7 +131,9 @@ CREATE TABLE STUDENT(
 );
 
 
-SELECT * FROM USER_CONSTRAINTS;
+SELECT * 
+FROM USER_CONSTRAINTS
+WHERE TABLE_NAME = 'STUDENT';
 
 -- 데이터 삽입 2명 (ID가 같은)
 INSERT INTO STUDENT
@@ -408,4 +414,158 @@ WHERE DEPTNO = 10;
 -- 데이터가 다 사라짐 (ON DELETE CASCADE 방식 이용)
 SELECT * FROM EMP_FK;
 SELECT * FROM DEPT_FK;
+
+
+-- 5) CHECK
+-- : 데이터에 조건을 지정 (값 범위, 패턴 정의)
+-- EX) 나이: 1 ~ 99, 시: 0 ~ 23, 분: 0 ~ 59, 초: 0 ~ 59
+
+DROP TABLE GAME_ID_PASS;
+CREATE TABLE GAME_ID_PASS(
+	LOGIN_ID VARCHAR(20) CONSTRAINT LOGIN_ID_PK PRIMARY KEY,
+	LOGIN_PWD VARCHAR(20),
+	PHONE VARCHAR(20) CONSTRAINT PHONE_CK CHECK (LENGTH(PHONE) > 11)
+	-- 010-123-3456
+);
+
+DROP TABLE GAME_ID_PASS;
+CREATE TABLE GAME_ID_PASS(
+	LOGIN_ID VARCHAR(20),
+	LOGIN_PWD VARCHAR(20),
+	PHONE VARCHAR(20),
+	CONSTRAINT LOGIN_ID_PK PRIMARY KEY (LOGIN_ID),
+	CONSTRAINT PHONE_CK CHECK (LENGTH(PHONE) > 11)
+);
+
+SELECT * FROM GAME_ID_PASS;
+SELECT * 
+FROM USER_CONSTRAINTS 
+WHERE TABLE_NAME = 'GAME_ID_PASS';
+
+-- 데이터 2명 삽입
+INSERT INTO GAME_ID_PASS 
+VALUES ('ID_1', '1234', '010-11-1111');
+-- PHONE의 제약조건에 위배
+
+INSERT INTO GAME_ID_PASS 
+VALUES ('ID_2', '1234', '010-111-1111');
+
+SELECT * FROM GAME_ID_PASS;
+
+INSERT INTO GAME_ID_PASS (PHONE)
+VALUES ('010-111-1111');
+-- ID는 기본키 지정 (UNIQUE + NOT NULL)
+-- 기본키로 지정된 ID가 NULL이면 제약조건 위배
+
+-- 6) DEFAULT (기본값)
+-- : 기본값 지정
+-- : 특정 열에 아무 값도 들어오지 않을 경우에 기본값으로 지정
+-- : 제약조건 아님 (USER_CONSTRAINTS에 추가되지 않음)
+
+-- 테이블 이름
+-- : 유투브 프리미엄 멤버 (YT_PR_MEMBER)
+-- 열 구성
+-- 1) ID: VARCHAR(20) (PRIMARY KEY) 
+-- (1aaaa(x), aaa1(o) CHECK)
+-- (111aaaa(x), aaa111(o) CHECK)
+-- 사전 순서
+
+-- 2) PW: VARCHAR(20) (CHECK로 7자리를 넘겨야 함)
+-- 3) NAME: VARCHAR(10)
+-- 4) BIRTHDAY: DATE
+-- 5) REGDATE: DATE (데이터 삽입, SYSDATE)
+-- 6) ISPAID: NUMBER(1) (1 - TRUE, 0 - FALSE) (DEFAULT 0)
+DROP TABLE YT_PR_MEMBER;
+CREATE TABLE YT_PR_MEMBER(
+	ID VARCHAR(20),
+	PW VARCHAR(20),
+	NAME VARCHAR(10),
+	BIRTHDAY DATE,
+	REGDATE DATE DEFAULT SYSDATE,
+	ISPAID NUMBER(1) DEFAULT 0,
+	CONSTRAINT YT_ID_PK PRIMARY KEY(ID),
+	CONSTRAINT YT_PW_CK CHECK (LENGTH(PW) > 7),
+	CONSTRAINT YT_ID_CK CHECK 
+	(UPPER(ID) BETWEEN 'A' AND 'Z')
+);
+-- 숫자 + 영어 사전
+-- 111a -> '1'
+-- a111 -> 'a'
+
+SELECT *
+FROM USER_CONSTRAINTS
+WHERE TABLE_NAME = 'YT_PR_MEMBER';
+
+-- NULL => 제약조건을 확인하지 않음 (PW가 입력이 안되어있음 (NULL))
+INSERT INTO YT_PR_MEMBER(ID, NAME)
+VALUES ('gildong', '홍길동');
+
+SELECT * FROM YT_PR_MEMBER;
+
+-- 실행 X (아이디에 첫문자가 숫자라서)
+INSERT INTO YT_PR_MEMBER(ID, NAME)
+VALUES ('1gildong', '홍길동');
+
+-- 실행 X (패스워드가 7글자가 넘지 않음)
+INSERT INTO YT_PR_MEMBER(ID, NAME, PW)
+VALUES ('gilsun', '홍길순', '1234');
+
+-- ID가 기본키라서 NULL값을 가질 수가 없음
+INSERT INTO YT_PR_MEMBER(NAME)
+VALUES ('홍홍');
+
+INSERT INTO YT_PR_MEMBER
+VALUES ('eunbin', '12345678', '박박', 
+TO_DATE('1990/11/30', 'YYYY/MM/DD'), SYSDATE, NULL);
+-- 디폴트 값이 있던 ISPAID 열에 
+-- NULL을 명시적으로 넣게 되면 NULL 설정
+
+INSERT INTO YT_PR_MEMBER (ID, PW, NAME)
+VALUES ('echoi', '12345678', '최최');
+-- 디폴트 값이 있던 ISPAID 열에 
+-- 아무 값도 넣지 않으면 디폴트 값으로 설정
+
+SELECT * FROM YT_PR_MEMBER;
+SELECT * 
+FROM USER_CONSTRAINTS
+WHERE TABLE_NAME = 'YT_PR_MEMBER';
+
+/* 제약조건 활성화/비활성화
+ * : 활성화 - 제약조건 확인 (ENABLE)
+ * : 비활성화 - 제약조건 확인 X (DISABLE)
+ * 비활성화 언제 ?
+ * 1) 테스트 업무시에 제약조건을 잠깐 꺼둠
+ * */
+
+-- 비활성화
+ALTER TABLE YT_PR_MEMBER
+DISABLE CONSTRAINT YT_ID_CK;
+
+SELECT * 
+FROM USER_CONSTRAINTS
+WHERE CONSTRAINT_NAME = 'YT_ID_CK';
+
+-- 활성화
+ALTER TABLE YT_PR_MEMBER
+ENABLE CONSTRAINT YT_ID_CK;
+
+
+/* 제약조건  | 제약조건 타입
+ * NOT NULL (C)
+ * UNIQUE  (U) - NULL값 허용
+ * PRIMARY KEY (P) 
+ * FOREIGN KEY (R) - NULL값 허용
+ * - ON DELETE CASCADE: 
+ * '내가 참조하고 있는 데이터가 삭제되면 나도 삭제'
+ * - ON DELETE SET NULL: 
+ * '내가 참조하고 있는 데이터가 삭제되면 나는 NULL 설정'
+ * CHECK (C) - NULL값 CHECK (조건식)을 무시하고 NULL로 삽입
+ * 
+ * -- DISABLE, ENABLE
+ * 
+ * DEFAULT - NULL 명시적으로 삽입하면 NULL값 허용
+ *         - NULL 명시적으로 삽입하지 않으면 기본값이 삽입됨 
+ * */
+
+
 

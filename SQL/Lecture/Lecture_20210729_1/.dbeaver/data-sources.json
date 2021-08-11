@@ -1,19 +1,24 @@
 {
 	"folders": {},
 	"connections": {
-		"oracle_thin-17b04f21927-136be632bcd77b62": {
+		"oracle_thin-17af2919e1e-269334a6dff1c8da": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
-			"name": "xe",
+			"name": "XE",
 			"save-password": true,
 			"read-only": false,
 			"configuration": {
 				"host": "localhost",
 				"port": "1521",
-				"database": "xe",
-				"url": "jdbc:oracle:thin:@//localhost:1521/xe",
+				"database": "XE",
+				"url": "jdbc:oracle:thin:@//localhost:1521/XE",
 				"home": "C:\\oraclexe\\app\\oracle\\product\\11.2.0\\server",
 				"type": "dev",
+				"properties": {
+					"useFetchSizeWithLongColumn": "true",
+					"loginTimeout": "20",
+					"oracle.jdbc.fanEnabled": "false"
+				},
 				"provider-properties": {
 					"@dbeaver-check-schema-content@": "false",
 					"@dbeaver-always-show-dba@": "false",

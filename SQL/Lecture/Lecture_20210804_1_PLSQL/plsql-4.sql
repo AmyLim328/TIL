@@ -125,14 +125,14 @@ CREATE OR REPLACE PROCEDURE PRO_TEST_PRAM_OUT(
 )
 IS
 BEGIN
-    SELECT ENAME, SAL INTO OUT_EMP, OUT_SAL
+    SELECT ENAME, SAL INTO OUT_EMP, OUT_SAL -- 'SMITH', 800
     FROM EMP
-    WHERE EMPNO = IN_EMP;
+    WHERE EMPNO = IN_EMP; -- 7369
 END PRO_TEST_PRAM_OUT; -- 반환 값이 있을 경우
 /
 
 -- PROCEDURE(사원번호, 사원이름, 급여)
-
+select * from emp;
 DECLARE
     PRO_OUTPUT_ENAME EMP.ENAME%TYPE;
     PRO_OUTPUT_SAL EMP.SAL%TYPE;
@@ -143,6 +143,8 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('SAL : ' || TO_CHAR(PRO_OUTPUT_SAL));
 END;
 /
+
+SET SERVEROUTPUT ON;
 
 SELECT * FROM EMP;
 
@@ -203,8 +205,12 @@ WHEN NAME = 'PRO_ERROR';
 /*
 2) 함수 (FUNCTION)
 프로시저 VS 함수 (SUBSTR, MAX, MIN, .... 내장 함수 / 사용자 정의)
-프로시저: PL/SQL 호출 가능, 파라미터 모드 (IN, OUT, IN OUT), 반환값 (OUT 모드 파라미터)이 여러 개일 수 있음
-함수: SQL, PL/SQL 호출 가능, 파라미터 모드 (IN, 생략), 반환값이 오직 하나 (RETURN문에 작성)
+
+프로시저: PL/SQL 호출 가능, 파라미터 모드 (IN, OUT, IN OUT), 
+반환값 (OUT 모드 파라미터)이 여러 개일 수 있음
+
+함수: SQL, PL/SQL 호출 가능, 파라미터 모드 (IN, 생략), 
+반환값이 오직 하나 (RETURN문에 작성)
 
 */
 
@@ -226,14 +232,14 @@ END [프로시저 이름]; -- 프로시저 이름은 생략 가능
 
 */
 
--- 함수 생성 (두 정수를 덧셈)
+-- 함수 생성 (두 정수/실수...를 덧셈)
 CREATE OR REPLACE FUNCTION ADD_FUNC(
-    ANUMBER NUMBER,
-    BNUMBER NUMBER
+    ANUMBER NUMBER, -- IN 모드
+    BNUMBER NUMBER -- IN 모드
 )
-RETURN NUMBER
-IS
-BEGIN
+RETURN NUMBER -- 반환형
+IS -- 선언부
+BEGIN -- 실행부
     RETURN ANUMBER + BNUMBER;
 END ADD_FUNC;
 /
@@ -263,8 +269,23 @@ END ANNSAL;
 /
 
 -- 프로시저 (PLSQL에서만 사용할 수 있음)랑 다르게 함수는 PLSQL, SQL에서도 사용이 가능!
+-- SQL (SELECT FROM~)
 SELECT EMPNO, ENAME, ANNSAL(SAL, COMM)
 FROM EMP;
+
+-- PL/SQL (SELECT INTO FROM~, 반환행 하나)
+DECLARE
+    T_EMPNO EMP.EMPNO%TYPE;
+    T_ENAME EMP.ENAME%TYPE;
+    T_ANNSAL NUMBER;
+BEGIN
+    -- 반환행이 하나가 아니라서 실행할 수 없음
+    SELECT EMPNO, ENAME, ANNSAL(SAL, COMM) 
+    INTO T_EMPNO, T_ENAME, T_ANNSAL
+    FROM EMP;    
+END;
+/
+
 
 -- 함수 삭제
 DROP FUNCTION ANNSAL;
@@ -294,8 +315,10 @@ CREATE OR REPLACE PACKAGE PKG_TEST
 IS
     FUNCTION ANNSAL(EMP_SAL EMP.SAL%TYPE, EMP_COMM EMP.COMM%TYPE) RETURN NUMBER;
     /*IN (패키지 명세 작성시 IN 부분만 파라미터 작성), OUT (패키지 본문 작성시 파라미터 작성)*/
-    PROCEDURE PRO_EMP(EMP_EMPNO EMP.EMPNO%TYPE); -- EMPNO (IN 모드 파라미터)를 통해 사원 이름, 급여 (OUT 모드 파라미터)를 반환
-    PROCEDURE PRO_DEPT(DEPT_DEPTNO DEPT.DEPTNO%TYPE); -- DEPTNO (IN 모드 파라미터)를 통해 부서 이름, 부서 위치 (OUT 모드 파라미터)를 반환
+    PROCEDURE PRO_EMP(EMP_EMPNO EMP.EMPNO%TYPE); 
+    -- EMPNO (IN 모드 파라미터)를 통해 사원 이름, 급여 (OUT 모드 파라미터)를 반환
+    PROCEDURE PRO_DEPT(DEPT_DEPTNO DEPT.DEPTNO%TYPE); 
+    -- DEPTNO (IN 모드 파라미터)를 통해 부서 이름, 부서 위치 (OUT 모드 파라미터)를 반환
 END;
 /
 
@@ -328,10 +351,13 @@ IS
             RETURN (ROUND(EMP_SAL * 12 + NVL(EMP_COMM, 0), 2));
     END ANNSAL;
     
-    /*IN (패키지 명세 작성시 IN 부분만 파라미터 작성), OUT (패키지 본문 작성시 파라미터 작성)*/
+    /*IN (패키지 명세 작성시 IN 부분만 파라미터 작성),
+    OUT (패키지 본문 작성시 파라미터 작성)*/
     PROCEDURE PRO_EMP(EMP_EMPNO EMP.EMPNO%TYPE) -- EMPNO (IN 모드 파라미터)를 통해 사원 이름, 급여 (OUT 모드 파라미터)를 반환
         IS
-            EMP_ENAME EMP.ENAME%TYPE; -- OUT 모드를 작성하지 않아도 패키지 본문에서 정의되는 파라미터는 OUT 모드이기 떄문에 생략 가능
+            EMP_ENAME EMP.ENAME%TYPE; 
+            -- OUT 모드를 작성하지 않아도 패키지 본문에서 
+            -- 정의되는 파라미터는 OUT 모드이기 떄문에 생략 가능
             EMP_SAL EMP.SAL%TYPE;
         BEGIN
             SELECT ENAME, SAL INTO EMP_ENAME, EMP_SAL
@@ -389,7 +415,8 @@ DROP PACKAGE PKG_TEST;
 
 -- : 데이터 관련 작업을 간편하게 수행할 순 있지만 너무 많이 작성을 하면 DB 성능을 저하
 
--- 트리거로 지정할 수 있는 동작
+-- 트리거로 지정할 수 있는 동작 
+-- (BEFORE (기능 수행 막음), AFTER (기능 수행하고 해당 기능에 대해 로그))
 /*
 1) DML: INSERT, UPDATE, DELETE
 2) DDL: CREATE, DROP, ALTER
@@ -414,10 +441,11 @@ CREATE OR REPLACE TRIGGER TRG_EMP_NODML_WEEKEND
 BEFORE -- 명령어 사용 전에 실행
 INSERT OR UPDATE OR DELETE ON EMP_TRG   
 BEGIN
-    IF TO_CHAR(SYSDATE, 'DY') NOT IN ('토', '일') THEN
+    IF TO_CHAR(SYSDATE, 'DY') IN ('토', '일') THEN
         IF INSERTING THEN
 --            DBMS_OUTPUT.PUT_LINE('주말 사원정보 추가 불가!');
-               RAISE_APPLICATION_ERROR(-20000, '주말 사원정보 추가 불가!'); -- 사용자의 정의 예외 (-20000 ~ 20999)
+               RAISE_APPLICATION_ERROR(-20000, '주말 사원정보 추가 불가!'); 
+               -- 사용자의 정의 예외 (-20000 ~ -20999)
         ELSIF UPDATING THEN
 --            DBMS_OUTPUT.PUT_LINE('주말 사원정보 수정 불가!');
             RAISE_APPLICATION_ERROR(-20001, '주말 사원정보 수정 불가!');
@@ -443,13 +471,72 @@ SELECT * FROM EMP_TRG;
 -- : DML 명령어 로그에 저장
 
 CREATE TABLE EMP_TRG_LOG(
-    TABLENAME VARCHAR2(10), 
-    DMLTYPE VARCHAR2(10), 
+    TABLENAME VARCHAR2(10),  -- DML이 수행된 테이블 이름
+    DMLTYPE VARCHAR2(10), -- DML 명령어 종류
     EMPNO NUMBER,
-    USERNAME VARCHAR2(20), 
-    CHANGEDATE DATE 
+    USERNAME VARCHAR2(20), -- DML을 수행한 사용자 이름
+    CHANGEDATE DATE -- DML 수행된 날짜
 );
--- DML이 수행된 테이블 이름
--- DML 명령어 종류
--- DML을 수행한 사용자 이름
--- DML 수행된 날짜
+
+-- EMP_TRG 테이블에 DML 명령어 수행한 후 (AFTER)
+-- EMP_TRG_LOG 테이블에 
+-- 데이터 변경사항 로그로 기록하는 트리거 생성
+
+CREATE OR REPLACE TRIGGER TRG_EMP_LOG
+AFTER
+INSERT OR UPDATE OR DELETE ON EMP_TRG
+FOR EACH ROW -- DML 대상이 되는 각 행별로 트리거가 작동
+BEGIN
+    IF INSERTING THEN
+        INSERT INTO EMP_TRG_LOG
+        VALUES ('EMP_TRG', 'INSERT', 
+        :NEW.EMPNO, 
+        -- 새로 추가된 행의 EMPNO가 로그로 쌓임
+        SYS_CONTEXT('USERENV', 'SESSION_USER'),
+        -- 현재 DB에 접속 중인 사용자를 반환
+        SYSDATE);
+    ELSIF UPDATING THEN
+        INSERT INTO EMP_TRG_LOG
+        VALUES ('EMP_TRG', 'UPDATE', 
+        :OLD.EMPNO, 
+        -- 변경 전 EMPNO가 로그로 쌓임
+        SYS_CONTEXT('USERENV', 'SESSION_USER'),
+        -- 현재 DB에 접속 중인 사용자를 반환
+        SYSDATE);
+    ELSIF DELETING THEN
+        INSERT INTO EMP_TRG_LOG
+        VALUES ('EMP_TRG', 'DELETE', 
+        :OLD.EMPNO, 
+        -- 변경 전 EMPNO가 로그로 쌓임
+        SYS_CONTEXT('USERENV', 'SESSION_USER'),
+        -- 현재 DB에 접속 중인 사용자를 반환
+        SYSDATE);
+    END IF;
+END;
+/
+
+INSERT INTO EMP_TRG
+VALUES (9999, 'EUNBIN', 'DEVELOPER', 7900, 
+TO_DATE('2019-03-03', 'YYYY-MM-DD'), 1200, NULL, 20);
+COMMIT;
+
+-- 로그 테이블 확인
+SELECT * FROM EMP_TRG_LOG;
+
+SELECT * FROM EMP_TRG;
+
+UPDATE EMP_TRG
+SET SAL = 1300
+WHERE MGR = 7698;
+-- 총 5개의 행에 대해서 트리거가 실행됨 (FOR EACH ROW 옵션)
+
+COMMIT;
+
+SELECT * FROM EMP_TRG_LOG;
+
+-- 트리거 정보 조회 (USER_TRIGGERS 데이터 사전 조회)
+SELECT *
+FROM USER_TRIGGERS;
+
+-- 트리거 삭제
+DROP TRIGGER TRG_EMP_LOG;

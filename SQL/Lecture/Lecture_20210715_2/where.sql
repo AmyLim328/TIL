@@ -142,7 +142,7 @@ FROM EMP
 WHERE JOB IN ('MANAGER', 'SALESMAN', 'CLERK');
 
 
--- 형식)
+-- 형식
 -- SELECT [열1 이름], ... [열N 이름]
 -- FROM [테이블 명]
 -- WHERE 열 이름 IN (데이터 1, 데이터 2, ... 데이터 N);
@@ -160,7 +160,6 @@ AND JOB ^= 'CLERK';
 
 -- 실습)
 -- IN 연산자 이용해서 부서 번호가 20이거나 30인 사원 정보만 나오도록 코드 작성
-
 SELECT *
 FROM EMP
 WHERE DEPTNO IN (20, 30);
@@ -189,19 +188,11 @@ WHERE SAL BETWEEN 2000 AND 3000; -- 2000, 3000 포함
 -- 1)
 -- 사원 정보 테이블에서 JOB이 'MANAGER'거나 (IN)
 -- SAL가 2000 <=  <= 3000 사원 정보 조회 (BETWEEN AND)
-SELECT * FROM EMP
-WHERE JOB IN 'MANAGER'
-OR SAL BETWEEN 2000 AND 3000;
 
 -- 2)
 -- NOT BETWEEN A AND B 연산자를 쓰지 않고
 -- 사원 정보 테이블에서 급여 (SAL) 열 값이
 -- 2000 이상 3000 이하 범위 이외 값 데이터 출력
-SELECT * FROM EMP
-WHERE SAL < 2000 OR SAL > 3000;
-
-SELECT * FROM EMP
-WHERE SAL NOT BETWEEN 2000 AND 3000;
 
 -- 3) 아픈 동물 찾기
 
@@ -229,11 +220,11 @@ WHERE ENAME LIKE 'S%';
 -- 사원 중에서 해당 사원의 매니저 번호가 
 -- 79로 시작되는 사원 정보 출력
 SELECT *
-FROM EMP
+FROM EMP;
 WHERE MGR LIKE '79%';
 
 SELECT *
-FROM EMP
+FROM EMP;
 WHERE MGR LIKE '79__';
 
 -- 사원 이름 중에서 두 번째 글자가 L인 사원 데이터 조회
@@ -268,6 +259,10 @@ SELECT *
 FROM EMP
 WHERE TO_CHAR(HIREDATE) LIKE '%02%';
 
+
+
+
+
 -- 3) 사원 직책에 뒤에서 두번째 글자가 E인 사원 정보 검색
 SELECT *
 FROM EMP
@@ -281,6 +276,7 @@ WHERE HIREDATE NOT LIKE '81/%';
 SELECT *
 FROM EMP
 WHERE NOT TO_CHAR(HIREDATE, 'YYYY') = 1981;
+
 
 SELECT *
 FROM EMP

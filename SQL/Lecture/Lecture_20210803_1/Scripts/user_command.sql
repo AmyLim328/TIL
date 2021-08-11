@@ -161,18 +161,14 @@ DROP USER EUNBINCHOI;
 CREATE USER EUNBINCHOI
 IDENTIFIED BY 1234;
 
--- 시스템 권한 (CREATE SESSION, CREATE TABLE) (유저 생성, 테이블 생성, 세션 생성)
+-- 시스템 권한 (CREATE SESSION, CREATE TABLE)
 -- 롤 권한 (RESOURCE)
 GRANT RESOURCE, CREATE SESSION, CREATE TABLE TO EUNBINCHOI;
-SELECT * FROM DBA_SYS_PRIVS WHERE GRANTEE ='EUNBINCHOI';
--- 타 사용자에게 부여한 시스템 권한
 
 -- 객체 권한 (SELECT, INSERT, UPDATE)
-GRANT SELECT ON PRIV_TEST TO EUNBINCHOI WITH GRANT OPTION;
-GRANT INSERT ON PRIV_TEST TO EUNBINCHOI WITH GRANT OPTION;
-GRANT UPDATE ON PRIV_TEST TO EUNBINCHOI WITH GRANT OPTION;
-SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE ='EUNBINCHOI';
--- 타 사용자에게 부여한 객체 권한
+GRANT SELECT ON PRIV_TEST TO EUNBINCHOI;
+GRANT INSERT ON PRIV_TEST TO EUNBINCHOI;
+GRANT UPDATE ON PRIV_TEST TO EUNBINCHOI;
 
 -- 객체 권한을 일괄적으로 줄 수도 있음
 GRANT SELECT, INSERT, UPDATE ON PRIV_TEST TO EUNBINCHOI;
@@ -195,58 +191,8 @@ WHERE COL1 = 'JAVA';
 
 -- 객체 권한 취소
 REVOKE SELECT, INSERT, UPDATE ON PRIV_TEST FROM EUNBINCHOI;
-
--- SQLPLUS
 -- SELECT * FROM SCOTT.RPIV_TEST
 -- "TABLE OR VIEW DOES NOT EXIST"
 
-/* 3) 롤 (role, 역할) 관리
- * : 새로운 사용자의 권한 관리 일일이 부여해줘야 함 (불편)
- * : 롤 (role): 여러 개의 권한을 묶어놓은 그룹
- * : 롤 역할에 따라 한번에 부여하고 해제할 수 있음 >> 관리하기 편함
- * 
- * 
- * : 오라클 DB에서는
- * A. 오라클이 정의한 롤
- * - CONNECT (기본): CREATE SESSION (/TABLE/SEQUENCE .... 오라클 10버전부터 사라짐)
- * - RESOURCE (기본): 사용자 테이블 + 다른 객체 (인덱스, 시퀀스 ...)까지 생성할 수 있는 시스템 권한
- * CREATE TABLE/SEQUENCE .....
- * 
- * * 뷰, 동의어 생성하고 싶으면 따로 권한을 주셔야 함
- * CREATE VIEW/SYNONYM
- * 
- * - DBA
- * : DB를 관리하는 시스템 권한을 대부분 가지고 있음
- * 
- * 
- * B. 사용자가 정의한 롤
- * : 사용자가 필요에 의해 필요한 권한을 묶어놓을 수도 있음
- * 1) CREATE ROLE문으로 롤 생성
- * 2) GRANT 명령어를 통해 롤에 권한을 포함시킴
- * 3) GRANT 명령어로 해당 롤을 특정 사용자에게 부여
- * 4) REVOKE 명령어로 롤 취소
- * */
-
--- 사용자 롤 생성
-CREATE ROLE EUNBINROLE;
-
--- 생성할 권한을 부여
-GRANT CONNECT, RESOURCE, CREATE VIEW, CREATE SYNONYM TO EUNBINROLE;
-
--- 롤을 EUNBINCHOI 사용자에게 부여
-GRANT EUNBINROLE TO EUNBINCHOI WITH ADMIN OPTION;
-
-SELECT * FROM DBA_ROLE_PRIVS WHERE GRANTEE ='EUNBINCHOI'; -- 롤
-SELECT * FROM DBA_SYS_PRIVS WHERE GRANTEE ='EUNBINCHOI';  -- 시스템 권한
-SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE ='EUNBINCHOI'; -- 객체 권한
-
--- 부여한 롤 취소
-REVOKE EUNBINROLE FROM EUNBINCHOI;
-
--- 롤 삭제
-DROP ROLE EUNBINROLE;
-
--- 권한 모두 부여
-GRANT ALL PRIVILEGES TO EUNBINCHOI;
 
 

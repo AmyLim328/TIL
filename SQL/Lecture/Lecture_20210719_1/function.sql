@@ -169,7 +169,7 @@ WHERE MGR IS NOT NULL;
 -- "KING" => 'IN'
 -- "FORD" => 'OR'
 -- * 참고: MOD(숫자, 나눌 숫자) => MOD(숫자, 2) == 0 (짝수 판단)
---                         MOD(숫자, 2) == 1 (홀수 판단)
+-- 							   MOD(숫자, 2) == 1 (홀수 판단)
 -- MOD => modulus (나머지)
 
 SELECT * FROM EMP;
@@ -862,7 +862,7 @@ FROM DUAL;
 -- 1950년도 기준으로 YY, RR 다르게 인식
 -- YY: 현 시점의 연도와 동일한 연도 계산 (EX. 2021)
 -- RR: 현 시점의 연도 끝 두자리 수 (20(21))가  0 ~ 49 => 1900 년대
-                           --  50 ~ 99 => 2000 년대
+									--  50 ~ 99 => 2000 년대
 
 
 -- [NULL 처리 함수]
@@ -918,26 +918,26 @@ FROM EMP;
 -- 
 
 SELECT EMPNO, ENAME, JOB, SAL, 
-   DECODE(JOB, 
-      'MANAGER', SAL + SAL * 0.1, -- SAL * 1.1
-      'SALESMAN', SAL + SAL * 0.05,
-      SAL + SAL * 0.03
-   ) AS UPSAL
+	DECODE(JOB, 
+		'MANAGER', SAL + SAL * 0.1, -- SAL * 1.1
+		'SALESMAN', SAL + SAL * 0.05,
+		SAL + SAL * 0.03
+	) AS UPSAL
 FROM EMP;
 
 
 SELECT EMPNO, ENAME, JOB, SAL, 
-   DECODE(JOB, 
-      'MANAGER', SAL + SAL * 0.1, -- SAL * 1.1
-      'SALESMAN', SAL + SAL * 0.05,
---      SAL + SAL * 0.03
-   ) AS UPSAL
+	DECODE(JOB, 
+		'MANAGER', SAL + SAL * 0.1, -- SAL * 1.1
+		'SALESMAN', SAL + SAL * 0.05,
+--		SAL + SAL * 0.03
+	) AS UPSAL
 FROM EMP;
 -- 조건에 없는 값이 없을 때 (else문) 반환값을 지정하지 않으면 NULL 반환 
 
 -- 형식)
 -- DECODE([검사할 열 / 데이터], 
---      [조건 1], [조건 1의 결과],
+--		[조건 1], [조건 1의 결과],
 --      [조건 2], [조건 2의 결과],
 --      ...
 --      [조건 N], [조건 N의 결과],
@@ -979,11 +979,11 @@ FROM EMP;
 -- => 인상률을 포함한 급여를 출력
 
 SELECT EMPNO, ENAME, JOB, SAL,
-   CASE JOB -- 'JOB =' 생략 (조건 '='로 하고 싶으면 검사할 열 지정)
-      WHEN 'MANAGER' THEN SAL + SAL * 0.1
-      WHEN 'SALESMAN' THEN SAL + SAL * 0.05
-      ELSE SAL + SAL * 0.03
-   END AS UPSAL
+	CASE JOB -- 'JOB =' 생략 (조건 '='로 하고 싶으면 검사할 열 지정)
+		WHEN 'MANAGER' THEN SAL + SAL * 0.1
+		WHEN 'SALESMAN' THEN SAL + SAL * 0.05
+		ELSE SAL + SAL * 0.03
+	END AS UPSAL
 FROM EMP;
 
 -- Q1. EMP 테이블에서 SAL의 범위에 따라서 급여의 세금을 결정한다고 가정
@@ -993,23 +993,23 @@ FROM EMP;
 -- d. 이외의 SAL => 15%
 -- => 세금 출력
 SELECT EMPNO, ENAME, JOB, SAL,
-   CASE -- 조건을'='이 아닌 다른 조건으로 하고 싶으면 검사할 열 지정 X
-      WHEN SAL <= 1000 THEN SAL * 0.08 -- 조건식에서 검사할 열 포함
-      WHEN SAL <= 3000 THEN SAL * 0.1
-      WHEN SAL <= 5000 THEN SAL * 0.13
-      ELSE SAL * 0.15
-   END AS TAX
+	CASE -- 조건을'='이 아닌 다른 조건으로 하고 싶으면 검사할 열 지정 X
+		WHEN SAL <= 1000 THEN SAL * 0.08 -- 조건식에서 검사할 열 포함
+		WHEN SAL <= 3000 THEN SAL * 0.1
+		WHEN SAL <= 5000 THEN SAL * 0.13
+		ELSE SAL * 0.15
+	END AS TAX
 FROM EMP;
 
 SELECT EMPNO, ENAME, JOB, SAL,
-   CASE -- 조건을'='이 아닌 다른 조건으로 하고 싶으면 검사할 열 지정 X
-      WHEN SAL <= 1000 THEN '1000 이하' -- 조건식에서 검사할 열 포함
-      -- SAL > 1000
-      WHEN SAL <= 3000 THEN '1000 초과 ~ 3000 이하'
-      --- SAL > 3000
-      WHEN SAL <= 5000 THEN '3000 초과 ~ 5000 이하'
-      ELSE '5000 초과'
-   END AS TAX
+	CASE -- 조건을'='이 아닌 다른 조건으로 하고 싶으면 검사할 열 지정 X
+		WHEN SAL <= 1000 THEN '1000 이하' -- 조건식에서 검사할 열 포함
+		-- SAL > 1000
+		WHEN SAL <= 3000 THEN '1000 초과 ~ 3000 이하'
+		--- SAL > 3000
+		WHEN SAL <= 5000 THEN '3000 초과 ~ 5000 이하'
+		ELSE '5000 초과'
+	END AS TAX
 FROM EMP;
 
 -- Q2. EMP 테이블에서 ENAME에 'A'라는 문자가 들어가 있다면 '포함합니다', 
@@ -1018,25 +1018,25 @@ FROM EMP;
 
 -- a. LIKE
 SELECT ENAME, 
-   CASE
-      WHEN ENAME LIKE '%A%' THEN '포함합니다'
-      ELSE '포함하지 않습니다'
-   END AS ISAINCLUDED
+	CASE
+		WHEN ENAME LIKE '%A%' THEN '포함합니다'
+		ELSE '포함하지 않습니다'
+	END AS ISAINCLUDED
 FROM EMP;
 
 -- 사원 이름 (대소문자 구별하지 않고) 에 들어간 문자 'A'('a')에 들어가있는지 확인
 SELECT ENAME, 
-   CASE
-      WHEN ENAME LIKE '%A%' OR ENAME LIKE '%a%' THEN '포함합니다'
-      ELSE '포함하지 않습니다'
-   END AS ISAINCLUDED
+	CASE
+		WHEN ENAME LIKE '%A%' OR ENAME LIKE '%a%' THEN '포함합니다'
+		ELSE '포함하지 않습니다'
+	END AS ISAINCLUDED
 FROM EMP;
 
 SELECT ENAME, 
-   CASE
-      WHEN UPPER(ENAME) LIKE '%A%' THEN '포함합니다'
-      ELSE '포함하지 않습니다'
-   END AS ISAINCLUDED
+	CASE
+		WHEN UPPER(ENAME) LIKE '%A%' THEN '포함합니다'
+		ELSE '포함하지 않습니다'
+	END AS ISAINCLUDED
 FROM EMP;
 
 -- b. INSTR()
@@ -1044,18 +1044,18 @@ FROM EMP;
 -- : 찾지 못하면 0이 반환
 -- => INSTR() > 0 : 찾으려고 하는 문자를 찾았다 !!
 SELECT ENAME, 
-   CASE
-      WHEN INSTR(ENAME, 'A') > 0 THEN '포함합니다'
-      ELSE '포함하지 않습니다'
-   END AS ISAINCLUDED
+	CASE
+		WHEN INSTR(ENAME, 'A') > 0 THEN '포함합니다'
+		ELSE '포함하지 않습니다'
+	END AS ISAINCLUDED
 FROM EMP;
 
 -- 사원 이름의 대소문자 구별없이 'A'('a') 모두 검색 가능하게 만드려면 ... ?
 SELECT ENAME, 
-   CASE
-      WHEN INSTR(UPPER(ENAME), 'A') > 0 THEN '포함합니다'
-      ELSE '포함하지 않습니다'
-   END AS ISAINCLUDED
+	CASE
+		WHEN INSTR(UPPER(ENAME), 'A') > 0 THEN '포함합니다'
+		ELSE '포함하지 않습니다'
+	END AS ISAINCLUDED
 FROM EMP;
 
 -- 언제 사용할 수 있을까요 ..?
@@ -1071,37 +1071,37 @@ FROM EMP;
 -- 만약에 COMM = 0이면 '추가수당 없음'
 -- 만약에 COMM이 0보다 크면 추가 수당을 출력
 SELECT EMPNO, ENAME, COMM, 
-   CASE
-      WHEN COMM IS NULL THEN '해당사항 없음' -- VARCHAR
-      WHEN COMM = 0 THEN '추가수당 없음' -- VARCHAR
-      WHEN COMM > 0 THEN COMM -- NUMBER
-      -- **DECODE(), CASE절의 반환값은 데이터형이 일치!**
-      -- WHY ? 
-      -- 동일한 열에 저장된 데이터의 형들은 동일
-   END AS COMM_STR
+	CASE
+		WHEN COMM IS NULL THEN '해당사항 없음' -- VARCHAR
+		WHEN COMM = 0 THEN '추가수당 없음' -- VARCHAR
+		WHEN COMM > 0 THEN COMM -- NUMBER
+		-- **DECODE(), CASE절의 반환값은 데이터형이 일치!**
+		-- WHY ? 
+		-- 동일한 열에 저장된 데이터의 형들은 동일
+	END AS COMM_STR
 FROM EMP;
 -- => 에러 발생: ORA-00932: 일치하지 않은 데이터 타입!
 
 SELECT EMPNO, ENAME, COMM, 
-   CASE
-      WHEN COMM IS NULL THEN '해당사항 없음' -- VARCHAR
-      WHEN COMM = 0 THEN '추가수당 없음' -- VARCHAR
-      WHEN COMM > 0 THEN '' || COMM -- NUMBER -> VARCHAR 암시적 형 변환
-      -- **DECODE(), CASE절의 반환값은 데이터형이 일치!**
-      -- WHY ? 
-      -- 동일한 열에 저장된 데이터의 형들은 동일
-   END AS COMM_STR
+	CASE
+		WHEN COMM IS NULL THEN '해당사항 없음' -- VARCHAR
+		WHEN COMM = 0 THEN '추가수당 없음' -- VARCHAR
+		WHEN COMM > 0 THEN '' || COMM -- NUMBER -> VARCHAR 암시적 형 변환
+		-- **DECODE(), CASE절의 반환값은 데이터형이 일치!**
+		-- WHY ? 
+		-- 동일한 열에 저장된 데이터의 형들은 동일
+	END AS COMM_STR
 FROM EMP;
 
 SELECT EMPNO, ENAME, COMM, 
-   CASE
-      WHEN COMM IS NULL THEN '해당사항 없음' -- VARCHAR
-      WHEN COMM = 0 THEN '추가수당 없음' -- VARCHAR
-      WHEN COMM > 0 THEN TO_CHAR(COMM) -- NUMBER -> VARCHAR 명시적 형 변환
-      -- **DECODE(), CASE절의 반환값은 데이터형이 일치!**
-      -- WHY ? 
-      -- 동일한 열에 저장된 데이터의 형들은 동일
-   END AS COMM_STR
+	CASE
+		WHEN COMM IS NULL THEN '해당사항 없음' -- VARCHAR
+		WHEN COMM = 0 THEN '추가수당 없음' -- VARCHAR
+		WHEN COMM > 0 THEN TO_CHAR(COMM) -- NUMBER -> VARCHAR 명시적 형 변환
+		-- **DECODE(), CASE절의 반환값은 데이터형이 일치!**
+		-- WHY ? 
+		-- 동일한 열에 저장된 데이터의 형들은 동일
+	END AS COMM_STR
 FROM EMP;
 
 -- Q4. EMP 테이블에서 입사일 (HIREDATE)에 따라 (ADD_MONTHS(), /, MONTHS_BETWEEN())
@@ -1110,27 +1110,27 @@ FROM EMP;
 
 
 SELECT EMPNO, ENAME, HIREDATE, 
-   CASE
-      WHEN TO_CHAR(ADD_MONTHS(HIREDATE, 40*12), 'YYYY/MM/DD') 
-         <= TO_CHAR(SYSDATE, 'YYYY/MM/DD')
-      THEN '40주년 이상'
-      ELSE '40주년 미만'
-   END AS ISYEAR40
+	CASE
+		WHEN TO_CHAR(ADD_MONTHS(HIREDATE, 40*12), 'YYYY/MM/DD') 
+			<= TO_CHAR(SYSDATE, 'YYYY/MM/DD')
+		THEN '40주년 이상'
+		ELSE '40주년 미만'
+	END AS ISYEAR40
 FROM EMP;
 
 -- 1년 365일, 366일 => 정확하진 않음
 SELECT EMPNO, ENAME, HIREDATE, 
-   CASE
-      WHEN TRUNC((SYSDATE - HIREDATE)) / 365 >= 40 THEN '40주년 이상'
-      ELSE '40주년 미만'
-   END AS ISYEAR40
+	CASE
+		WHEN TRUNC((SYSDATE - HIREDATE)) / 365 >= 40 THEN '40주년 이상'
+		ELSE '40주년 미만'
+	END AS ISYEAR40
 FROM EMP;
 
 SELECT EMPNO, ENAME, TO_CHAR(HIREDATE, 'YYYY/MM/DD') AS HIREDATE_WOCLOCK, 
-   CASE
-      WHEN TRUNC(MONTHS_BETWEEN(SYSDATE, HIREDATE)) >= 40 * 12 THEN '40주년 이상'
-      ELSE '40주년 미만'
-   END AS ISYEAR40
+	CASE
+		WHEN TRUNC(MONTHS_BETWEEN(SYSDATE, HIREDATE)) >= 40 * 12 THEN '40주년 이상'
+		ELSE '40주년 미만'
+	END AS ISYEAR40
 FROM EMP;
 
 
@@ -1141,49 +1141,49 @@ FROM EMP;
 -- 만약에 앞 두자리가 75이면 5555으로 출력
 -- 이외의 앞 두자리의 경우 본인 사원번호 그대로 출력
 SELECT EMPNO, 
-   CASE
-      WHEN SUBSTR(EMPNO, 1, 2) = '73' THEN '3333' 
-      -- SUBSTR(숫자형) => 숫자형 -> 문자형 (암시적 형 변환)
-      WHEN SUBSTR(EMPNO, 1, 2) = '74' THEN '4444'
-      WHEN SUBSTR(EMPNO, 1, 2) = '75' THEN '5555'
-      ELSE '' || EMPNO -- NUMBER -> CHAR (TO_CHAR(), ||, CONCAT())
-   END AS EMPNO_REVISED
+	CASE
+		WHEN SUBSTR(EMPNO, 1, 2) = '73' THEN '3333' 
+		-- SUBSTR(숫자형) => 숫자형 -> 문자형 (암시적 형 변환)
+		WHEN SUBSTR(EMPNO, 1, 2) = '74' THEN '4444'
+		WHEN SUBSTR(EMPNO, 1, 2) = '75' THEN '5555'
+		ELSE '' || EMPNO -- NUMBER -> CHAR (TO_CHAR(), ||, CONCAT())
+	END AS EMPNO_REVISED
 FROM EMP;
 
 SELECT EMPNO, 
-   CASE
-      WHEN SUBSTR(EMPNO, 1, 2) = '73' THEN 3333
-      WHEN SUBSTR(EMPNO, 1, 2) = '74' THEN 4444
-      WHEN SUBSTR(EMPNO, 1, 2) = '75' THEN 5555
-      ELSE EMPNO
-   END AS EMPNO_REVISED
+	CASE
+		WHEN SUBSTR(EMPNO, 1, 2) = '73' THEN 3333
+		WHEN SUBSTR(EMPNO, 1, 2) = '74' THEN 4444
+		WHEN SUBSTR(EMPNO, 1, 2) = '75' THEN 5555
+		ELSE EMPNO
+	END AS EMPNO_REVISED
 FROM EMP;
 
 SELECT EMPNO, 
-   CASE
-      WHEN EMPNO LIKE '73%' THEN 3333
-      WHEN EMPNO LIKE '74%' THEN 4444
-      WHEN EMPNO LIKE '75%' THEN 5555
-      ELSE EMPNO
-   END AS EMPNO_REVISED
+	CASE
+		WHEN EMPNO LIKE '73%' THEN 3333
+		WHEN EMPNO LIKE '74%' THEN 4444
+		WHEN EMPNO LIKE '75%' THEN 5555
+		ELSE EMPNO
+	END AS EMPNO_REVISED
 FROM EMP;
 
 SELECT EMPNO, 
-   CASE SUBSTR(EMPNO, 1, 2)
-      WHEN '73' THEN 3333
-      WHEN '74' THEN 4444
-      WHEN '75' THEN 5555
-      ELSE EMPNO
-   END AS EMPNO_REVISED
+	CASE SUBSTR(EMPNO, 1, 2)
+		WHEN '73' THEN 3333
+		WHEN '74' THEN 4444
+		WHEN '75' THEN 5555
+		ELSE EMPNO
+	END AS EMPNO_REVISED
 FROM EMP;
 
 SELECT EMPNO, 
-   DECODE (SUBSTR(EMPNO, 1, 2),
-      '73', '3333',
-      '74', '4444',
-      '75', '5555',
-      EMPNO) -- '숫자' => '문자' (암시적 형 변환)
-   AS EMPNO_REVISED
+	DECODE (SUBSTR(EMPNO, 1, 2),
+		'73', '3333',
+		'74', '4444',
+		'75', '5555',
+		EMPNO) -- '숫자' => '문자' (암시적 형 변환)
+	AS EMPNO_REVISED
 FROM EMP;
 
 
@@ -1200,11 +1200,11 @@ FROM EMP;
 
 SELECT EMPNO, -- 숫자형
        CASE
-           WHEN SUBSTR(EMPNO,1,2) = '73' THEN 3333
-           WHEN SUBSTR(EMPNO,1,2) = '74' THEN 4444
-           WHEN SUBSTR(EMPNO,1,2) = '75' THEN 5555
-          WHEN EMPNO IS NULL THEN 0000
-           ELSE EMPNO
+	        WHEN SUBSTR(EMPNO,1,2) = '73' THEN 3333
+	        WHEN SUBSTR(EMPNO,1,2) = '74' THEN 4444
+	        WHEN SUBSTR(EMPNO,1,2) = '75' THEN 5555
+	    	WHEN EMPNO IS NULL THEN 0000
+	        ELSE EMPNO
         END AS EMPNO_REVISED
 FROM EMP;
 
@@ -1212,7 +1212,7 @@ FROM EMP;
 -- DECODE() => 조건 중에 =만 받을 수 있음
 -- CASE절 => 조건식에 다양한 연산을 넣을 수 있음 (보통 많이 사용)
 -- CASE 조건의 대상 (열 이름, 계산식)
---     WHEN A
+--  	WHEN A
 --      WHEN B
 -- 조건의 대상 = 'A'
 -- 조건의 대상 = 'B'
@@ -1231,3 +1231,40 @@ FROM EMP;
 
 -- * CASE, DECODE() 조건별로 반환값이 "동일한 데이터 타입"
 -- * CASE문 다양한 조건 사용 가능 (IS NULL로 NULL값 확인 가능)
+
+
+-- 윤경님 질문
+SELECT EMPNO, ENAME, MGR, 
+	CASE SUBSTR(MGR, 1, 2)
+		WHEN '75' THEN 5555
+		WHEN '76' THEN 6666
+		WHEN '77' THEN 7777
+		WHEN '78' THEN 8888
+		WHEN NULL THEN 0000 -- IS NULL로 인식 X
+		ELSE MGR
+	END AS CHG_MGR
+FROM EMP;
+
+
+SELECT EMPNO, ENAME, MGR, 
+	CASE 
+		WHEN SUBSTR(MGR, 1, 2) = '75' THEN 5555
+		WHEN SUBSTR(MGR, 1, 2) = '76' THEN 6666
+		WHEN SUBSTR(MGR, 1, 2) = '77' THEN 7777
+		WHEN SUBSTR(MGR, 1, 2) = '78' THEN 8888
+		WHEN SUBSTR(MGR, 1, 2) IS NULL THEN 0000 
+		ELSE MGR
+	END AS CHG_MGR
+FROM EMP;
+
+SELECT EMPNO, ENAME, MGR, 
+	DECODE(SUBSTR(MGR, 1, 2),
+		75, 5555,
+		76, 6666, 
+		77, 7777,
+		78, 8888,
+		NULL, 0000, -- IS NULL로 인식 O
+		MGR
+	) AS CHG_MGR
+FROM EMP;
+
