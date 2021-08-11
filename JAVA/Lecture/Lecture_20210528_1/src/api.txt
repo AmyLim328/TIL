@@ -1,0 +1,305 @@
+자바 API (Application Programming Interface)
+
+- 라이브러리 (library)라고 부르기도 함
+- 프로그램 개발에 자주 사용되는 클래스 및 인터페이스 모음
+
+
+1. java.lang 패키지
+- 자바 프로그램의 기본적인 클래스를 담고 있는 패키지
+- import 없이 사용 가능
+
+- Object: 자바 최상위 클래스
+	- boolean equals(Object obj)
+	: 두 객체가 동일한지 확인
+	: 사용자가 정의한 클래스에 대해서는 재정의해야함
+	: (필드 모두가 동일한지 확인)
+	
+	- String toString()
+	: 객체를 문자열로 반환
+	: String str = new String("Hello");
+	: sysout(str)
+	
+	- int hashCode()
+	: 객체를 식별할 하나의 정수값 반환, 객체의 메모리 주소마다 해쉬코드 다름
+
+	- Class<?> getClass(): 객체 클래스 반환
+	
+	- void finalize()
+	: 참조하지 않은 배열이나 객체를 자바 쓰레기 수집기 
+	(Garbage Collector)에 의해 힙 영역에서 자동적으로 소멸
+	: 만약 객체 소멸할 때 메시지를 보고 싶으면 오버라이드 필요!
+	
+	- Object clone() throws CloneNotSupportedException
+	: 객체 복제하는 함수
+	: 원본 객체의 필드값과 동일한 값을 가지는 새로운 객체 생성
+	: why? 원본을 안전하게 보호하기 위해서
+	
+	얕은 복제 (thin clone): 필드값 복사 
+	(기본 타입 - 값 복사, 참조 타입 - 주소 복사)
+	
+	깊은 복제 (deep clone): 필드값 복사
+	(기본 타입 - 값 복사, 참조 타입 - 내용 복사, 새롭게 객체 생성)
+	
+	- public int compare(T a, T b, Comparator<T> c)
+	: 두 객체를 비교자 (Comparator)로 비교해서 int값 반환
+	  - a < b: 음수
+	  - a == b: 0
+	  - a > b: 양수
+	  
+- System: 표준 입출력 장치 (System.out.println())
+	: 운영체제의 일부 기능 이용
+	
+	- void exit(int status)
+	: 현재 실행하고 있는 프로세스 강제 종료
+	: status == 0: 정상 종료
+	: status == 다른 값 (-1): 비정상 종료
+	
+	- void gc()
+	: 쓰레기 수집기 (Garbage Collector)를 실행시켜서 사용하지 않는
+	객체 자동 제거
+	: JVM 가능한 빨리 제거해달라고 요청
+	: 쓰레기가 생길 때마다 쓰레기 수집기가 동작하면 
+	수행되어야할 프로그램의 속도가 떨어짐 ==> 성능 좋지 않음
+	: 메모리 열약한 상태에서는 객체를 빨리 메모리에서 해제하는 게 중요함
+	
+	- long currentTimeMillis()
+	: 컴퓨터 시계로부터 현재 시간을 읽어서 리턴
+	: 주로 프로그램이 실행하는데 얼마나 걸리는지 (실행 소요 시간) 측정에 사용
+	
+	
+	- String getProperty(String key)
+	: 시스템의 속성
+	
+	key:
+	java.version: 자바 버전
+	java.home: 현재 jdk 설치 위치
+	os.name: 운영체제 이름
+	user.name: 사용자 이름
+	user.home: 사용자 홈 디렉토리
+	user.dir: 현재 디렉토리 경로
+	
+- String: 문자열을 표현하는 클래스 
+	- char charAt(int index): 해당 인덱스의 문자 반환
+	- boolean equals(Object obj)
+	: Object 클래스에 있는 함수 재정의
+	ex) 
+	String s1 = new String("Hello");
+	String s2 = new String("Hello");
+	s1 == s2 // 주소값 비교
+	s1.equals(s2)
+	
+	boolean checker = true;
+	for(int i = 0; i < s1.length; i ++){
+		if(s1.charAt(i) != s2.charAt(i){
+			checker = false;
+			break;
+		}
+	}
+	(checker == true) ? "같습니다": "다릅니다";
+	
+	- String substring(int begin, int end)
+	: begin ~ end - 1까지 잘라낸 문자열 리턴
+	
+	- String toLowerCase()
+	: 모두 소문자로 변환된 새로운 문자열 리턴
+	
+	- String toUpperCase()
+	: 모두 대문자로 변환된 새로운 문자열 리턴
+	
+	
+	- String replace(target, replacement)
+	: target 부분을 replacement로 대체한 새로운 문자열 리턴
+	
+	String str = "Hello"
+	str[0] = 'h' (X)
+	
+	- String trim(): 앞뒤 공백을 제거한 새로운 문자열 리턴
+	
+	Overload (오버로딩): 함수 중복 정의 (vs Override)
+	- String valueOf(int i): 기초 자료형 i를 문자열로 리턴
+	- String valueOf(double d): 기초 자료형 d를 문자열로 리턴
+	- String valueOf(boolean b)
+	- String valueOf(char b)
+	ex) 3 --> "3"
+	ex) 3.14 --> "3.14"
+	
+	- String[] split("구분자 (split 기준이 되는 문자)")
+	"홍길동,홍길순" => "홍길동" "홍길순"
+	
+- StringBuffer, StringBuilder
+: 문자열을 저장하고 내부 문자열 조작할 때 사용
+: String 클래스는 내부 문자열 조작 X
+ex) replace(), substring(), toLowerCase(), toUpperCase()
+	>> 새로문 문자열로 반환
+	>> String의 객체 수가 늘어남 (프로그램의 성능 낮추는 요인)
+	
+: StringBuffer, StringBuilder 클래스는 임시 메모리 (buffer, 버퍼)에 
+문자열 저장해두고 그 안에서 추가, 수정, 삭제
+String처럼 새로운 객체 생성하지 않고도 문자열 조작할 수 있음
+
+- Math: 수학 함수를 이용할 때 사용
+모든 메소드는 static 메소드 (Math.메소드이름)
+
+	int abs(int a): 절대값 (absolute)
+	double abs(double a): 절대값 (absolute)
+	double ceil(double a): 올림값
+	double floor(double a): 버림값
+	int max(int a, int b): 최댓값
+	double max(double a, double b): 최댓값
+	int min(int a, int b): 최솟값
+	double min(double a, double b): 최솟값
+	double random(): 랜덤값 (0.0 <= ~ < 1.0)
+	double rint(double a): 가까운 정수의 실수값 ex) 3.7 => 4.0
+	long round(double a): 반올림값
+	
+
+- Wrapper 클래스
+	: 기초 자료형의 객체를 만들 때 사용하는 클래스
+	: ex) int, char, float, double, boolean
+	: 기초 자료형의 문제점: 객체 (데이터(필드) + 함수)가 없어서
+	: 원하는 기능을 구현하기 어려움
+	: ex) int a = 1 -> "1" 	
+	: a.함수이름 (x)
+	
+	기본 타입 | 포장 클래스 이름
+	char		Character
+	int			Integer
+	float 		Float
+	double		Double
+	boolean		Boolean
+	
+	박싱 (Boxing): int -> Integer (기본 타입 -> 객체)
+	언박싱 (Unboxing): Integer -> int (객체 -> 기본 타입)
+	
+	< 박싱 (Boxing) >
+	생성자 호출 (매개값: 기본 타입 또는 문자열)
+	Integer obj = new Integer(10);
+	Double obj = new Double(3.5);
+	Integer obj = new Integer("10");
+	Double obj = new Double("3.5");
+	
+	생성자를 호출하지 않아도 각 포장 클래스에 가지고 있는
+	정적 메소드 valueOf() 사용할 수 있음
+	Integer obj = Integer.valueOf(10);
+	Integer obj = Integer.valueOf("10");
+	
+	
+	< 언박싱 (Unboxing) >
+	"기본 타입명 + Value()" 메소드 호출
+	int num = obj.intValue()
+	
+	
+
+	
+2. java.util 패키지
+- StringTokenizer: 문자열이 특정 구분자 (delimiter)로 
+연결되었을 경우,구분자를 기준으로 문자열을 분리하기 위한 클래스
+
+- Arrays: 배열 조작 기능 (복사, 정렬, 검색, 비교)
+모든 메소드는 static 메소드 (Arrays.메소드이름)
+
+	int binarySearch(배열, 찾는 값): 배열에서 찾는 값의 인덱스 반환
+	타겟배열 copyOf(원본 배열, 복사할 길이)
+	: 원본 배열의 0번 인덱스부터 복사할 길이만큼 복사한 배열 반환
+	타겟배열 copyOfRange(원본 배열, 시작 인덱스, 끝 인덱스)
+	: 원본 배열의 시작 인덱스 ~ 끝 인덱스만큼 복사한 배열 반환
+	boolean equals(배열, 배열): 두 배열의 얕은 비교
+	boolean deepEquals(배열, 배열): 두 배열의 깊은 비교
+	void fill(배열, 값): 모든 인덱스에 동일한 값 저장
+	void sort(배열): 오름차순 정렬
+	String toString(배열): "[값1, 값2 ...]" 문자열 리턴
+	
+
+- Random: 난수 (랜덤값)을 얻어내기 위한 다양한 메소드 제공
+	0.0 <= Math.random() < 1.0
+	Random 클래스는 boolean, int, long, float, double 난수 얻을 수 있음 
+	Random 클래스는 seed 설정가능 
+	(seed: 난수를 만드는 과정에 사용되는 값, seed가 같으면 같은 난수를 얻음)
+	
+	생성자
+	Random(): 호출 시마다 다른 seed값이 설정됨 (현재 시스템 시간)
+	Random(long seed): 매개값으로 주어진 seed값이 설정됨
+	
+	메소드
+	boolean nextBoolean(): boolean 타입의 난수 리턴
+	double nextDouble(): double 타입의 난수 리턴 (0.0 <= ~ < 1.0)
+	int nextInt(): int 타입의 난수 리턴 (-2^31 <= ~ <= 2^31 - 1)
+	int nextInt(int n): int 타입 난수 리턴 (0  <= ~ < n)
+
+- Date: 날짜와 시간 정보를 저장할 떄 사용
+	Date(): 컴퓨터의 현재 날짜를 읽어 Date 객체를 만듦
+	현재 객체를 문자열로 얻고 싶으면 toString() 메소드
+	
+- Calendar: 운영체제의 날짜와 시간을 얻을 때 사용
+	추상 (abstract) 클래스 (하나라도 추상 메소드를 가지면)
+	new 연산자 사용해서 객체 만들 수 없음 
+	
+	getInstance() 메소드를 이용하면 현재 운영체제의 시간에 따라 객체 만들 수 있음
+
+
+3. java.util.regex 패키지
+- 문자열이 정해져 있는 형식 (정규 표현식, Regular Expression)으로
+구성되어있는 지 확인하는 경우에 사용
+ex) 사용자가 이메일, 전화번호를 제대로 입력했는지 검증하기 위해 사용
+
+[]: 한 개의 문자
+ex) [abc]: a, b, c 중 하나의 문자
+	[^abc]: a, b, c 이외의 하나의 문자
+	[a-zA-Z]: a~z, A~Z 중 하나의 문자
+	
+\d: 한 개의  숫자 ([0-9]와 동일)
+\s: 공백 (space)
+\w: 한 개의 알파벳 또는 하나의 숫자
+?: 없거나 한 개
+*: 없거나 한 개 이상	
++: 한 개 이상
+{n}: 정확하게 n개
+{n,}: 최소한 n개
+{n, m}: n개부터 m개까지
+(): 그룹핑
+
+02-123-1234 또는 010-1234-5678 (o)
+010-12345-1234 (x)
+(02|010)-\d{3,4}-\d{4}
+
+abc123@naver.com 또는 abc123@daum.co.kr
+\w+@\w+.\w+(.\w+)?
+
+java.util.regex.Pattern 클래스의 
+boolean matches(정규 표현식, 검증 문자열)
+
+abc@naver.com
+abc@daum.co.kr
+
+010-1234-5678 -- 1
+02-123-4567
+
+01012345678 -- 2
+
+
+
+4. java.text 패키지
+- Format 클래스: 데이터의 형식을 지정하는 클래스
+- 숫자형식: DecimalFormat
+- 날짜형식: SimpleDateFormat
+- 문자열형식: MessageFormat
+
+- DecimalFormat 클래스
+	0: 10진수 (빈자리를 0으로 채움) => 0, 0.0
+	#: 10진수 (빈자리를 0으로 채우지 않음) => #, #.#
+	.: 소수점
+	-: 음수 기호
+	,: 단위 구분 ex) 1234 => 1,234
+	%: 100을 곱한 후에 % 문자를 붙임
+
+	
+	자바의 장점
+	1. 객체지향 언어
+	2. 웹, 네트워크 용이
+	3. 다양한 라이브러리가 있음
+	4. 운영체제 (OS, Operating System)의 제약이 없음
+	- 자바는 운영체제에서 바로 실행 X
+	- 자바 가상 기계 (JVM) 위에서 실행
+	
+	
+	
