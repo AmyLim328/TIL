@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* input[type=타입] {
+            스타일 내용   
+           }
+
+           input{
+                background-color: yellow;
+
+           }
+           // 모든 input 태그에 대해 스타일 적용
+
+           input[type=radio]{
+               border: solid 1px red;
+           }
+           // input 태그 중 타입이 radio인 태그에 대해 스타일 적용
+           
+        */
+        fieldset{
+            width:300px;
+        }
+        input[type=radio]{
+            width:50px;
+        }
+        input[type=checkbox]{
+            width:100px;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="#" method="POST">
+        <!-- fieldset: form 요소에서 연관된 요소 그룹핑 -->
+        <fieldset>
+            <legend>취미 선택 (1개만 선택 가능)</legend>
+            <!-- 제목 보여줌 -->
+            <input type="radio" name="hobby" value="운동">운동</input>
+            <input type="radio" name="hobby" value="영화">영화</input>
+        </fieldset>
+        <br/><br/>
+        <fieldset>
+            <legend>관심 분야 (다수 선택 가능)</legend>
+            <!-- 제목 보여줌 -->
+            <input type="checkbox" name="interest" value="경제">경제</input>
+            <input type="checkbox" name="interest" value="문화">문화</input>
+        </fieldset>
+    </form>
+</body>
+</html>

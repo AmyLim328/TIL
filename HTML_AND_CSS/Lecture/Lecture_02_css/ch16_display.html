@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 300px;
+            height: 100px;
+            margin: 10px; 
+            /* 바깥쪽 여백 */
+        }
+
+        #img2-display{
+            display:none;
+            /* 화면에서 사라짐 (차지하는 구역 없음) */
+        }
+        #img2-visible{
+            visibility: hidden;
+            /* 화면에서 사라짐 (차지하는 구역 남음) */
+        }
+
+    </style>
+</head>
+<body>
+    <img alt="제주도" src='./img/jejuisland.jpg' id="img1">
+    <img alt="제주도" src='./img/jejuisland.jpg' id="img2-display">
+    <img alt="제주도" src='./img/jejuisland.jpg' id="img3">
+    <hr/>
+
+    <img alt="제주도" src='./img/jejuisland.jpg' id="img1">
+    <img alt="제주도" src='./img/jejuisland.jpg' id="img2-visible">
+    <img alt="제주도" src='./img/jejuisland.jpg' id="img3">
+</body>
+</html>

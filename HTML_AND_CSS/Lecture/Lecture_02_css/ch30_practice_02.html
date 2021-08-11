@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            text-decoration: none;
+            color:black;
+            box-sizing: border-box;
+        }
+        .logo-img{
+            width:200px;
+            left:50px;
+        }
+        .navigation{
+            background-color: black;
+        }
+        .navigation a{
+            display:inline-block;
+            padding:15px;
+            color:white;
+        }
+        .navigation a:hover{
+            background-color: red;
+        }
+        header{
+            background-color: lightgray;
+        }
+        input[type=text]{
+            background-image: url(./img/searchicon.png);
+            background-repeat: no-repeat;
+            background-position: 10px;
+            padding: 10px;
+            border: 2px solid black;
+            height: 50px;
+        }
+        button{
+            height:40px;
+        }
+        section{
+            float:left;
+        }
+
+        .product-img{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#">회원가입</a>
+        <a href="#">로그인</a>&nbsp;&nbsp;
+        <input text="text" name="search" placeholder="Search...">
+        <button>검색</button>
+        <br/>
+        <img src="./img/logo.png" class="logo-img">
+    </header>
+    <nav class="navigation">
+        <a href="#">베스트</a>
+        <a href="#">세일중</a>
+        <a href="#">기획중</a>
+        <a href="#">이벤트</a>
+        <a href="#">스토어</a>
+    </nav>
+    <main>
+        <section>
+            <h2>건조기</h2>
+            <img src="./img/product-1.jpg" class="product-img">
+            <ul>
+                <li>트롬의류건조기</li>
+                <li>히트펌프식</li>
+                <li>16kg</li>
+                <li>모던스테인레스</li>
+                <li>1,669,000</li>
+            </ul>
+            <div class="btn-center">
+                <input type="button" value="바로구매">
+                <input type="button" value="장바구니">
+            </div>
+        </section>
+        <section>
+            <h2>일반세탁기</h2>
+            <img src="./img/product-2.jpg" class="product-img">
+            <ul>
+                <li>통돌이</li>
+                <li>DD모터</li>
+                <li>16kg</li>
+                <li>미드프리실버</li>
+                <li>574,500</li>
+            </ul>
+            <div class="btn-center">
+                <input type="button" value="바로구매">
+                <input type="button" value="장바구니">
+            </div>
+        </section>
+        <section>
+            <h2>의류관리기</h2>
+            <img src="./img/product-3.jpg" class="product-img">
+            <ul>
+                <li>트롬의류건조기</li>
+                <li>히트펌프식</li>
+                <li>16kg</li>
+                <li>모던스테인레스</li>
+                <li>1,669,000</li>
+            </ul>
+            <div class="btn-center">
+                <input type="button" value="바로구매">
+                <input type="button" value="장바구니">
+            </div>
+        </section>
+        <section>
+            <h2>드럼세탁기</h2>
+            <img src="./img/product-4.jpg" class="product-img">
+            <ul>
+                <li>트윈워시</li>
+                <li>DD모터</li>
+                <li>21kg+4kg</li>
+                <li>모던스테인레스</li>
+                <li>1,546,000</li>
+            </ul>
+            <div class="btn-center">
+                <input type="button" value="바로구매">
+                <input type="button" value="장바구니">
+            </div>
+        </section>
+
+    </main>
+    
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+    /* gradient
+       1. 주의할 사항
+        1) gradient 지원하지 않는 브러우저 대비해서 background-color 지정하면 좋음
+        2) 브라우저마다 사용법이 다름
+        Mozilla Firefox: -moz-
+        Microsoft IE: -ms-
+        Opera: -o-
+        Webkit(Chrome & Safari): -webit-
+
+       2. 기본값: 위에서 아래
+       3. 방향, 각도 지정
+        1) 방향: to right, to top right
+        2) 각도
+            0deg: 아래 -> 위
+            45deg: 왼쪽 아래 -> 오른쪽 위
+            90deg: 왼쪽 -> 오른쪽
+            180deg: 위 -> 아래
+
+        4. stop position: %, px 단위
+    */
+    
+
+    div {
+        width: 100%;
+        height: 200px;
+    }
+    .grad1{
+        background-color: greenyellow;
+        -webkit-background-image:linear-gradient(yellow, greenyellow);
+        -moz-background-image:linear-gradient(yellow, greenyellow);
+        -o-background-image:linear-gradient(yellow, greenyellow);
+        -ms-background-image:linear-gradient(yellow, greenyellow);
+        background-image: linear-gradient(yellow, greenyellow);   
+    }
+
+    .grad2{
+        background-color: greenyellow;
+        -webkit-background-image:linear-gradient(45deg, yellow, greenyellow);
+        -moz-background-image:linear-gradient(45deg, yellow, greenyellow);
+        -o-background-image:linear-gradient(45deg, yellow, greenyellow);
+        -ms-background-image:linear-gradient(45deg, yellow, greenyellow);
+        background-image: linear-gradient(45deg, yellow, greenyellow);   
+    }
+
+    .grad3{
+        background-color: greenyellow;
+        -webkit-background-image:linear-gradient(45deg, yellow 70%, greenyellow);
+        -moz-background-image:linear-gradient(45deg, yellow 70%, greenyellow);
+        -o-background-image:linear-gradient(45deg, yellow 70%, greenyellow);
+        -ms-background-image:linear-gradient(45deg, yellow 70%, greenyellow);
+        background-image: linear-gradient(45deg, yellow 70%, greenyellow);   
+    }
+
+    </style>
+
+
+</head>
+<body>
+    <div class="grad1"></div><br/>
+    <div class="grad2"></div><br/>
+    <div class="grad3"></div><br/>
+</body>
+</html>

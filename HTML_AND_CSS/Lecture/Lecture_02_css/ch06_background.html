@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        div{
+            border: 1px solid black;
+            width: 500px;
+            height: 500px;
+        }
+        #box1{
+            background-image: url(./img/activity.jpg);
+            background-size: 500px 500px;
+            opacity: 0.5; 
+            /* 불투명도: 값이 낮을수록 투명함 (0 ~ 1) */
+        }
+        #box2{
+            background-image: url(http://image.dongascience.com/Photo/2017/03/14900752352661.jpg);
+            background-size: cover;
+            /* 박스보다 이미지가 클 때 이미지 크기를 줄여줌 : cover*/
+            /* 박스보다 이미지가 더 작을 때 이미지 크기를 채워 넣기: contain */
+        }
+        #box3{
+            background-image: url(./img/activity.jpg);
+            background-size: contain;
+            /* 박스보다 이미지가 클 때 이미지 크기를 줄여줌 : cover*/
+            /* 박스보다 이미지가 더 작을 때 이미지 크기를 채워 넣기: contain */
+        }
+        #box4{
+            /* 한 박스에 여러 이미지 넣기 */
+            background-image: url(./img/jejuisland.jpg), url(./img/activity.jpg);
+            background-repeat: no-repeat;
+            background-position: bottom right, top left;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        박스1
+    </div>
+    <br/><br/>
+    <div id="box2">
+        박스2
+    </div>
+    <br/><br/>
+    <div id="box3">
+        박스3
+    </div>
+    <br/><br/>
+    <div id="box4">
+        박스4
+    </div>
+    
+</body>
+</html>

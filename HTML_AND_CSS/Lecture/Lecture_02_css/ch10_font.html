@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Palette+Mosaic&family=Style+Script&display=swap" rel="stylesheet">
+    
+    <style>
+        /* body에 있는 글씨 색깔 바꿔보세요!
+           글씨체 바꿔보세요!  */
+        body {
+            color:purple;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .ali-left{
+            text-align: left;
+            /* 왼쪽 정렬 */
+            text-decoration: underline; 
+            /* 밑줄 (insert, <ins>) */
+        }
+
+        .ali-center{
+            text-align: center;
+            /* 가운데 정렬 */
+            text-decoration: line-through; 
+            /* 취소선 (delete, <del>) */
+        }
+
+        .ali-right{
+            text-align: right;
+            /* 오른쪽 정렬 */
+            text-decoration: overline;
+            /* 텍스트 위에 줄 생김 */
+        }
+        p {
+            text-indent: 20px;
+            /* 들여쓰기 */
+        }
+
+        div {
+            font-family: 'Palette Mosaic', '궁서체';
+        }
+
+        .other {
+            font-family: 'Style Script', '궁서체';
+        }
+
+    </style>
+</head>
+<body>
+    <h1>CSS Text</h1>
+    <h2 class="ali-left">Left</h2>
+    <h2 class="ali-center">Center</h2>
+    <h2 class="ali-right">Right</h2>
+    <p>Indent (들여쓰기)</p>
+
+    부모
+    <div>
+        1차 자식
+        <div>
+            2차 자식
+            <div>
+                3차 자식
+            </div>
+        </div>
+    </div>
+    <div class="other">다른 자식 (other) (This is Font Test)</div>
+
+</body>
+</html>
