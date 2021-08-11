@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- button
+    : 사용자가 클릭 (예, 아니오 대답)
+
+    a href (메뉴바)
+    : 사용자가 클릭하는 동시에
+    다른 페이지로 이동 -->
+
+    <style type="text/css">
+        ul{
+            list-style-type: none;
+            background-color: darkcyan;
+            overflow: hidden;
+        }
+        ul li {
+            float: left;
+            /* text-align: center; */
+        }
+        ul a {
+            /* a 태그는 inline 레벨이므로
+            display:block; 처리 가능 */
+            display: block;
+            text-align: center;
+            width: 200px;
+            height: 50px;
+            text-decoration: none;
+            color:black;
+            padding: 25px;
+            font-size: large;
+            font-weight: bold;
+        }
+
+        li a:hover {
+            background-color: cornsilk;
+            color:black;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Board</a></li>
+        <li><a href="#">Guest</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+</body>
+</html>

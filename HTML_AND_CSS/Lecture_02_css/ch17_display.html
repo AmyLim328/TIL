@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        /* 
+        1. display: inline;
+            - inline 레벨 태그: <span><b><i><a>
+            - 글자에 적용
+            <span>asdadas</span>하이
+            <b>asdadasdas</b>하이
+            - "하이" 문자열 (inline 다음 요소)은 바로 뒤에 표시 
+            (띄어쓰기/엔터 없이)
+            - width, height 불가능
+
+        2. display: block;
+            - block 레벨 태그: <div><p><h><list>
+            - 가로 영역 모두 채움
+            - block 다음 요소는 다음 줄에 표시
+
+        3. display: inline-block;
+            - inline과 동일
+            - width, height 가능
+        */
+        .inline {
+            display: inline;
+            width: 100px;
+            height: 100px;
+            /* display: inline인 경우에는 width, height 적용 X */
+            border: 1px solid black;
+            background-color: burlywood;
+            padding: 5px;
+        }
+
+        .block{
+            display: block;
+            width: 100px;
+            height: 100px;
+            /* display: inline인 경우에는 width, height 적용 X */
+            border: 1px solid black;
+            background-color: burlywood;
+            padding: 5px;
+        }
+        
+        .inline-block{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            /* display: inline인 경우에는 width, height 적용 X */
+            border: 1px solid black;
+            background-color: burlywood;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>display:inline;</h1>
+	<p>국무총리는 대통령을 보좌하며, 행정에 관하여 
+        <span class="inline">대통령</span>의 명을 받아 행정각부를 통할한다. 대통령은 내우·외환·천재·지변 또는 중대한 재정·경제상의 위기에 있어서 국가의 안전보장 또는 공공의 안녕질서를 유지하기 위하여 긴급한 조치가 필요하고 국회의 집회를 기다릴 여유가 없을 때에 한하여 최소한으로 필요한 재정·경제상의 처분을 하거나 이에 관하여 법률의 효력을 가지는 명령을 발할 수 있다.</p>
+	<br/><br/><br/>
+	
+	<h1>display:block;</h1>
+	<p>국무총리는 대통령을 보좌하며, 행정에 관하여 
+        <span class="block">대통령</span>의 명을 받아 행정각부를 통할한다. 대통령은 내우·외환·천재·지변 또는 중대한 재정·경제상의 위기에 있어서 국가의 안전보장 또는 공공의 안녕질서를 유지하기 위하여 긴급한 조치가 필요하고 국회의 집회를 기다릴 여유가 없을 때에 한하여 최소한으로 필요한 재정·경제상의 처분을 하거나 이에 관하여 법률의 효력을 가지는 명령을 발할 수 있다.</p>
+	<br/><br/><br/>
+	
+	<h1>display:inline-block;</h1>
+	<p>국무총리는 대통령을 보좌하며, 행정에 관하여 
+        <span class="inline-block">대통령</span>의 명을 받아 행정각부를 통할한다. 대통령은 내우·외환·천재·지변 또는 중대한 재정·경제상의 위기에 있어서 국가의 안전보장 또는 공공의 안녕질서를 유지하기 위하여 긴급한 조치가 필요하고 국회의 집회를 기다릴 여유가 없을 때에 한하여 최소한으로 필요한 재정·경제상의 처분을 하거나 이에 관하여 법률의 효력을 가지는 명령을 발할 수 있다.</p>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>

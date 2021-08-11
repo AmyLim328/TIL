@@ -1,0 +1,154 @@
+<!-- 
+	<table> 태그 레이아웃
+	
+	1. <thead></thead>
+	2. <tbody></tbody>
+	3. <tfoot></tfoot>
+	4. 작성 순서에 상관 없이 위 1~3 순서로 처리된다.
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+</head>
+
+<body>
+    <table border="1">
+        <caption>테이블 제목</caption><!-- 표나 그림 등에 붙이는 제목 -->
+        <thead>
+            <tr>
+                <td colspan="4">테이블 header</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>A </td>
+                <td>B </td>
+                <td>C </td>
+                <td>D </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">테이블 footer </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <hr />
+
+    <table border="1">
+        <colgroup>
+            <col style="background-color: #b35a5a"><!-- 1열 -->
+            <col style="background-color: pink"><!-- 2열 -->
+            <col>
+            <col style="background-color: orange"><!-- 3, 4열 -->
+        </colgroup>
+        <tr>
+            <td>A </td>
+            <td>B </td>
+            <td>C </td>
+            <td>D </td>
+        </tr>
+        <tr>
+            <td>E </td>
+            <td>F </td>
+            <td>G </td>
+            <td>H </td>
+        </tr>
+        <tr>
+            <td>I </td>
+            <td>J </td>
+            <td>K </td>
+            <td>L </td>
+        </tr>
+
+    </table>
+
+    <hr />
+
+    <table border="1">
+        <caption>제주특별자치도 학교현황(2015 기준)</caption>
+        <colgroup>
+            <col>
+            <col style="background-color: yellowgreen">
+            <col>
+            <col style="background-color: yellow">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th>구분</th>
+                <th>학교수</th>
+                <th>학급수</th>
+                <th>학생수</th>
+                <th>교원수</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>유치원</th>
+                <td>117</td>
+                <td>252</td>
+                <td>5,547</td>
+                <td>474</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>합계</th>
+                <td>300</td>
+                <td>3,437</td>
+                <td>86,954</td>
+                <td>6,111</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <hr />
+
+    <h1>연습문제2</h1>
+    <table border="1">
+        <caption>우리펜션 객실안내</caption>
+        <thead>
+            <tr style="background-color: #1c8d93">
+                <th>방 이름 </th>
+                <th>고객구분 </th>
+                <th>정원 </th>
+                <th>가격 </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>콜로라도 </th>
+                <td>여성전용 </td>
+                <td rowspan="3">4인실 </td>
+                <td rowspan="4">100,000원 </td>
+            </tr>
+            <tr>
+                <th rowspan="2">아레나도 </th>
+                <td>가족용 </td>
+            </tr>
+            <tr>
+                <td>커플용 </td>
+            </tr>
+            <tr>
+                <th>엘레나 </th>
+                <td>커플전용 </td>
+                <td>2인실 </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr style="background-color: hotpink">
+                <th colspan="4">6월 15일 까지 전 객실 50% 할인 </th>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+
+</html>

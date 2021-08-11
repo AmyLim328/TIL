@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .input-say{
+            color: rebeccapurple;
+            /* display: none; */
+            /* 출력이 안됨 (차지하는 부분도 없음) */
+        }
+    </style>
+</head>
+<body>
+    <form action="http://www.foo.com" method="GET">
+        <div>
+            <label for="id1" class="input-say">어떤 말로 인사하고 싶은가요 ?</label>
+            <input name="say" id="id1" value="HI">
+        </div>
+        <div>
+            <label for="id2" class="input-to">누구에게 인사하고 싶은가요 ?</label>
+            <input name="to" id="id2" value="Mom">
+        </div>
+        <div>
+            <button>전달</button>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!-- 
+	<img>태그
+	
+	1. 이미지를 삽입한다.
+	2. 속성
+		1) src : 이미지의 위치(경로)
+		2) alt : 이미지 대신 표시한 텍스트
+	3. 경로 표시
+		1) 절대 경로 : C:/workSpace/chapter01_html/images/google.jpg
+		2) 상대 경로 : images/google.jpg (/ 로 시작하면 컨텍스트 루트부터 시작)
+		3) 주요 폴더
+			(1) .	: 현재 폴더
+			(2) ..	: 상위 폴더
+ -->
+ <!DOCTYPE html>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Insert title here</title>
+ </head>
+ <body>
+ 
+     <!-- 
+     * img 속성
+     - alt : 이미지 설명 (만약 이미지가 로드되지 않는 경우 대체 설명)
+     - src : 이미지 출처 (경로)
+     - title : 이미지 타이틀
+     - style : 이미지 스타일
+     - width, height : 이미지 넓이, 높이
+     
+     
+     * 파일 경로
+     <img src="picture.jpg" >	
+     : 현재 페이지와 같은 폴더에 위치한 이미지 파일
+     
+     <img src="images/picture.jpg" > 
+     : 현재 페이지와 같은 폴더(WebContent)에 위치한
+       images 폴더에 있는 이미지 파일
+     
+     <img src="/images/picture.jpg" >
+     : 현재 페이지의 기본 루트에 위치한 
+       images 폴더에 있는 이미지 파일
+     
+     <img src="../picture.jpg" >	
+     : 현재 페이지의 상위 폴더에 위치한 이미지 파일	
+      -->
+      
+      <h1>이미지 표시</h1>
+      <img alt="구글 이미지" src="./img/google.png">
+      
+      <h1>서버에 저장된 이미지</h1>
+      <img src = "https://info2015pol.files.wordpress.com/2016/06/simpson1.png?w=1000">
+      
+      <h1>크기를 조정한 이미지</h1>
+      <img src="./img/google.png" width="300" >
+      <!-- 너비(width)나 높이(height) 중 하나만 조정해도 함께 조정된다. -->
+      
+      <hr/>
+      
+      <img src="./img/google.png" width="300" align="top"> 구글 로고 -1 <br/><br/>
+      <img src="./img/google.png" width="300" align="middle"> 구글 로고 -2 <br/><br/>
+      <img src="./img/google.png" width="300" align="bottom"> 구글 로고 -3 <br/><br/>
+      <img src="./img/google.png" width="300" align="left"> 구글 로고 -4 <br/><br/>
+      <img src="./img/google.png" width="300" align="right"> 구글 로고 -5 <br/><br/>
+  
+ 
+ </body>
+ </html>

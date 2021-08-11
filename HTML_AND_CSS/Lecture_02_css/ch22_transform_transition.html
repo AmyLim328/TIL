@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:50px;
+            height:50px;
+            background-color:cornflowerblue;
+        }
+
+        .ex1{
+            transition-property: width;
+            transition-duration: 5s; 
+            /* 5초간 변경 */
+            transition-timing-function: ease;
+            /* https://cssreference.io/property/transition-timing-function/ */
+            transition-delay: 1s;
+            /* 1초 후에 동작 시작 */
+
+            /* transition 속성을 한번에 처리 */
+            transition: width 5s ease 1s;
+        }
+
+        .ex1:hover{
+            width: 300px;
+        }
+        .ex2{
+            transition: 3s;
+        }
+        .ex2:hover{
+            transform:rotate(720deg) scale(3, 3);
+        }
+    </style>
+</head>
+<!-- transform vs transition
+    - transform (모양 변환): rotate (회전), scale (스케일링), stretch (기울임)
+    - transition (위치 이동)
+
+-->
+
+
+<body>
+    <!-- background color, width, height -->
+    <!-- ex1. 5초 동안 너비 300px로 커지는 박스 (transition) -->
+    <div class="ex1">
+
+    </div>
+
+    
+    <br/><br/><br/>
+
+    <!-- ex2. 3초 동안 회전하면서 3배 커지는 박스 (transform) -->
+    <!-- transform: rotate(720deg) scale(3, 3) -->
+    <div class="ex2">
+
+
+    </div>
+    
+</body>
+</html>

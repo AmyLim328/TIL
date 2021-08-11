@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department</title>
+    <!-- 테이블의 border (테두리) 지정 -->
+    <style>
+        /* body에 생성한 테이블마다
+        해당 style 적용하게 됨 */
+        table{
+            border-top: 1px solid black;
+            border-collapse: collapse;
+            /* 테두리와 테두리 사이의 간격 없앰 */
+        }
+        th, td{
+            border-bottom: 1px solid black;
+            padding: 10px;
+            /* 테두리와 내용 사이의 간격 줄 수 있음 */
+        }
+
+    </style>
+    <style>
+        .test {
+            background-color: cornsilk;
+            border: 2px solid black;
+            padding: 20px;
+            margin: 10px;
+            /* padding: 안쪽 여백
+            margin: 바깥쪽 여백 */
+            color: cadetblue;
+        }
+
+        #idTest {
+            background-color: darkslateblue;
+            color:floralwhite;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<!-- DEPT 테이블 만들어보고 (DEPTNO, DNAME, LOC) 
+각 데이터 정의
++ 부서 관련된 이미지를 추가
+
+-->
+
+<body>
+    <h1>Department Information</h1>
+    <!-- 경로 표시
+    절대 경로: J:/workspace/HTML_CSS_JavaScript/Lecture_20210809_1/img
+    상대 경로: ./img/department.jpg 
+        현재 폴더: .
+        상위 폴더: ..
+
+    -->
+    
+    <img src="./img/department.jpg" 
+    height="300" width="100%">
+    
+    <p><br></p> 
+    <!-- line break element -->
+    
+    <table style="width:90%">
+        <tr style="color:forestgreen; font-size: large;">
+            <th>DEPTNO</th>
+            <th>DNAME</th>
+            <th>LOC</th>
+        </tr>
+        <tr style="text-align: center; font-size: large;">
+            <td>10</td>
+            <td><a href="https://www.investopedia.com/terms/a/accounting.asp">
+                Accounting</a></td>
+            <td>Seoul</td>
+        </tr>
+        <tr style="text-align: center; font-size: large;">
+            <td>20</td>
+            <td><a href="https://developers.kakao.com/">
+                Development</a></td>
+            <td>Guro</td>
+        </tr>
+    </table>
+
+    <!-- HTML 블록 단위로 나눌 수 있음 (div) 
+        - 항상 새로운 줄 시작
+        - 페이지의 전체 너비 차지 (width: 100%)
+        - 위쪽/아래쪽 여백 존재
+        
+        -->
+
+    <div>Hello World!</div>
+
+    <!-- 인라인 요소 (span) 
+        - 새 줄에서 시작하지 않음
+        - 필요한 만큼 너비 차지
+    -->
+    <p>안녕하세요! 
+        <span style="color: blue;">
+            구트아카데미</span>
+    </p>
+
+    <!-- 클래스 (class) 
+        - 다양한 요소가 동일 클래스 공유할 수 있음
+    -->
+    <div class="test">
+        <h2>개발 부서</h2>
+        <p>웹 개발 내역</p>
+    </div>
+
+    <div class="test">
+        <h2>인사팀</h2>
+        <p>신입 채용 계획</p>
+    </div>
+
+    <!-- ID 속성
+        - HTML 요소의 고유 ID 지정
+        - 공유 불가 
+        (동일한 ID를 가진 요소가 두 개 이상 올 수 없음) 
+        - 해쉬문자 (#) 이용 -->
+
+    <!-- id 태그를 두 요소에 대해서 작성하게 될 경우에는
+    웹 사이트가 유추 (idTest 저장된 스타일대로 출력!) 
+    
+    하지만, id 태그는 하나의 요소에 대해서 unique 하게
+    작성하는 것이 맞습니다! 
+    (script 작성시 id를 가지고 요소를 추출)
+    -->
+    <h1 id="idTest">아이디는 공유할 수 없음! 11</h1>
+    <h1 id="idTest">아이디는 공유할 수 없음! 22</h1>
+
+    <!-- 자바 스크립트 코드를 넣을 수 있음 (script) -->
+    
+    <p id="demo">
+        자바 스크립트는 동적인 웹 사이트를 만들 수 있음!</p>
+    <script>
+        function myFunction(){
+            document.getElementById("demo")
+            .style.fontSize = "20px";
+            document.getElementById("demo")
+            .style.color = "red";
+            document.getElementById("demo")
+            .style.backgroundColor = "yellow";
+        }    
+    </script>
+    <button type="button" onclick="myFunction()">
+    버튼 클릭!
+    </button>
+
+</body>
+</html>

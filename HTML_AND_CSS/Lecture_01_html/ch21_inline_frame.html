@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframe (inline frame)</title>
+</head>
+<body>
+    <!-- HTML 문서 안에 다른 HTML 문서 넣기 -->
+    <h1>test1.html</h1>
+    <iframe src="ch02_heading_tag.html">test1.html</iframe>
+
+    <!-- HTML 문서 안에 동영상 넣기 -->
+    <h1>동영상 파일</h1>
+    
+    <!-- youtube.com/embed: 비디오 파일을 
+    인터넷에서 재생시켜줄 수 있는 태그-->
+    <iframe width="500" height="300"
+    src="https://www.youtube.com/embed/hluEw50uVIw"
+    frameborder="0"
+    allowfullscreen>
+        동영상 파일</iframe>
+
+    <iframe width="560" height="315" 
+    src="https://www.youtube.com/embed/P3ln1nmbf3o" 
+    title="YouTube video player" frameborder="0" 
+    allow="accelerometer; 
+    autoplay; 
+    clipboard-write; 
+    encrypted-media; 
+    gyroscope; 
+    picture-in-picture" allowfullscreen></iframe>
+
+    <iframe width="560" height="315" 
+    src="https://www.youtube.com/embed/k3rUzmGK1Hs?start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    </iframe>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/fn8Hz1UgCjg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+</body>
+</html>
