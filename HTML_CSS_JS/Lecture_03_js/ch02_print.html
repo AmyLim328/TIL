@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 자바스크립트 출력 (데이터 표시 방법) 
+        1. HTML 요소 작성 (innerHTML)
+        2. HTML 출력 작성 (document.write())
+        3. 경고 상자 이용 (window.alert()) (윈도우 객체 함수, 전역 범위 객체)
+        4. 브라우저 콘솔에 쓰기 (console.log()) 
+    
+    -->
+
+    <!-- 1번 -->
+    <h1>1번</h1>
+    <p id="demo1"></p>
+    <script>
+        document.getElementById('demo1').innerHTML = 10 + 20;
+    </script>
+    <br/>
+
+    <!-- 2번 -->
+    <h1>2번</h1>
+    <script>
+        document.write(10 + 20);
+    </script>
+    <br/>
+
+    <!-- 3번 -->
+    <h1>3번</h1>
+    <script>
+        window.alert(10 + 20);
+        // 윈도우 객체는 전역 범위 객체이기 때문에 생략 가능
+        alert(10 + 20);
+    </script>
+    <br/>
+
+    <!-- 4번 -->
+    <h1>4번</h1>
+    <script>
+        console.log(10 + 20);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+
+    // <script (type="text/javascript")>
+        // : HTML5부터는 javascript 표준 (생략 가능)
+
+    // <style (type="text/css")> 
+        // : css 표준 (생략 가능)
+
+    // script 태그 안에 자바스크립트 작성
+    // 1. head 태그 안에서 script 태그 작성
+    // 2. body 태그 안에서 script 태그 작성
+    // 3. 자바스크립트 코드를 포함한 .js 파일을 링크 <link>
+
+    /*
+        본래 명칭: ECMAScript (ES)
+        (ECMA 기술 표준 만드는 조직 (유럽 컴퓨터 제조업체 협회)에서 발행한 표준)
+
+        자바스크립트: ECMA 사양을 준수하는 스크립트 언어
+        Mocha -> LiveScript (웹 동적으로 만듦) -> JavaScript (상업적 (마케팅) 용도)
+        
+        ES5(2009) vs ES6(2015) (ES6 이후 모던 자바스크립트)
+        : 1. var vs let, const
+        : 2. const sum = (a, b) => a + b; (arrow function 추가)
+        : 3. default parameter 추가 (함수의 매개변수의 기본값)
+        : 4. 클래스 추가
+    */
+
+    // single comment (단일행 주석)
+    /*
+        multiline comment (다중행 주석)
+    */
+
+    </script>
+</head>
+<body>
+    <!-- 자바스크립트 활용 방법 -->
+    <!-- 1. HTML 콘텐츠 변경 가능 -->
+    <h2>HTML 콘텐츠 변경</h2>
+    <button type="button" 
+    onclick="document.getElementById('demo1').innerHTML = Date()">
+    Click me!
+    </button>
+    <!-- demo1을 id로 갖는 html 요소에 Date() 함수 반환값 출력 -->
+
+    <p id="demo1">요소 내용입니다.</p>
+    <!-- 만약에 html 요소 내용이 있다면 대체 -->
+    <br/><br/>
+
+    <!-- 2. HTML 속성 값 변경 -->
+    <!-- HTML 속성 중에 <img src ...> 변경 -->
+    <h2>HTML 속성 값 변경</h2>
+    <button onclick=
+    "document.getElementById('img1').src='./img/bulbon.PNG'">
+        전구 켜짐
+    </button>
+    <img id="img1" src="./img/bulboff.PNG" style="width:100px">
+    <button onclick=
+    "document.getElementById('img1').src='./img/bulboff.PNG'">
+        전구 꺼짐
+    </button>
+    <br/><br/>
+
+    <!-- 3. HTML 스타일 (css) 변경 -->
+    <h2>HTML 스타일 변경</h2>
+    <p id="demo2">HTML 스타일 변경 부분</p>
+    <button onclick=
+    "document.getElementById('demo2').style.fontSize='35px'">
+        클릭!
+    </button>
+
+    <!-- 4. HTML 요소 표시 -->
+    <h2>HTML 요소 표시</h2>
+    <p>요소</p>
+    <p id="demo3" style="display: none;">Hello JS!</p>
+    <button onclick=
+    "document.getElementById('demo3').style.display='block'">
+        클릭!
+    </button>
+    
+</body>
+</html>

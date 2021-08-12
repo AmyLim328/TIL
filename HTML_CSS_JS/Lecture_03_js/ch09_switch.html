@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = new Date().getDay();
+        document.write(a);
+        // 일: 0
+        // 월: 1
+        // 화: 2
+        // ....
+        let day;
+        switch (a) { 
+            // == (동등 연산자)
+            case 0:
+                day = "일";
+                break; // switch문 나감
+            case 1:
+                day = "월";
+                break; // switch문 나감
+            case 2:
+                day = "화";
+                break; // switch문 나감
+            case 3:
+                day = "수";
+                break; // switch문 나감
+            case 4:
+                day = "목";
+                break; // switch문 나감
+            case 5:
+                day = "금";
+                break; // switch문 나감
+            case 6:
+                day = "토";
+                break; // switch문 나감
+            default:
+                day = "오류!";
+
+        }
+
+        document.write(day);
+    </script>
+</body>
+
+</html>

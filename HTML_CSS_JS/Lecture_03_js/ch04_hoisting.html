@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            호이스팅 (hoisting, 끌어올리다)
+
+            function sum(x, y){
+                return x + y;
+            }
+
+            const name = "eunbin";
+            let age = 20;
+            var city = "seoul";
+
+        
+            : 자바스크립트 페이지는 총 2번이 읽힘
+            : 첫번째: 변수명 먼저 할당 (hoisting)
+                let, const: 초기화 X
+                var: undefined
+
+            : 두번째: 각 변수에 데이터를 초기화
+
+            ※ 항상 변수는 현재 공간 (함수, 블록) 안에서 최상단에 선언
+            ※ 선언과 함께 초기화해주는 게 좋음!
+        */
+        // ES5
+        // var age = undefined;
+        document.write(age + " ");
+        document.write(typeof(age));
+        var age = 20;
+
+        document.write('<br/>');
+        document.write(age + " ");
+        document.write(typeof(age));
+
+        // =================================
+
+        // ES6
+        // let age; (초기화 X)
+        document.write(age + " "); // 오류 발생! (아래 코드 실행 X)
+        document.write(typeof(age));
+        let age = 20;
+
+        document.write('<br/>');
+        document.write(age + " ");
+        document.write(typeof(age));
+        
+        
+
+    </script>
+</body>
+</html>
