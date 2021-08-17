@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            문자열 (string)
+            : "", '', `` (back-ticks, 긴 문자열 정의) 
+        */
+        let msg1 = "It's alright";
+        let msg2 = 'It\'s alright';
+        let msg3 = 'This is "JavaScript"';
+        let msg4 = "This is \"JavaScript\"";
+        console.log(msg1);
+        console.log(msg2);
+        console.log(msg3);
+        console.log(msg4);
+
+        /*
+             문자열의 길이가 길 ~~ 경우! (중간에 엔터 포함)
+        */
+        let msg5 = "asdasdasdasdadasdasdasdasdasd" +
+            "asdasdasdasdasdasdasdad" +
+            "asdasdasdasdasdasd";
+        let msg6 = `sdasdasdasdasdasd
+      adasdasdasdasd
+      asdasdasdasdasd`; // 문자열로 인식 (공백문자 포함)
+        console.log(msg5);
+        console.log(msg6);
+
+        // 내장 함수
+        // 1) 문자열 부분 추출
+        // slice(start, end): end exclusive (미포함)
+        // ex) slice(7, 13); // 7 ~ 12 잘라냄
+        let str1 = "Apple, Banana, Kiwi";
+        let res1 = str1.slice(-12, -6);
+        console.log(res1);
+
+        // substring(start, end)
+        // slice() 거의 비슷한데 slice는 음수 인덱스 허용
+
+        // substr(start, length)
+
+        // 2) replace()
+        // 첫번째 일치 항목 대체
+        // 대소문자 구분
+        let str2 = "Visit Google Google!";
+        let res2 = str2.replace("GooglE", "Goott"); 
+        console.log(res2);
+
+        // 대소문자 구분하고 싶지 않으면 ...? 정규식 사용
+        // 2-1) /i 플래그 (대소문자 구분하지 않겠다!)
+        // 2-2) /g 플래그 (모든 일치하는 문자열에 대해 대체해줘!)
+        let str3 = "Visit Google Google!";
+        let res3 = str3.replace(/GooglE/gi, "Goott"); 
+        console.log(res3);
+
+        // 3) 대소문자 변환 (toUpperCase(), toLowerCase())
+        
+        // 4) 두 문자열 연결 (concat() (concatenate 줄임말) == 문자열 + 문자열)
+        let str4 = "Hello";
+        let str5 = "JavaScript";
+        console.log(str4.concat(" ", str5));
+
+        // +로 연결 ?
+        console.log(str4 + " " +str5);
+
+        // 5) 양쪽 공백 제거 (trim())
+        let str6 = "           aaaaa         ";
+        console.log(str6.trim());
+
+        // 6) 문자열 패딩 (IE 지원 X)
+        // padStart(): 패딩 앞
+        // padEnd(): 패딩 뒤
+
+        let str7 = "5";
+        let res7 = str7.padStart(4, 0);
+        console.log(res7);
+
+        let str8 = "5";
+        let res8 = str8.padEnd(4, 0);
+        console.log(res8);
+
+        // 7) 문자열 문자 추출
+        // charAt(index)
+        // []
+
+        // 8) 문자열 검색
+        // indexOf("문자열")
+        // : 해당 문자열이 있는 첫 인덱스 반환 (앞에서부터 검색)
+        // lastIndexOf("문자열");
+        // : 해당 문자열이 있는 인덱스 반환 (뒤에서부터 검색)
+        // => 정규식이랑 사용 불가
+
+        let str9 = "locate locate locate";
+        //          0
+        let res9 = str9.indexOf("locate");
+        console.log(res9); // 0
+
+        let str10 = "locate locate locate";
+        //                         14
+        let res10 = str10.lastIndexOf("locate");
+        console.log(res10); // 14
+
+
+        // search() 
+        // => 정규식 사용 가능
+
+    </script>
+</body>
+
+</html>

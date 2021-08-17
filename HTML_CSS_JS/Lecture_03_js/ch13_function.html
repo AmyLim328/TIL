@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            자바스크립트 함수
+            function + 함수이름 (매개변수1, 매개변수2 ....){
+                // 실행 내용
+            }
+
+            1) 함수 이름: 문자, 숫자, _, $ 기호 가능
+            2) 매개변수 함수 내에서 지역 변수로 작동
+        
+        */
+
+
+        function add(a, b){
+            return a + b;
+        }
+
+        let x = add(4, 3);
+        console.log(x);
+        console.log(typeof(x));
+
+        x = add("a", "b");
+        console.log(x);
+        console.log(typeof(x));
+
+        x = "return : " + add(4, 3);
+        console.log(x);
+        console.log(typeof(x));
+
+        function printCarName(){
+            let carName = "Volvo"; // 지역 변수 (Local Variables)
+            console.log(carName); // 정상적 출력
+        }
+        printCarName();
+
+        // console.log(carName); // 오류 발생!
+
+
+        /*
+            1) 선언적 함수 (이름이 있는 함수)
+            : 호이스팅 (끌어올려짐, hoisting)이 일어남
+
+            2) 표현식 함수 (이름이 없는 함수, 익명함수)
+            : 변수에 저장해서 사용
+            : 호이스팅 (끌어올려짐, hoisting)이 일어나지 않음
+        */
+        
+        // 1) 선언적 함수
+        myfunc(); // hositing.. (working!)
+        function myfunc(){
+            console.log("hello");
+        }
+
+        // 1-1) 선언적 함수를 변수에 저장할 수 있음
+        const func = function yourfunc(){
+            console.log("hello");
+        }
+        // 변수에 정의된 함수 호출
+        func(); // yourfunc();
+
+        // 1-2) 선언적 함수를 나중에 변수에 저장할 수 있음
+        function ourfunc(){
+            console.log("hello");
+        }
+        const func2 = ourfunc; // 함수 이름만 전달
+        // func2 = yourfunc; // 상수여서 재할당 불가능
+        func2(); // ourfunc();
+
+        // 2) 표현식 함수 (익명 함수)
+        // : "변수"에 저장한 뒤에 호출
+
+        view(); // 함수 호출 (오류) (hositing X)
+
+        const view = function(){
+            console.log("hello! anonymous function!");
+        }
+        view(); // 함수 호출
+
+
+
+    </script>
+</body>
+</html>

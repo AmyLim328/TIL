@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 타이머 함수
+        // : 특정 시간에 코드 실행시켜주는 내장 함수 ((window.) 생략 가능)
+        // 전달 인자: 타이머 함수(함수, 시간 (밀리초 (ms)))
+
+        // setTimeout 함수
+        let hello = setTimeout(() => console.log('hello!'), 5000);
+
+        // setTimeout 함수 중지
+        clearTimeout(hello);
+
+        // setInterval 함수 (1초마다 숫자를 1씩 증가시켜서 출력)
+        // 지정된 시간마다 함수를 스택에 쌓아놓는 방식
+        // 원래 실행하기로 한 만큼 실행되지 않을 수 있음 (사용 자제)
+        let n = 0;
+        let inter = setInterval(function(){
+            if(n >= 9){ // 9
+                clearInterval(inter); // setInterval 함수 중지
+            }
+            console.log(++n); // 1 ~ 10
+        }, 2000);
+        clearInterval(inter);
+
+        // setInterval 함수 => setTimeout 함수
+        let n2 = 0;
+        function timer(){
+            setTimeout(function(){
+                if(n2 > 9){
+                    return;
+                }
+                console.log(++n2); 
+                // n2: 0 ~ 9
+                // ++n2: 1 ~ 10
+                timer();
+            }, 1000);
+        } 
+        // timer();
+       
+
+        /*
+            JS는 동기적 (synchronous)
+            : 코드 블럭이 순서대로 실행
+            : 제외: hoisting (변수 선언, 함수 선언부 제일 위로 올라감)
+        */
+        console.log(1);
+        console.log(2);
+        console.log(3);
+
+        // 비동기 함수
+        // : 코드 블럭이 순서대로 실행 X
+        // : 언제 실행될 지 모름
+        console.log(1); // 동기적
+        setTimeout(()=>console.log(2), 1000); // 1000ms -> 1s
+        console.log(3); // 동기적
+
+        // 콜백 함수 + 동기적 (synchronous callback)
+        function printImmediately(print){
+            print();
+        }
+        printImmediately(()=>console.log('synchronous callback'));
+
+        // 콜백 함수 + 비동기적 (asynchronous callback)
+        function printWithDelay(print, timeout){
+            setTimeout(print, timeout);
+        }
+        printWithDelay(()=>console.log('asynchronous callback'), 2000);
+
+
+    </script>
+</body>
+
+</html>

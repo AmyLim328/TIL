@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Scope (구역, 영역)
+
+        let globalMsg = "global"; // 전역 변수
+        function printMsg(){
+            let msg = "hello!"; 
+            // 지역 변수 (매개변수, 함수 내 선언, for 내 선언)
+            console.log(msg);
+            console.log(globalMsg);
+            function printAnother(){
+                console.log(msg);
+                let childMsg = "hello2!";
+            } // childMsg 소멸
+            console.log(childMsg); // error!
+        } // msg 소멸
+
+        printMsg();
+
+    </script>
+</body>
+</html>

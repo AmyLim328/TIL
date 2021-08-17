@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            callback function (콜백 함수)
+            : parameter로 함수 객체를 전달하는 함수
+            : 함수 내부에서 callback! (실행하겠다!)
+        */
+
+        function quizAnswer(answer, printYes, printNo){
+            // answer: 변수 값 전달
+            // printYes, printNo: 함수 객체 전달 (yes, no)
+
+            if (answer === 'javascript'){
+                printYes();
+            }
+            else {
+                printNo();
+            }
+        }
+        // 익명 함수
+        // const yes = function(){
+        //     console.log('correct!');
+        // };
+        // const no = function(){
+        //     console.log('Incorrect!');
+        // };
+
+        // arrow function (익명 함수)
+        const yes = () => console.log('correct!');
+        const no = () => console.log('incorrect!');
+        
+        // yes();
+        // no();
+        // console.log(typeof(yes));
+        // console.log(typeof(no));
+
+        quizAnswer('java', yes, no);
+        quizAnswer('javascript', yes, no);
+
+        // 선언적 함수 (이름이 있는 함수)
+        function yesFunc(){
+            console.log('correct!');
+        }
+        function noFunc(){
+            console.log('incorrect!');
+        }
+
+        quizAnswer('java', yesFunc, noFunc);
+        quizAnswer('javascript', yesFunc, noFunc);
+
+        
+        // 콜백 함수를 사용하는 내부 API (forEach)
+        let number = [1, 2, 3, 4, 5];
+        number.forEach(function(x){
+            console.log(2 * x);
+        });
+
+        // arrow func으로 변환! 
+        number.forEach((x) => console.log(2 * x));
+
+        
+
+    </script>
+</body>
+</html>
