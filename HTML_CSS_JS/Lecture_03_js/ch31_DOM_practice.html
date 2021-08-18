@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function viewAnswer() {
+            let answer = document.querySelector("#answer");
+            let btn = document.querySelector("#btn");
+
+            if (btn.value == "정답보기") {
+                answer.style.visibility = "visible";
+                btn.value = "정답숨기기";
+            }
+            else { // btn.value == "정답숨기기"
+                answer.style.visibility = "hidden";
+                btn.value = "정답보기";
+            }
+            // visibility = "visible";
+        }
+    </script>
+    <h3>다음 중 html에 없는 태그는 ?</h3>
+    <ol>
+        <li>p</li>
+        <li>a</li>
+        <li>br</li>
+        <li>am</li>
+    </ol>
+    정답: <span id="answer" style="visibility:hidden">4</span>
+    <input id="btn" type="button" value="정답보기" onclick="viewAnswer();">
+</body>
+
+</html>
