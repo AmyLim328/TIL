@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.onkeydown = function(event){
+            const key = event.keyCode;
+            console.log(key);
+
+            // F5: 116
+            // backspace: 8
+
+            if(key == 116){
+                alert("새로고침 금지!");
+                
+                // 이벤트 막기
+                if(event){ // 최신 브라우저
+                    event.preventDefault(); // 이벤트 동작 중지
+                }
+                else { // 구 IE (8버전 이하)
+                    window.event.returnValue = false;
+                }
+            }
+
+            else if(key == 8){
+                alert("backspace 금지!");
+                
+                // 이벤트 막기
+                if(event){ // 최신 브라우저
+                    event.preventDefault(); // 이벤트 동작 중지
+                }
+                else { // 구 IE (8버전 이하)
+                    window.event.returnValue = false;
+                }
+            }
+
+        }
+    </script>
+</body>
+</html>

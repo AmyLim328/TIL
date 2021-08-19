@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="throwEx">Exception!</button>
+    <script>
+        // 예외 (exception)
+        // : 실행 중에 발생한 런타임 오류
+
+        // 예외 처리 (exception handling)
+        // : 프로그램 중단되지 않게 하기 위함
+
+        let btn = document.getElementById("throwEx");
+        btn.addEventListener("click", throwFunc);
+
+        function throwFunc(){
+            try{
+                throw new Error("직접 발생!");
+                // 임의로 우리가 만든 예외를 발생
+            }
+            catch(ex){
+                console.log(ex);
+            }
+            finally{
+                console.log("finally!");
+            }
+        }
+    </script>
+</body>
+</html>

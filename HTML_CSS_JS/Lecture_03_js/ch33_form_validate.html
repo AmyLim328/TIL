@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+             JS form 유효성 검증
+         */
+
+        function validateForm() {
+            validateName();
+            validateID();
+            validatePass();
+            validateEmail();
+            validateLocation();
+        }
+
+        function validateName(){
+            let x = document.forms["myForm"]["name"].value;
+            if(x == ""){
+                alert("Name Must be Filled Out!");
+                return false;
+            }
+        }
+
+        function validateID(){
+            let x = document.forms["myForm"]["id"].value;
+            if(x == ""){
+                alert("ID Must be Filled Out!");
+                return false;
+            }
+
+        }
+
+        function validatePass(){
+            // 반드시 입력되도록 처리
+            // 비밀번호 길이 8 ~ 16 사이로 입력하도록 처리
+            // alert("경고 메시지");
+
+            let x = document.forms["myForm"]["pass"].value;
+            if(x == ""){
+                alert("Password Must be Filled Out!");
+                return false;
+            }
+            else if(x.length < 8 || x.length > 16){
+                alert("8 ~ 16 Password Must be Filled Out!");
+                return false;
+            }
+        }
+
+        function validateEmail(){
+            // @ 포함하고 있는지 (첫글자, 마지막에 올 수 없게)
+            // (문자열 함수 ... ? search("문자열"), indexOf("문자열"));
+            // 반드시 입력되도록 처리
+            // alert("경고 메시지");
+
+            let x = document.forms["myForm"]["email"].value;
+            let index = x.indexOf("@");
+
+            if(index == -1 || index == 0 || index == x.length-1){
+                alert("Email is not Correct!");
+                return false;
+            }
+
+        }
+
+        function validateLocation(){
+            // 반드시 입력되도록 처리 (서울, 경기, 인천)
+            // alert("경고 메시지");
+
+            let x = document.forms["myForm"]["location"].value;
+            if(x == "0"){
+                alert("Location is not Selected!");
+                return false;
+            }
+        }
+
+    </script>
+
+    <!-- onsubmit() 반환값이 false면 action 실행되지 않음 -->
+    <form name="myForm" action="#" onsubmit="validateForm()" method="POST">
+        <label>Name: </label><input type="text" name="name"><br/>
+        <label>ID: </label><input type="text" name="id"><br/>
+        <label>PassWord: </label><input type="password" name="pass"><br/>
+        <label>Email: </label><input type="text" name="email"><br/>
+        <label>Location: </label>
+        <select name="location">
+            <option value="0">::지역선택::</option>
+            <option value="1">::서울::</option>
+            <option value="2">::인천::</option>
+            <option value="3">::경기::</option>
+        </select>    
+        <br/>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

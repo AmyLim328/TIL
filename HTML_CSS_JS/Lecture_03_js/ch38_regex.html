@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            정규표현식 (Regular Expression, Regex)
+            : 특정 패턴의 문자열을 찾기 위한 표현 방식 (형식 언어)
+            
+            ex) 010-1111-2222
+
+            https://curryyou.tistory.com/234
+
+        */
+
+        // 전화번호 검증
+        const regex_ph = /\d{3}-\d{4}-\d{4}/g; 
+        let res = regex_ph.test('010-1111-2222'); // return true, false
+        console.log(res);
+
+        const text_ph = "Hello! My phone number 010-1111-2222, 010-2222-3333";
+        res = text_ph.match(regex_ph); // return Array
+        res = text_ph.search(regex_ph); // return index (없으면 -1)
+        console.log(res);
+
+        // 이메일 검증
+        const regex_em = 
+        /[\w\-\.]+\@[\w\-\.]+(\.[\w]{2,3}){1,2}/ig; // 작성해보세요!
+        // \w (알파벳, 숫자, _)
+        const text_em = "Hello! My email qwertyuiop7823@gmail.co.kr abc@naver.com";
+        res = text_em.match(regex_em); // (정규 표현식).exec("문자열")
+        console.log(res);
+
+      
+
+
+    </script>
+</body>
+</html>

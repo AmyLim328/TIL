@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>이벤트</h2>
+    <h3>================ mouse =======================</h3>
+    <!-- mouse -->
+    <h2 onclick="onclick_event(this)" 
+    ondblclick="ondblclick_event(this)">
+        마우스 클릭해보세요!</h2>
+    <h2 onmouseover="onmouseover_event(this)" 
+    onmouseout="onmouseout_event(this)">
+        마우스 올려보세요!</h2>
+    
+    
+    <h3>=============== keyboard ======================</h3>
+    <!-- keyboard -->
+    <form>
+        <input type="text" onkeydown="onkeydown_event()">
+        <div id="content1"></div>
+        <input type="text" onkeyup="onkeyup_event()">
+        <div id="content2"></div>
+        <input type="text" onkeypress="onkeypress_event()">
+        <div id="content3"></div>
+    </form>
+
+
+    <h3>================= focus ====================</h3>
+    <!-- onfocus, onblur -->
+    <form action="#">
+        <input type="text" id="msg1" onfocus="onfocus_event()">
+        <br/>
+        <input type="text" id="msg2" onblur="onblur_event()">
+    </form>
+    <script>
+        /*
+            onfocus: 객체 focus
+            onblur: 객체 focus 잃었을 때
+            onclick: 객체 click
+            ondblclick: 객체 double click
+            onmouseover: 객체에 마우스를 위로 올렸을 때
+            onmouseout: 객체에 마우스가 바깥으로 나왔을 때
+            onkeydown: 키를 눌렀을 때
+            onkeyup: 키를 눌렀다 뗐을 때
+            onkeypress: 키를 누르고 있을 때
+        
+        */
+        function onkeydown_event(){
+            document.getElementById("content1").innerHTML 
+            = String.fromCharCode(event.keyCode) + " 키 눌림!";
+            // event.keyCode: 대소문자 구별 X (대문자로 반환)
+        }
+
+        function onkeyup_event(){
+            document.getElementById("content2").innerHTML 
+            = String.fromCharCode(event.keyCode) + " 키 눌렀다 뗌";
+            // event.keyCode: 대소문자 구별 X (대문자로 반환)
+        }
+
+        function onkeypress_event(){
+            document.getElementById("content3").innerHTML 
+            = String.fromCharCode(event.keyCode) + " 키 누르고 있음";
+            // event.keyCode: 대소문자 구별 X (대문자로 반환)
+        }
+
+        function onfocus_event() {
+            let x = document.getElementById("msg1"); 
+            x.value = "포커스 온";
+        }
+
+        function onblur_event() {
+            let x = document.getElementById("msg2");
+            x.value = "포커스 나감";
+        }
+        function onclick_event(id) {
+            id.innerHTML = "클릭 완료!";
+            id.style["background-color"] = "red";
+        }
+        function ondblclick_event(id) {
+            id.innerHTML = "더블클릭 완료!";
+        }
+        function onmouseover_event(id) {
+            id.innerHTML = "마우스 올라옴!";
+        }
+        function onmouseout_event(id) {
+            id.innerHTML = "마우스 나감!";
+        }
+
+    </script>
+</body>
+
+</html>

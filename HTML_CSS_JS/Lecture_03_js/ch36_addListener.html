@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // window.onload = function(){
+        //     let btnGreen = document.getElementById("green");
+        //     let btnRed = document.getElementById("red");
+        //     let btn = document.getElementById("btn");
+
+        //     btnGreen.addEventListener("mouseover", changeGreen);
+        //     btnRed.addEventListener("mouseover", changeRed);
+        //     btn.addEventListener("click", btnClickHandler);
+
+        //     function changeGreen(){
+        //         text.style.color = "green";
+        //     }
+        //     function changeRed(){
+        //         text.style.color = "red";
+        //     }
+        //     function btnClickHandler(){
+        //         alert("message once!"); // 한번만 보여지게 등록
+        //         btn.removeEventListener("click", btnClickHandler);
+        //     }
+        // }
+
+        window.onload = function () {
+            let btnGreen = document.getElementById("green");
+            let btnRed = document.getElementById("red");
+            let btn = document.getElementById("btn");
+
+            btnGreen.addEventListener("mouseover",
+                () => text.style.color = "green");
+            btnRed.addEventListener("mouseover", 
+                () => text.style.color = "red");
+            btn.addEventListener("click", btnClickHandler);
+
+            // function changeGreen(){
+            //     text.style.color = "green";
+            // }
+            // function changeRed(){
+            //     text.style.color = "red";
+            // }
+            function btnClickHandler(){
+                alert("message once!"); // 한번만 보여지게 등록
+                btn.removeEventListener("click", btnClickHandler);
+            }
+        }
+    </script>
+    <h1 id="text">change color</h1><br />
+    <button id="green">green</button>
+    <button id="red">red</button>
+    <button id="btn">message once!</button>
+</body>
+
+</html>
