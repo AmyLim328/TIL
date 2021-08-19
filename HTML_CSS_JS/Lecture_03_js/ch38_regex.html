@@ -23,7 +23,7 @@
         let res = regex_ph.test('010-1111-2222'); // return true, false
         console.log(res);
 
-        const text_ph = "Hello! My phone number 010-1111-2222, 010-2222-3333";
+        const text_ph = "Hello! My phone number is 010-1111-2222, 010-2222-3333";
         res = text_ph.match(regex_ph); // return Array
         res = text_ph.search(regex_ph); // return index (없으면 -1)
         console.log(res);
@@ -32,7 +32,7 @@
         const regex_em = 
         /[\w\-\.]+\@[\w\-\.]+(\.[\w]{2,3}){1,2}/ig; // 작성해보세요!
         // \w (알파벳, 숫자, _)
-        const text_em = "Hello! My email qwertyuiop7823@gmail.co.kr abc@naver.com";
+        const text_em = "Hello! My email is abc123@gmail.com, abc123@abc.co.kr";
         res = text_em.match(regex_em); // (정규 표현식).exec("문자열")
         console.log(res);
 
