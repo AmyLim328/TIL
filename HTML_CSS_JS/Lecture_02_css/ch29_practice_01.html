@@ -20,20 +20,68 @@
         .info {
             text-align: center;
             background-color: lightgray;
-            width: 530px;
+            width: 550px;
             margin-left: auto;
             margin-right: auto;
         }
 
         hr {
-            width: 530px;
-            border: solid 0.5px gray;
-
+            width: 550px;
+            border: solid gray;
         }
 
         .btn {
             padding-top: 10px;
             text-align: center;
+        }
+
+        tr {
+            text-align: left;
+        }
+
+        td {
+            padding-right: 60px;
+            padding-block: 10px;
+        }
+
+        #id {
+            outline: 1px solid gray;
+        }
+
+        #pw1 {
+            outline: 1px solid gray;
+        }
+
+        #pw2 {
+            outline: 1px solid gray;
+        }
+
+        #name {
+            outline: 1px solid gray;
+        }
+
+        #phone1 {
+            outline: 1px solid gray;
+        }
+
+        #phone2 {
+            outline: 1px solid gray;
+        }
+
+        #phone3 {
+            outline: 1px solid gray;
+        }
+
+        #nickname {
+            outline: 1px solid gray;
+        }
+
+        #email1 {
+            outline: 1px solid gray;
+        }
+
+        #email2 {
+            outline: 1px solid gray;
         }
     </style>
 </head>
@@ -65,20 +113,22 @@
             </tr>
             <tr>
                 <td>성별</td>
-                <td><input type="radio" name="gender" id="male" value="M" checked="checked"></td>
-                <td><label for="male">남자</label></td>
-                <td><input type="radio" name="gender" id="female" value="F"></td>
-                <td><label for="female">여자</label></td>
+                <td>
+                    <input type="radio" name="gender" id="male" value="M" checked="checked">
+                    <label for="male">남자</label>
+                    <input type="radio" name="gender" id="female" value="F">
+                    <label for="female">여자</label>
+                </td>
             </tr>
             <tr>
                 <td><label for="phone">연락처</label></td>
                 <td>
-                    <select name="phone">
+                    <select name="phone" id="phone1">
                         <option value="010">010</option>
                         <option value="02">02</option>
                     </select>
-                    - <input type="tel" size="8" id="phone">
-                    - <input type="tel" size="8" id="phone">
+                    - <input type="tel" size="8" id="phone2">
+                    - <input type="tel" size="8" id="phone3">
                 </td>
             </tr>
         </table>
@@ -94,23 +144,27 @@
             </tr>
             <tr>
                 <td><label for="email">이메일</label></td>
-                <td><input type="email" size="20" id="email">
-                    @ <input type="email" size="10" id="email" placeholder="도메인 입력">
+                <td><input type="email" size="20" id="email1">
+                    @ <input type="email" size="10" id="email2" placeholder="도메인 입력">
                 </td>
             </tr>
             <tr>
                 <td>이메일 수신</td>
-                <td><input type="radio" name="email_reception" id="email_received" value="yes" checked="checked"></td>
-                <td><label for="email_received">수신</label></td>
-                <td><input type="radio" name="email_reception" id="email_not_received" value="no"></td>
-                <td><label for="email_not_received">미수신</label></td>
+                <td>
+                    <input type="radio" name="email_reception" id="email_received" value="yes" checked="checked">
+                    <label for="email_received">수신</label>
+                    <input type="radio" name="email_reception" id="email_not_received" value="no">
+                    <label for="email_not_received">미수신</label>
+                </td>
             </tr>
             <tr>
                 <td>SMS 수신</td>
-                <td><input type="radio" name="sms_reception" id="sms_received" value="yes" checked="checked"></td>
-                <td><label for="sms_received">수신</label></td>
-                <td><input type="radio" name="sms_reception" id="sms_not_received" value="no"></td>
-                <td><label for="sms_not_received">미수신</label></td>
+                <td>
+                    <input type="radio" name="sms_reception" id="sms_received" value="yes" checked="checked">
+                    <label for="sms_received">수신</label>
+                    <input type="radio" name="sms_reception" id="sms_not_received" value="no">
+                    <label for="sms_not_received">미수신</label>
+                </td>
             </tr>
             <tr>
                 <td>취미 활동</td>
