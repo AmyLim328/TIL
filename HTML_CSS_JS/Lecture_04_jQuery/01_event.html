@@ -35,6 +35,10 @@
             console.log("hi!");
         });
 
+        $(() => {});
+
+        $(() => {console.log("h1!")});
+
         $().ready(function () {
             console.log("hi!");
         });
@@ -141,7 +145,18 @@
                 css("background-color", "pink"));
 
             let counter = 0;
-            $("#input2").keypress(() => $("span").text(++counter));
+
+            // keypress에서 control, shift, alt, BackSpace 키는 이벤트로 발생하지 않음
+            // print 가능한 값만 가능
+            $("#input2").keypress((event) => {
+                console.log(event.which);
+                if(event.which == 98){ // b를 누르면 감소
+                    $("span").text(--counter);    
+                }
+                else{
+                    $("span").text(++counter);
+                }
+            });
         });
 
         /*
@@ -165,20 +180,27 @@
         /*
             animation event
 
-            hide(speed)
-            show(speed)
-            slideToggle(speed), fadeToggle(speed)
-            slideUp(speed), fadeOut(speed)
-            slideDown(speed), fadeIn(speed)
-            stop
+            hide(speed): 요소 사라짐
+            show(speed): 요소 생김
+            
+            slideToggle(speed): slideUp ↔ slideDown
+            fadeToggle(speed): fadeOut ↔ fadeIn
+            
+            slideUp(speed): 요소를 위로 사라지게 함
+            slideDown(speed): 요소를 아래로 보이게 함
+
+            fadeOut(speed): 요소가 서서히 사라짐
+            fadeIn(speed): 요소가 서서히 생김
+            stop()
         */
 
         $(()=>{
             $("#hidebtn").click(()=>$("#panel").hide(3000));
             $("#showbtn").click(()=>$("#panel").show(3000));
-            $("#togglebtn").click(()=>$("#panel").slideToggle(3000));
+            $("#togglebtn").click(()=>$("#panel").fadeToggle(3000));
             $("#updownbtn").click
-            (()=>$("#panel").slideUp(1000).slideDown(1000));
+            (()=>$("#panel").fadeOut(1000).fadeIn(1000)); 
+            // chaining (함수의 체이닝, 연결)
             $("#stopbtn").click(()=>$("#panel").stop());
 
         });
@@ -241,7 +263,10 @@
     <button type="button" id="togglebtn">Toggle</button>
     <button type="button" id="updownbtn">Up/Down</button>
     <button type="button" id="stopbtn">Stop</button>
-    <div id="panel" style="border:1px solid gray; background-color: aquamarine; width:200px; height:200px">Animation</div>
+    <div id="panel" 
+    style="border:1px solid gray; 
+    background-color: aquamarine; 
+    width:200px; height:200px">Animation</div>
 
 </body>
 

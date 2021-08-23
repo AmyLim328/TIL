@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            html 요소/내용 추가
+
+            append(): 선택한 요소 끝에 내용 삽입
+            prepend(): 선택한 요소 시작부분에 내용 삽입
+            after(): 선택한 요소 뒤에 내용 삽입
+            before(): 선택한 요소 앞에 내용 삽입
+        
+        */
+
+        $(() => {
+            $("#btn1").click(() => $("p").append("<b>Appended Text</b>"));
+            $("#btn2").click(() => $("ol").append("<li>Appended Text</li>"));
+
+            $("#btn3").click(() => $("p").prepend("Prepended Text"));
+            $("#btn4").click(() => $("ol").prepend("Prepended Text"));
+
+            $("#btn5").click(() => $("img").before("Before Image"));
+            $("#btn6").click(() => $("img").after("After Image"));
+        });
+    </script>
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+
+    <ol>
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+    </ol>
+
+    <button id="btn1">Append text</button>
+    <button id="btn2">Append list items</button>
+    <button id="btn3">Prepend text</button>
+    <button id="btn4">Prepend list items</button>
+
+    <h2>////////////////////////////////////////</h2>
+    <img src="./img/dog.jpg" alt="dog" width="300" height="300"><br><br>
+    <button id="btn5">Insert before</button>
+    <button id="btn6">Insert after</button>
+</body>
+</html>
