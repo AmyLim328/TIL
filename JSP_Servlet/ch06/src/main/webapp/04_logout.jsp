@@ -8,10 +8,9 @@
 </head>
 <body>
 <%
-	response.sendRedirect("04_response1_1.jsp");
-	response.setContentType("text/html; charset=EUC-KR");
-	// text/html, text/plain, text/gif, text/xml...
-	
+	session.invalidate(); // 현재 클라이언트 세션 제거
+	response.sendRedirect("03_login.jsp");
+	// 로그인 페이지로 넘어감
 %>
 </body>
 </html>

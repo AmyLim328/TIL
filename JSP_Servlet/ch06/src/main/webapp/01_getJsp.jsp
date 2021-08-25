@@ -7,11 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	response.sendRedirect("04_response1_1.jsp");
-	response.setContentType("text/html; charset=EUC-KR");
-	// text/html, text/plain, text/gif, text/xml...
-	
-%>
+<h1>Get Servlet ¹æ½Ä</h1>
+<form method="get" action="./ex02/GetPostServlet">
+msg: <input name="msg">
+<input type="submit" value="sent">
+</form>
 </body>
 </html>

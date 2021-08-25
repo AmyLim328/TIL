@@ -38,6 +38,7 @@
  	session.setMaxInactiveInterval(60*5);
  	// session 객체의 연결 시간을 5분 (5 * 60) 설정
  	// 5분 경과 후에는 자동 연결 종료
+ 	// 기본값: 30분
  
  %>
 <h1>설문조사</h1>

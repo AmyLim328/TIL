@@ -43,7 +43,8 @@
 	: 요청된 클라이언트에게 전송할 응답 나타내는 객체
 	: javax.servlet.http.HttpServletResponse
 	
-	ex) response.setContentType()
+	ex) response.setContentType
+	("text/html" charset="EUC-KR")
 		: 출력되는 페이지의 Content Type 설정
 		response.getCharacterEncoding()
 		: 요청에 사용된 Encoding 방법 반환

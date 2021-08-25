@@ -7,11 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	response.sendRedirect("04_response1_1.jsp");
-	response.setContentType("text/html; charset=EUC-KR");
-	// text/html, text/plain, text/gif, text/xml...
-	
-%>
+<h1>Servlet ¼¼¼Ç</h1>
+<form method="post" action="./ex03/LoginServlet">
+id : <input name="id"><br/>
+pwd : <input type="password" name="pwd"><br/>
+<input type="submit" value="login">
+</form>
 </body>
 </html>
