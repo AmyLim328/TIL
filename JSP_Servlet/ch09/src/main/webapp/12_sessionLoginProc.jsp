@@ -29,7 +29,7 @@ class="ex01.RegisterMgrPool"/>
 %>
 	<script>
 		alert("Successfully logged in!!");
-		location.href = "13_sessionLoginOk.jsp";
+		location.href = "13_sessionLoginOK.jsp";
 	</script>
 	
 	<%
