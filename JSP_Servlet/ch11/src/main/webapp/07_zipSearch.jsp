@@ -6,8 +6,10 @@
 <%
 	 request.setCharacterEncoding("EUC-KR");
 	 String search = request.getParameter("search");
+	
 	 String area3 = null;
 	 ArrayList<ZipcodeBean> list = null;
+	 
 	 if (search.equals("y")) {
 		area3 = request.getParameter("area3");
 		list = mMgr.zipcodeRead(area3);
@@ -20,14 +22,15 @@
 <title>우편번호 검색</title>
 <script type="text/javascript" src="script.js"></script>
 </head>
-<body>
+<body onLoad="zipFrm.area3.focus()">
 	<div align="center">
 		<br />
+		
 		<form name="zipFrm" method="post">
 			<table>
 				<tr>
-					<td><br/>도로명 입력 : <input name="area3">
-					 <input type="button" value="검색" onclick="loadSearch();">
+					<td><br/>도로명 입력 : <input name="area3" onkeypress="if(window.event.keyCode == 13) {loadSearch()}">
+					 <input type="button" value="검색" onclick="loadSearch()">
 					 </td>
 				</tr>
 				<!-- 검색결과 시작 -->
@@ -39,19 +42,19 @@
 					<td align="center"><br/>검색된 결과가 없습니다.</td>
 				</tr>
 				<%
-					} else {
+						} else {
 				%>
 				<tr>
 					<td align="center"><br/>※검색 후, 아래 우편번호를 클릭하면 자동으로 입력됩니다.</td>
 				</tr>
 				<%
-					for (int i = 0; i < list.size(); i++) {
-							ZipcodeBean bean = list.get(i);
-							String rZipcode = bean.getZipcode();
-							String rArea1 = bean.getArea1();
-							String rArea2 = bean.getArea2();
-							String rArea3 = bean.getArea3();
-							String adds = rArea1 + " " + rArea2 + " " + rArea3 + " ";
+							for (int i = 0; i < list.size(); i++) {
+								ZipcodeBean bean = list.get(i);
+								String rZipcode = bean.getZipcode();
+								String rArea1 = bean.getArea1().trim();
+								String rArea2 = bean.getArea2().trim();
+								String rArea3 = bean.getArea3().trim();
+								String adds = rArea1 + " " + rArea2 + " " + rArea3 + " ";
 				%>
 				<tr>
 					<td><a href="#"

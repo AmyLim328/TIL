@@ -53,7 +53,7 @@
 							<tr>
 								<td>积斥岿老</td>
 								<td><input name="birthday" size="6">
-									ex)830815</td>
+									ex) 830815</td>
 								<td>积斥岿老甫 利绢 林技夸.</td>
 							</tr>
 							<tr>
