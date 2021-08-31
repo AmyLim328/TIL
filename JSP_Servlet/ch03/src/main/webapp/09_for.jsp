@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<!-- 1 + 2 + 3 .... + 10 = 55 -->
+<!-- 1 + 2 + 3 ....8 + 9 + 10 = 55 -->
 <% 
 	int sum1 = 0;
 
@@ -24,7 +24,8 @@
 		
 	<%=sum1%>
 	
-<br/>	
+<br/>
+<!-- out °´Ã¼ println() ÇÔ¼ö -->	
 <% 
 	int sum2 = 0;
 
@@ -37,8 +38,7 @@
 		}
 		sum2 += i;
 	}
-		
-		
+			
 	out.println(sum2);
 %>
 

@@ -1,17 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
 <body>
 
-	<!-- 7, 8ë²ˆ í˜ì´ì§€ì—ì„œ 9ë²ˆìœ¼ë¡œ ì˜¬ ë•Œ
-ì¿ í‚¤ ì •ë³´ ë§Œë£Œê°€ ë  ìˆ˜ ìˆìŒ (í•œë²ˆ ë” í™•ì¸!) 
-	1) 7 -> 9 (ì´ì „ ë¡œê·¸ì¸í–ˆë˜ ì‚¬ëŒ, ì¿ í‚¤ì— id ì €ì¥, ìë™ ë¡œê·¸ì¸)
-	2) 7 -> 8 -> 9 (ìƒˆë¡­ê²Œ ë¡œê·¸ì¸ ì‹œë„)
+	<!-- 7, 8¹ø ÆäÀÌÁö¿¡¼­ 9¹øÀ¸·Î ¿Ã ¶§
+ÄíÅ° Á¤º¸ ¸¸·á°¡ µÉ ¼ö ÀÖÀ½ (ÇÑ¹ø ´õ È®ÀÎ!) 
+	1) 7 -> 9 (ÀÌÀü ·Î±×ÀÎÇß´ø »ç¶÷, ÄíÅ°¿¡ id ÀúÀå, ÀÚµ¿ ·Î±×ÀÎ)
+	2) 7 -> 8 -> 9 (»õ·Ó°Ô ·Î±×ÀÎ ½Ãµµ)
 -->
 	<%
 		String id 
@@ -19,21 +19,21 @@
 	
 		if(id == null){ %>
 			<script>
-				alert("Login has failed!");
+				alert("·Î±×ÀÎ ½ÇÆĞ!");
 				location.href = "11_sessionLogin.jsp";
 			</script>
 		<%  }
 	
 	%>
 
-	<h2 align="center">Cookie Login</h2>
+	<h2 align="center">Cookie ·Î±×ÀÎ</h2>
 	<table width="300" border="1" align="center">
 		<tr>
 			<td colspan="2" align="center"><b>Log On Page</b></td>
 		</tr>
 		<tr>
-			<td align="center"><b><%=id%></b> has logged in</td>
-			<td align="center"><a href="14_sessionLogout.jsp">Logout</a></td>
+			<td align="center"><b><%=id%></b>´ÔÀÌ ·Î±×ÀÎ ÇÏ¼Ì½À´Ï´Ù.</td>
+			<td align="center"><a href="14_sessionLogout.jsp">·Î±×¾Æ¿ô</a></td>
 		</tr>
 	</table>
 </body>

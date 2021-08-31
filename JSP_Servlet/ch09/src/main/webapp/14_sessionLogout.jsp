@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
 <body>
@@ -11,9 +11,9 @@
 	session.invalidate();
 %>
 <script>
-	alert("Logout!");
+	alert("·Î±×¾Æ¿ô!");
 	location.href = "11_sessionLogin.jsp"; 
-	// ë¡œê·¸ì¸ ì‹œë„ í˜ì´ì§€ ì´ë™ 
+	// ·Î±×ÀÎ ½Ãµµ ÆäÀÌÁö ÀÌµ¿
 </script>
 
 </body>

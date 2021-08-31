@@ -12,11 +12,11 @@
 	// 클라이언트 브라우저에서 모든 쿠키 반환
 	
 	if(cookies != null){
-		for(int i = 0; i < cookies.length; i++){
-			if(cookies[i].getName().equals("myCookie")){
-				out.println(cookies[i].getName() + "<br/>");
-				out.println(cookies[i].getValue() + "<br/>");
-			}
+		for(int i = 0; i < cookies.length; i ++){
+			//if(cookies[i].getName().equals("myCookie")){
+			out.println(cookies[i].getName() + "<br/>");
+			out.println(cookies[i].getValue() + "<br/>");
+			//}
 		}
 	}
 %>

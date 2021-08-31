@@ -13,9 +13,8 @@
 	
 	session.setAttribute("idKey", id);
 	session.setAttribute("pwdKey", pwd);
-	
 %>
-세션 생성 완료
-<a href = "04_viewSessionInfo.jsp"> 세선 정보 확인</a>
+세션 생성 완료!
+<a href="04_viewSessionInfo.jsp">세션 정보 확인</a>
 </body>
 </html>

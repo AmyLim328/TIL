@@ -1,25 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <title>Insert title here</title>
 <script src="script.js"></script>
 </head>
 <body>
 <% 
 	String id = (String)session.getAttribute("idKey");
-	if(id != null) { // ì´ë¯¸ ë¡œê·¸ì¸í•œ ì ì´ ìžˆëŠ” ì‚¬ìš©ìžë¼ë©´
+	if(id != null) { // ÀÌ¹Ì ·Î±×ÀÎÇÑ ÀûÀÌ ÀÖ´Â »ç¿ëÀÚ¶ó¸é
 		%>
 		<script>
-			alert("Successfully logged in!");
-			location.href = "13_sessionLoginOK.jsp";
+			alert("·Î±×ÀÎ ¼º°ø!");
+			location.href = "13_sessionLoginOk.jsp";
 		</script>
 	<% }
 
 %>
-	<h2 align="center">Session Login</h2>
+	<h2 align="center">Session ·Î±×ÀÎ</h2>
 	<form name="login" method="post">
 		<table width="300" border="1" align="center">
 			<tr>

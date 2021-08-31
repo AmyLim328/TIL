@@ -24,7 +24,9 @@ import javax.servlet.http.HttpServletResponse;
  * (1) HttpServlet
  * : 서블릿을 만들기 위해 반드시 상속해야하는 필수 클래스
  * : 서블릿 만들기 위해 제공되는 클래스
- * Servlet (인터페이스) - GenericServlet (추상 클래스) - HttpServlet
+ * Servlet (인터페이스) 
+ * - GenericServlet (추상 클래스) 
+ * - HttpServlet (클래스)
  * 
  * * 메소드
  * void init(): 서블릿 객체 생성시 호출되는 메소드
@@ -38,26 +40,38 @@ import javax.servlet.http.HttpServletResponse;
  * https://tomcat.apache.org/tomcat-8.5-doc/servletapi/
  * 
  * 
- * (2) HttpServletRequest
+ * (2) HttpServletRequest (request.)
  * : 클라이언트가 데이터를 입력하거나 또는 클라이언트 정보에 대한 요청 값을 가지고 있는 클래스
  * 
  * * 메소드
- * String getParameter(name): name에 할당된 값을 반환하며 지정된 파라미터 값이 없으면 null 반환
- * String[] getParameterValues(name): name의 모든 값을 String 배열로 반환
- * Enumeration getParameterNames(): 요청에 사용된 모든 파라미터 이름을 java.util.Enumeration 타입으로 반환
- * void setCharacterEncoding(env): post 방식으로 요청된 문자열의 character encoding 설정
+ * String getParameter(name)
+ * : name에 할당된 값을 반환하며 지정된 파라미터 값이 없으면 null 반환
+ * String[] getParameterValues(name)
+ * : name의 모든 값을 String 배열로 반환
+ * Enumeration getParameterNames()
+ * : 요청에 사용된 모든 파라미터 이름을 java.util.Enumeration 타입으로 반환
+ * void setCharacterEncoding(env)
+ * : post 방식으로 요청된 문자열의 character encoding 설정
  
  * 
- * (3) HttpServletResponse
+ * (3) HttpServletResponse (response.)
  * : 클라이언트가 요청한 정보를 처리하고 다시 응답하기 위한 정보를 담고 있는 클래스
  * 
  * * 메소드
- * void setHeader(name, value): 응답에 포함될 Header 설정
- * void setContentType(type): 출력되는 페이지의 content type 설정
- * String getCharacterEncoding(): 응답 페이지의 문자 인코딩 type 반환
- * void sendRedirect(url): 지정된 url로 요청 재전송
+ * void setHeader(name, value)
+ * : 응답에 포함될 Header 설정
  * 
- * (4) HttpSession
+ * void setContentType(type, charset="EUC-KR")
+ * : 출력되는 페이지의 content type 설정
+ * (text/html, text/plain, text/xml, text/gif)
+ * 
+ * String getCharacterEncoding()
+ * : 응답 페이지의 문자 인코딩 type 반환
+ * 
+ * void sendRedirect(url)
+ * : 지정된 url로 요청 재전송
+ * 
+ * (4) HttpSession (session.)
  * : 클라이언트가 세션의 정보를 저장하고 세션 기능을 유지하기 위해서 제공되는 클래스
  * 
  * * 메소드
@@ -98,8 +112,10 @@ public class ExampleServlet extends HttpServlet {
 	
 	/* 객체 직렬화 (serialization)
 	 * 
-	 * 객체 ->(+serialVersionUID) 바이트 배열 
+	 * 객체 (필드1, 필드2 ,,,) ->(+serialVersionUID) 바이트 배열 
 	 * -> 파일, 메모리, DB 서버에 저장
+	 * 
+	 * byte arr[] = {필드1, 필드2 , ....}
 	 * 
 	 * ---------------------------
 	 * 객체 역직렬화 (deserialization)
@@ -118,6 +134,7 @@ public class ExampleServlet extends HttpServlet {
 		
 		response.setContentType
 		("text/html; charset=EUC-KR");
+		
 		PrintWriter out = response.getWriter();
 		// out 객체 (출력 스트림)
 		
@@ -140,7 +157,7 @@ public class ExampleServlet extends HttpServlet {
 	
 	// 서블릿 서비스 종료될 때/코드 수정 재시작 호출
 	// 종료되기 전에 불필요한 자원 해제
-	// 실질적 사용할 일은 거의 없음!
+	// 실질적 사용할 일은 거의 없음! (gc 관리!)
 	@Override
 	public void destroy() {
 		System.out.println("destroy 호출");

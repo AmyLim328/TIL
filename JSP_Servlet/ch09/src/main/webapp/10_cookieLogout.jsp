@@ -1,31 +1,31 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
 <body>
-	<%
+<% 
 	Cookie[] cookies = request.getCookies();
 
 	if(cookies != null){
-		for(int i = 0; i < cookies.length; i++){
+		for(int i = 0; i < cookies.length; i ++){
 			if(cookies[i].getName().equals("idKey")){
 				cookies[i].setMaxAge(0);
-				// ì¿ í‚¤ì˜ ìƒëª… ì£¼ê¸°ë¥¼ 0ìœ¼ë¡œ ë§Œë“¦ (ì¿ í‚¤ ë§Œë£Œ)
+				// ÄíÅ°ÀÇ »ı¸í ÁÖ±â¸¦ 0À¸·Î ¸¸µê (ÄíÅ° ¸¸·á)
 				response.addCookie(cookies[i]);
-				// ì‘ë‹µê°ì²´ì—ê²Œ ì¿ í‚¤ì˜ ë§Œë£Œë¥¼ ì•Œë ¤ì¤Œ
-
+				// ÀÀ´ä°´Ã¼¿¡°Ô ÄíÅ°ÀÇ ¸¸·á¸¦ ¾Ë·ÁÁÜ
 			}
 		}
 	}
 %>
-	<script>
-	alert("Logout!")
-	location.href = "07_cookieLogin.jsp";
-	// ë¡œê·¸ì¸ ì‹œë„ í˜ì´ì§€ ì´ë™
+<script>
+	alert("·Î±×¾Æ¿ô!");
+	location.href = "07_cookieLogin.jsp"; 
+	// ·Î±×ÀÎ ½Ãµµ ÆäÀÌÁö ÀÌµ¿
 </script>
+
 </body>
 </html>

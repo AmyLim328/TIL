@@ -18,11 +18,12 @@
 
  -->
  <%! 
- 	int one;
- 	String msgOne;
+ 	int one; // 0으로 초기화
+ 	String msgOne; // null로 초기화
  %>
  
  <% 
+ 	// 초기화하지 않으면 에러
  	int two = 31;
  	String msgTwo = "Scriptlet Example";
  %>

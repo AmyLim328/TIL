@@ -1,16 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <jsp:useBean id="regMgr" 
 class="ex01.RegisterMgrPool"/>
 <!-- loginRegister(id, pwd)
-	: í…Œì´ë¸”ì— ì•„ì´ë””, íŒ¨ìŠ¤ì›Œë“œê°€ ì¡´ìž¬í•˜ëŠ”ì§€ ì²´í¬
-	: true/false ë°˜í™˜
+	: Å×ÀÌºí¿¡ ¾ÆÀÌµð, ÆÐ½º¿öµå°¡ Á¸ÀçÇÏ´ÂÁö Ã¼Å©
+	: true/false ¹ÝÈ¯
  -->
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
 <body>
@@ -28,14 +28,14 @@ class="ex01.RegisterMgrPool"/>
 		session.setAttribute("idKey", id);
 %>
 	<script>
-		alert("Successfully logged in!!");
-		location.href = "13_sessionLoginOK.jsp";
+		alert("·Î±×ÀÎ ¼º°ø!");
+		location.href = "13_sessionLoginOk.jsp";
 	</script>
 	
 	<%
 	}else{ %>
 	<script>
-		alert("Login has failed!!");
+		alert("·Î±×ÀÎ ½ÇÆÐ!");
 		location.href = "11_sessionLogin.jsp";
 	</script>
 	<% } %>

@@ -52,7 +52,8 @@
             <td colspan="3" align="center"> 
              <input type="button" value="회원가입" onclick="inputCheck()"> &nbsp; 
              <!-- 회원가입 버튼을 누르면 자바스크립트 함수 inputCheck() 호출해서 모든 내용이 정상적으로 들어왔는지 확인 -->
-             <input type="reset" value="다시쓰기"> 
+             <input type="reset" value="다시쓰기">
+             <!-- 작성했던 모든 값들이 초기화 --> 
             </td>
           </tr>
         </form>

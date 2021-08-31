@@ -35,6 +35,7 @@
 		
 		rs = stmt.executeQuery("select * from REGISTER");
 		// 질의문 실행
+		
 		//out.println(rs);
 		if(rs != null){
 			

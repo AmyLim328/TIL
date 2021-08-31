@@ -21,6 +21,9 @@ Forward Tag 포워딩 전의 페이지
 	11.html에서 입력한 데이터 값을 12번으로 보냈다가
 	12번의 forward action tag를 통해
 	13번으로 입력한 데이터 값을 같이 보냄
+	
+	* 12 -> 13 내부적으로 실행됨
+	* url: 12.jsp (13.jsp X)
  -->
  
 <%--<jsp:param>--%>

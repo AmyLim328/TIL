@@ -13,5 +13,12 @@ id : <input name="id"><br/>
 pwd : <input type="password" name="pwd"><br/>
 <input type="submit" value="login">
 </form>
+
+<%
+	out.println(application.getRealPath("/") + "<br/>");
+	out.println(application.getRealPath("./ex03/LoginServlet.java") + "<br/>");
+
+%>
+
 </body>
 </html>

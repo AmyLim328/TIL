@@ -24,9 +24,17 @@
  	include 지시자: 포함시킬 파일 내용을 그대로 넣어서 포함
  	(5, 6번 page 만든 변수는 4번 page 사용 가능)
  	
+ 	<%--<%
+ 		String str = "ttt";
+ 	%>
+ 	<b><%=str%><b/>--%>
+ 	
  	include action tag: 
  	코드 자체 포함 X
  	수행 결과만 포함 O
+ 	
+ 	
+ 	<b>ttt<b/>
  
   -->
 <!DOCTYPE html>

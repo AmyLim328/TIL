@@ -14,6 +14,7 @@ INSERT INTO REGISTER
 VALUES ('admin', '1234', 'eunbin', 
 '901111', '2000000', 'qwer@gmail.com', '010-1234-5678');
 
-select * from register;
+select count(*) from register 
+where id = 'admin' and pwd = '1234';
 
 COMMIT

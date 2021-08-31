@@ -1,41 +1,47 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<jsp:useBean id="regMgr" class="ex01.RegisterMgrPool" />
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<jsp:useBean id="regMgr" 
+class="ex01.RegisterMgrPool"/>
+<!-- loginRegister(id, pwd)
+	: Å×ÀÌºí¿¡ ¾ÆÀÌµð, ÆÐ½º¿öµå°¡ Á¸ÀçÇÏ´ÂÁö Ã¼Å©
+	: true/false ¹ÝÈ¯
+ -->
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
 <body>
-	<%
+<%
 	String id = "";
 	String pwd = "";
 	
 	if(request.getParameter("id") != null){
 		id = request.getParameter("id");
-	} 
+	}
 	if(request.getParameter("pwd") != null){
 		pwd = request.getParameter("pwd");
 	}
 	if(regMgr.loginRegister(id, pwd)){
 		Cookie cookie = new Cookie("idKey", id);
-		// idë¥¼ ì¿ í‚¤ì— ë‹´ìŒ
+		// id¸¦ ÄíÅ°¿¡ ´ãÀ½
 		response.addCookie(cookie);
 %>
 	<script>
-		alert("Successfully logged in!");
-		location.href = "09_cookieLoginOK.jsp";
+		alert("·Î±×ÀÎ ¼º°ø!");
+		location.href = "09_cookieLoginOk.jsp";
 	</script>
+	
 	<%
-	}
-	else { %>
+	}else{ %>
 	<script>
-		alert("Login has failed!");
+		alert("·Î±×ÀÎ ½ÇÆÐ!");
 		location.href = "07_cookieLogin.jsp";
 	</script>
-	<%	
-	}
-	%>
+	<% } %>
+	
+	
 </body>
 </html>

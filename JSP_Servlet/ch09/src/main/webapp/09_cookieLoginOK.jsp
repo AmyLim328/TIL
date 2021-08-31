@@ -1,44 +1,49 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
 <body>
+
+	<!-- 7, 8¹ø ÆäÀÌÁö¿¡¼­ 9¹øÀ¸·Î ¿Ã ¶§
+ÄíÅ° Á¤º¸ ¸¸·á°¡ µÉ ¼ö ÀÖÀ½ (ÇÑ¹ø ´õ È®ÀÎ!) 
+	1) 7 -> 9 (ÀÌÀü ·Î±×ÀÎÇß´ø »ç¶÷, ÄíÅ°¿¡ id ÀúÀå, ÀÚµ¿ ·Î±×ÀÎ)
+	2) 7 -> 8 -> 9 (»õ·Ó°Ô ·Î±×ÀÎ ½Ãµµ)
+-->
 	<%
 	Cookie[] cookies = request.getCookies();
-	// í´ë¼ì´ì–¸íŠ¸ì˜ ëª¨ë“  ì¿ í‚¤ë¥¼ ì½ìŒ
-
+	// Å¬¶óÀÌ¾ðÆ®ÀÇ ¸ðµç ÄíÅ°¸¦ ÀÐÀ½
+	
 	String id = "";
-
-	if (cookies != null) {
-		for (int i = 0; i < cookies.length; i++) {
-			if (cookies[i].getName().equals("idKey")) {
+	
+	if(cookies != null){
+		for(int i = 0; i < cookies.length; i ++){
+			if(cookies[i].getName().equals("idKey")){
 				id = cookies[i].getValue();
 			}
 		}
-
-		// ì´ˆê¸°í™”ëœ ê·¸ëŒ€ë¡œ (ì¿ í‚¤ì— ë‹´ê¸´ ì•„ì´ë””ê°€ ì—†ìŒ)
-		if (id.equals("")) {
-%>
+	
+	
+		// ÃÊ±âÈ­µÈ ±×´ë·Î (ÄíÅ°¿¡ ´ã±ä ¾ÆÀÌµð°¡ ¾øÀ½)
+		if(id.equals("")){ %>
 	<script>
-		alert("Login has failed!");
-		location.href = "07_cookieLogin.jsp";
-	</script>
-	<%
-	}
-}
-	%>
-	<h2 align="center">Cookie Login</h2>
+				alert("·Î±×ÀÎ ½ÇÆÐ!");
+				location.href = "07_cookieLogin.jsp";
+			</script>
+	<%} 
+		}%>
+
+	<h2 align="center">Cookie ·Î±×ÀÎ</h2>
 	<table width="300" border="1" align="center">
 		<tr>
 			<td colspan="2" align="center"><b>Log On Page</b></td>
 		</tr>
 		<tr>
-			<td align="center"><b><%=id%></b> has logged in</td>
-			<td align="center"><a href="10_cookieLogout.jsp">Logout</a></td>
+			<td align="center"><b><%=id%></b>´ÔÀÌ ·Î±×ÀÎ ÇÏ¼Ì½À´Ï´Ù.</td>
+			<td align="center"><a href="10_cookieLogout.jsp">·Î±×¾Æ¿ô</a></td>
 		</tr>
 	</table>
 </body>

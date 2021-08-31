@@ -10,7 +10,7 @@
 <body>
 <%
 	Enumeration en = session.getAttributeNames();
-	// collection 프레임워크가 만들어지기 전에 만들어진 인터페이스
+	// Collection 프레임워크가 만들어지기 전에 만들어진 인터페이스
 	
 	while(en.hasMoreElements()){ // 다음에 반복할 요소 확인
 		String name = (String)en.nextElement();
