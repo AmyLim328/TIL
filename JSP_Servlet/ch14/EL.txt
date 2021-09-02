@@ -1,0 +1,50 @@
+[ JSP 표현 언어 (Expression Language, EL) ]
+
+JSP 스크립트 요소 (4가지)
+1) 선언부 <%! %>
+2) 스크립트릿 <% %>
+3) 표현식 <%= %>
+4) 주석 <%-- --%>
+
+- 3) 표현식을 간단하게 사용하기 위해
+
+<%=name%> => ${name}
+
+- EL 내장 객체
+
+web의 저장소 (scope)
+page < request < session < application
+
+pageScope: page 영역에 존재하는 객체 참조시 사용
+requestScope: request 영역에 존재하는 객체 참조시 사용
+sessionScope: session 영역에 존재하는 객체 참조시 사용
+applicationScope: application 영역에 존재하는 객체 참조시 사용
+param: 파라미터 값 얻어올 때 사용
+paramValues: 파라미터 값을 배열로 얻어올 때 사용
+header: header 정보를 얻어올 때 사용
+headerValues: header 정보를 배열로 얻어올 때 사용
+cookie: 쿠키 객체를 참조할 때 사용
+
+ex)
+${param.id}
+${param["e-mail"]}: 속성명에 특수문자/공백문자를 포함하고 있을 때
+
+${paramValues.id[0]}
+${param["e-mail"][1]}: 속성명에 특수문자/공백문자를 포함하고 있을 때
+
+- EL 연산자
+1) 조작 연산자
+.: 빈 (bean)에 접근하는 연산자
+[]: 배열(리스트)에 접근하는 연산자
+(): 연산자 우선순위 지정
+x ? a : b : 삼항 연산자
+empty: 값이 null일 경우 true 반환
+
+2) 산술 연산자
++, -, *, / (div), % (mod)
+
+3) 논리 연산자
+&& (and), || (or), ! (not)
+
+4) 비교 연산자
+== (eq), != (nq), > (gt), < (lt), >= (ge), <= (le)
