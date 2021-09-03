@@ -8,6 +8,13 @@
 <body>
 <h2>Functions Tags</h2>
 <c:set var="str" value="JSP :: the whole new world!"/>
+<!-- 
+fn:split (문자열 -> 배열)
+arr[] = {JSP, ::, the, whole, new, world!}
+
+fn:join(arr, "&&") (배열 -> 문자열)
+"JSP&&::&&the&&whole&&new&&world!"
+ -->
 <hr width="430" align="left" color="red"/>
 str : <b>${str}</b><br/>
 length : <b>${fn:length(str)}</b><br/>

@@ -8,6 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-${m:add(2, 3)}<br/>
+${m:add(2, 3)} <br/>
 </body>
 </html>

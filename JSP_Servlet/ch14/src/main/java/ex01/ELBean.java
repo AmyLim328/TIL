@@ -10,7 +10,4 @@ public class ELBean {
 	public void setSiteName(String siteName) {
 		this.siteName = siteName;
 	}
-	
-	
-
 }

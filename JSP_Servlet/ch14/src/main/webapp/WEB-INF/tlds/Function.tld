@@ -6,7 +6,7 @@
     <!-- 태그 라이브러리 이름 -->
     <function>
         <name>add</name> 
-          <!-- 함수 이름 -->
+       	<!-- 함수 이름 -->
         <function-class>ex02.ELMethod</function-class>
         <!-- 자바 정적 메서드 (static method)가 속하는 패키지 명 포함한 클래스 -->
         <function-signature>int add(int, int)</function-signature>

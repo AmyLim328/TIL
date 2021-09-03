@@ -9,9 +9,10 @@
 <body>
 id: ${param.id}<br/>
 id: ${param["id"]}<br/>
+
 pwd: ${param.pwd}<br/>
 pwd: ${param["pwd"]}<br/>
-<!-- 대괄호 용법은 속성 이름에
+<!-- 대괄호 용법은 속성 이름에 
 특수문자가 있을 경우에 주로 사용 -->
 </body>
 </html>

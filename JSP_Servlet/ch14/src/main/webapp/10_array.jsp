@@ -1,16 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<%@ page import="java.util.*" %>   
+<%@ page import="java.util.ArrayList" %>
 <%
 	String arr[] = {"JAVA", "JSP", "Servlet"};
 	pageContext.setAttribute("arr", arr);
 	
-	ArrayList<String> list = new ArrayList<String>();
-	for(int i = 0; i <arr.length; i++){
+	ArrayList<String> list 
+	= new ArrayList<String>();
+	
+	for(int i = 0; i < arr.length; i++){
 		list.add(arr[i]);
 	}
 	pageContext.setAttribute("list", list);
-%>   
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +21,7 @@
 </head>
 <body>
 ${pageScope.arr[0]}<br/>
-<!-- pageScope 생략 가능 -->
+<!-- pageScope 생략 가능! -->
 ${arr[1]}<br/>
 ${arr[2]}<br/>
 ${list[0]}<br/>

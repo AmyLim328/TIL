@@ -2,7 +2,7 @@
     pageEncoding="EUC-KR"%>
 <jsp:useBean id="bean" class="ex01.ELBean"/>
 <jsp:setProperty name="bean" property="*"/>
-<%-- setSiteName(request.getAttribute("SiteName")) 호출 --%>
+<%-- setSiteName(request.getAttribute("siteName")) 호출 --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +11,13 @@
 </head>
 <body>
 JSP의 action tag를 이용
-<jsp:getProperty name="bean" property="siteName"/><br/>
-///////////////////////////////// <br/>
-EL 문법 이용
-${pageScope.bean.siteName}<br/>
-${bean.siteName}<br/>
+<jsp:getProperty name="bean" 
+property="siteName"/><br/>
+///////////////////////// <br/><br/>
+
+EL 문법 이용 
+${pageScope.bean.siteName} <br/>
+${bean.siteName} <br/>
 <!-- useBean 액션 태그를 통해서 객체 생성
 => pageContext 저장소에 저장됨
 => EL 호출할 때 pageContext 생략 가능
