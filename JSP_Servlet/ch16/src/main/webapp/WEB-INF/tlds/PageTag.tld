@@ -1,0 +1,24 @@
+<taglib xmlns="http://java.sun.com/xml/ns/javaee" version="2.1">
+  <tlib-version>1.0</tlib-version>
+  <jsp-version>2.2</jsp-version>
+  <short-name>JSPTag</short-name>
+  <tag>
+   <name>page</name>
+   <tag-class>ex03.PageTag</tag-class>
+   <body-content>empty</body-content>
+   <attribute>
+	   	<name>from</name>
+	   	<type>java.lang.Integer</type>
+	   	<rtexprvalue>true</rtexprvalue>
+	   	<!-- 속성값으로 스크립트릿 변수 사용 가능 
+	   		EL 표현식 사용: elexprvalue
+	   	-->
+   </attribute>
+   <attribute>
+	   	<name>to</name>
+	   	<type>java.lang.Integer</type>
+	   	<rtexprvalue>true</rtexprvalue>
+	   	<!-- 속성값으로 스크립트릿 변수 사용 가능 -->
+   </attribute>
+  </tag>
+</taglib>
