@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 스프링 컨테이너 (IoC 컨테이너) -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+ 		http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 주입 객체 -->
+	<bean id="injectionBean" class="scope.InjectionBean"/>
+	
+	<!-- 주입받는 객체 (의존받는 객체) -->
+	<bean id="dependencyBean" 
+	class="scope.DependencyBean">
+		<constructor-arg ref="injectionBean" />
+		<property name="injectionBean" ref="injectionBean"/>
+		<!-- setInjectionBean() -->
+	</bean>	
+	
+	
+	<!-- 기본으로 스프링 컨테이너에서는 객체가 싱글톤으로 생성
+	Singleton (default)
+	: 동일한 데이터 타입에 대해서는 기본적으로 한 개만 생성
+	: getBean()으로 객체 반환하면 동일 객체 반환
+	: 문제점: thread에 안전하지 않음
+	
+	↔ Prototype (거의 사용 안함)
+	: 객체를 새로 만듦
+	: getBean()으로 객체 반환하면 다른 객체 반환
+	
+	-->
+	
+</beans>

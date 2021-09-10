@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!-- StudentAssembler.java 코드와 동일 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+ 		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="studentDao" class="ems.member.dao.StudentDao" ></bean>
+	
+	<!-- 생성자를 통한 의존 객체 주입 -->
+	<!-- 객체가 스프링 컨테이너에서 생성될 때 바로 주입되면서 생성될 수 있음  -->
+	<bean id="registerService" class="ems.member.service.StudentRegisterService">
+		<!-- 객체 주입 -->
+		<constructor-arg ref="studentDao" ></constructor-arg>
+		<!-- 생성자를 통해 객체 주입을 할 건데 주입할 객체 id를 ref에 넣음 -->
+	</bean>
+	
+	<bean id="modifyService" class="ems.member.service.StudentModifyService">
+		<!-- 객체 주입 -->
+		<constructor-arg ref="studentDao" ></constructor-arg>
+	</bean>
+	
+	<bean id="deleteService" class="ems.member.service.StudentDeleteService">
+		<!-- 객체 주입 -->
+		<constructor-arg ref="studentDao" ></constructor-arg>
+	</bean>
+	
+	<bean id="selectService" class="ems.member.service.StudentSelectService">
+		<!-- 객체 주입 -->
+		<constructor-arg ref="studentDao" ></constructor-arg>
+	</bean>
+	
+	<bean id="allSelectService" class="ems.member.service.StudentAllSelectService">
+		<!-- 객체 주입 -->
+		<constructor-arg ref="studentDao" ></constructor-arg>
+	</bean>
+	
+	<!-- setter를 통한 의존 객체 주입 -->
+	<bean id="dataBaseConnectionInfoDev" class="ems.member.DataBaseConnectionInfo">
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<property name="userId" value="scott" />
+		<property name="userPw" value="tiger" />
+	</bean>
+	
+	<bean id="dataBaseConnectionInfoReal" class="ems.member.DataBaseConnectionInfo">
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@192.168.0.1:1521:xe" />
+		<property name="userId" value="masterid" />
+		<property name="userPw" value="masterpw" />
+	</bean>
+	
+	<bean id="informationService" class="ems.member.service.EMSInformationService">
+		<property name="info">
+			<value>Education Management System program was developed in 2021.</value>
+		</property>
+		<property name="copyRight">
+			<value>COPYRIGHT(C) 2021 EMS CO., LTD. ALL RIGHT RESERVED. CONTACT MASTER FOR MORE INFORMATION.</value>
+		</property>
+		<property name="ver">
+			<value>The version is 1.0</value>
+		</property>
+		<property name="sYear">
+			<value>2021</value>
+		</property>
+		<property name="sMonth">
+			<value>1</value>
+		</property>
+		<property name="sDay">
+			<value>1</value>
+		</property>
+		<property name="eYear" value="2021" />
+		<property name="eMonth" value="2" />
+		<property name="eDay" value="28" />
+		
+		<!-- list를 통한 의존 객체 주입 -->
+		<property name="developers">
+			<list>
+				<value>Sally.</value>
+				<value>Eloy.</value>
+				<value>Jasper.</value>
+				<value>Dillon.</value>
+				<value>Kian.</value>
+			</list>
+		</property>
+		
+		<!-- map (key-value)을 통한 의존 객체 주입 -->
+		<property name="administrators">
+			<map>
+				<entry>
+					<key>
+						<value>Sally</value>
+					</key>
+					<value>sally@springPjt.org</value>
+				</entry>
+				<entry>
+					<key>
+						<value>Jasper</value>
+					</key>
+					<value>jasper@springPjt.org</value>
+				</entry>
+			</map>
+		</property>
+		<property name="dbInfos">
+			<map>
+				<entry>
+					<key>
+						<value>dev</value>
+					</key>
+					<ref bean="dataBaseConnectionInfoDev"/>
+				</entry>
+				<entry>
+					<key>
+						<value>real</value>
+					</key>
+					<ref bean="dataBaseConnectionInfoReal"/>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+</beans>
