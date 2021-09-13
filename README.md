@@ -1,4 +1,8 @@
 # TIL
 💻 Today I learned
 
-:computer_mouse: 오늘 배운 내용 기록
+- [Java](https://github.com/AmyLim328/TIL/tree/main/JAVA)
+- [SQL](https://github.com/AmyLim328/TIL/tree/main/SQL)
+- [HTML & CSS & JavaScript](https://github.com/AmyLim328/TIL/tree/main/HTML_CSS_JS)
+- [JSP](https://github.com/AmyLim328/TIL/tree/main/JSP_Servlet)
+- [Spring](https://github.com/AmyLim328/TIL/tree/main/Spring)
