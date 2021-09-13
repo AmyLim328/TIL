@@ -16,7 +16,8 @@ public class MyCalculator {
 		// Calculator c = new CalDiv();....
 		this.left = l;
 		this.right = r;
-		this.calculator = c;	
+		this.calculator = c;
+	
 	}
 	
 	public void result() {

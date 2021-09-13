@@ -1,0 +1,16 @@
+ems\member\configuration\MemberConfig.class
+ems\member\DataBaseConnectionInfo.class
+ems\member\service\StudentSelectService.class
+ems\member\service\EMSInformationService.class
+ems\member\main\MainClassUseXML.class
+ems\member\service\StudentDeleteService.class
+ems\member\dao\StudentDao.class
+ems\member\main\MainClassUseXMLsImport.class
+ems\member\service\StudentAllSelectService.class
+ems\member\service\StudentRegisterService.class
+ems\member\assembler\StudentAssembler.class
+ems\member\service\StudentModifyService.class
+ems\member\main\MainClassUseConfiguration.class
+ems\member\main\MainClass.class
+ems\member\main\MainClassUseXMLs.class
+ems\member\Student.class
