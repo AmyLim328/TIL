@@ -12,7 +12,8 @@
 	ID: ${memId} <br/>
 	PassWord: ${memPw} <br/>
 	Mail: ${memMail} <br/>
-	Phone: ${memPhone1} + "-" + ${memPhone2} + "-" + ${memPhone3} <br/>
+	Phone: ${memPhone1}-${memPhone2}-${memPhone3} <br/>
 	
+	<a href="./resources/html/index.html">Go to Main</a>
 </body>
 </html>

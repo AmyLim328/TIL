@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import com.pjt.ex17.member.Member;
 import com.pjt.ex17.member.dao.MemberDao;
 
+//@Repository, @Component
+//@Service("memService") // 자동으로 MemberService 객체가 스프링 컨테이너 담김
 @Service
 public class MemberService implements IMemberService{
 	
@@ -20,9 +22,9 @@ public class MemberService implements IMemberService{
 	}
 
 	@Override
-	public Member memberSearch(String memId) {
+	public Member memberSearch(String memId, String memPw) {
 		// TODO Auto-generated method stub
-		return dao.memberSelect(memId);
+		return dao.memberSelect(memId, memPw);
 	}
 
 	@Override
@@ -34,9 +36,9 @@ public class MemberService implements IMemberService{
 	}
 
 	@Override
-	public void memberRemove(String memId) {
+	public void memberRemove(String memId, String memPw) {
 		// TODO Auto-generated method stub
-		dao.memberDelete(memId);
+		dao.memberDelete(memId, memPw);
 	}
 
 }

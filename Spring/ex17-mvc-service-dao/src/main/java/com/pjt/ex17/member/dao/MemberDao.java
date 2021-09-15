@@ -8,7 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import com.pjt.ex17.member.Member;
 
-@Repository
+//@Repository, @Component
+@Repository // 자동으로 MemberDao 객체가 스프링 컨테이너 담김
 public class MemberDao implements IMemberDao{
 	
 	// DB 대신해서 HashMap으로 데이터 저장
@@ -60,7 +61,7 @@ public class MemberDao implements IMemberDao{
 	}
 
 	@Override
-	public Member memberSelect(String memId) {
+	public Member memberSelect(String memId, String memPw) {
 		// TODO Auto-generated method stub
 		return dbMap.get(memId);
 	}
@@ -78,7 +79,7 @@ public class MemberDao implements IMemberDao{
 	}
 
 	@Override
-	public void memberDelete(String memId) {
+	public void memberDelete(String memId, String memPw) {
 		// TODO Auto-generated method stub
 		
 		dbMap.remove(memId);
