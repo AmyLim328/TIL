@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .ancestors * {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+
+        .descendants * {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+
+        .siblings * {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+        /*
+            순회 (traverse)
+            : DOM 트리를 가로지는 것 (이동 의미)
+            : 원하는 HTML 요소를 찾거나 선택할 수 있음
+
+            1) 조상 (ancestor)
+                parent(): 직계 부모 반환
+                parents(): 모든 상위 요소 반환
+                parentsUntil(): 주어진 인수 사이의 모든 상위 요소 반환
+
+            2) 자손 (descendants)
+                children(): 직계 자식 반환
+                find(): 모든 하위 요소 반환
+
+            3) 형제/자매 (sibling)
+                sibling(): 모든 형제자매 요소 반환
+                next(): 다음 형제자매 요소 반환
+                nextAll(): 다음 형제자매 모든 요소 반환
+                nextUntil(): 주어진 요소 사이에 모든 다음 형제자매 요소 반환
+                prev(): 이전 형제자매 요소 반환
+                prevAll(): 이전 형제자매 모든 요소 반환
+                prevUntil(): 주어진 요소 사이에 모든 이전 형제자매 요소 반환
+        */
+
+        $(()=>{
+            // $(".clsSpan").parent().css({"color":"red", "border":"2px solid red"});
+            // $(".clsSpan").parents().css({"color":"red", "border":"2px solid red"});
+            // $(".clsSpan").parentsUntil(".parent").css({"color":"red", "border":"2px solid red"});
+            // $("#des1").children().css({"color":"red", "border":"2px solid red"});
+            // $("#des2").children("p.first").css({"color":"red", "border":"2px solid red"});
+            // $("#des3").find("span").css({"color":"red", "border":"2px solid red"});
+            // des3를 id로 갖는 요소 중에 span부터 하위 요소를 다 들고와라!
+
+            // $("h2").siblings().css({"color":"red", "border":"2px solid red"});
+            // $("h2").siblings("p").css({"color":"red", "border":"2px solid red"});
+            // $("h2").next().css({"color":"red", "border":"2px solid red"});
+            // $("h2").nextAll().css({"color":"red", "border":"2px solid red"});
+            // $("h2").nextUntil("p").css({"color":"red", "border":"2px solid red"});
+            // $("h2").prev().css({"color":"red", "border":"2px solid red"});
+            // $("h2").prevAll().css({"color":"red", "border":"2px solid red"});
+            $("h2").prevUntil("p").css({"color":"red", "border":"2px solid red"});
+        });
+
+
+    </script>
+
+    <div class="ancestors">
+        <div class="parent" style="width:500px;">div (great-grandparent)
+            <ul>ul (grandparent)
+                <li>li (direct parent)
+                    <span class="clsSpan">span</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="parent" style="width:500px;">div (grandparent)
+            <p>p (direct parent)
+                <span class="clsSpan">span</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="descendants" id="des1" style="width:500px;">div (current element)
+        <p>p (child)
+            <span>span <span>asdasd</span>(grandchild)</span>
+        </p>
+        <p>p (child)
+            <span>span (grandchild)</span>
+        </p>
+    </div>
+
+    <div class="descendants" id="des2" style="width:500px;">div (current element) 
+        <p class="first">p (child)
+        <span>span (grandchild)</span>   
+        </p>
+        <p class="second">p (child)
+        <span>span (grandchild)</span>
+        </p> 
+    </div>
+
+    <div class="descendants" id="des3" style="width:500px;">div (current element) 
+        <p>p (child)
+        <span>span <span>asdasd</span>(grandchild)</span>   
+        </p>
+        <p>p (child)
+        <span>span (grandchild)</span>
+        </p> 
+    </div>
+
+    <div class="descendants" id="des4" style="width:500px;">div (current element) 
+        <p>p (child)
+        <span>span (grandchild)</span>   
+        </p>
+        <p>p (child)
+        <span>span (grandchild)</span>
+        </p> 
+    </div>
+
+     <div class="siblings">div (parent)
+        <p>p</p>
+        <span>span</span>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <p>p</p>
+    </div>
+</body>
+</html>

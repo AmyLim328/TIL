@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .blue {
+            color: blue;   
+        }
+
+        .imp {
+            font-size: xx-large;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+    <script>
+        /*
+            css 조작 방법
+
+            addClass(): 선택한 요소에 하나 이상 클래스 추가
+            removeClass(): 선택한 요소에 하나 이상 클래스 삭제
+            toggleClass(): 선택한 요소에 하나 이상 클래스 추가/삭제 전환
+            css(): 스타일 속성 설정/반환
+        */
+
+        $(()=>{
+            $("#add").click(()=>{
+                $("p, h1, h2").addClass("blue"); 
+                // 여러 요소에 클래스 지정 가능
+                $("div").addClass("imp");
+            });
+
+            $("#remove").click(()=>{
+                $("p, h1, h2").removeClass("blue"); 
+                // 여러 요소에 클래스 지정 가능
+                $("div").removeClass("imp");
+            });
+
+            $("#toggle").click(()=>{
+                $("p, h1, h2").toggleClass("blue"); 
+                // 여러 요소에 클래스 지정 가능
+                $("div").toggleClass("imp");
+            });
+
+            $("#css").click(()=>{
+                $("p, h1, h2").css({"background-color":"beige", 
+                "font-size":"20px"}); 
+                // css({"background-color":"beige"}); // 1
+                // css("background-color", "beige"); // 2
+
+                // 여러 요소에 클래스 지정 가능
+
+                $("div").css("color", "blue");
+            });
+
+        });
+    </script>
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+
+    <div>This is some important tex t!</div><br>
+
+    <button id="add">Add classes to elements</button>
+    <button id="remove">Remove classes to elements</button>
+    <button id="toggle">Toggle classes to elements</button>
+    <button id="css">Background Color Change</button>
+</body>
+</html>

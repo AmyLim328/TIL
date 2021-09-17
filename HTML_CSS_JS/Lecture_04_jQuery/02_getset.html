@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- 구글 CDN -->
+</head>
+<body>
+    <script>
+        /*
+            content get set
+            text(): 요소의 텍스트 내용 설정하거나 반환
+            html(): 요소의 html 내용 설정하거나 반환
+            val(): form의 필드값 설정하거나 반환
+        */
+
+        $(()=>{
+            $("#btn1").click(() => {
+                let msg = $("#pa").html(); // get
+                alert(msg);
+            });
+
+            $("#btn2").click(() => {
+                let msg = $("#pa").text(); // get
+                alert(msg);
+            });
+
+            $("#btn3").click(() => {
+                let msg = $("#test").val(); // get
+                alert(msg);
+            });
+
+            $("#btn4").click(() => {
+                $("#pa").html("<b>Hello World</b>"); // set
+            });
+
+            $("#btn5").click(() => {
+                $("#pa").text("Hello World"); // set
+            });
+
+            $("#btn6").click(() => {
+                $("#test").val("Sally"); // set
+            });
+
+        });
+
+
+    </script>
+    <h1>jQuery getter/setter</h1>
+    <p id="pa">we are studying <b>jQuery</b></p>
+    <p id="pb">Name: <input type="text" id="test" value="Mickey Mouse"></p>
+    <button type="button" id="btn1">Show HTML</button>
+    <button type="button" id="btn2">Show Text</button>
+    <button id="btn3">Show Value</button>
+    <br/>
+    <button id="btn4">Set HTML</button>
+    <button id="btn5">Set Text</button>
+    <button id="btn6">Set Value</button>
+</body>
+</html>

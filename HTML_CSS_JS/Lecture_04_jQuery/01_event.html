@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- 구글 CDN -->
+
+</head>
+
+<body>
+    <script>
+        /*
+            jQuery: JavaScript의 라이브러리 중 하나
+
+            - js보다 단순, 쉽게 사용하기 위해서 사용
+            - (*) DOM 조작 단순화
+
+            웹 페이지에 추가하는 방법
+            - jQuery 라이브러리 다운로드
+            - CDN (Content Delivery Network)
+        
+        */
+
+        // js 페이지 로드 이벤트
+        window.onload = function () {
+            console.log("hi!");
+        }
+
+        // jQuery 페이지 로드 이벤트
+        $(function () { // 가장 많이 사용되는 형태
+            console.log("hi!");
+        });
+
+        $(() => {});
+
+        $(() => {console.log("h1!")});
+
+        $().ready(function () {
+            console.log("hi!");
+        });
+
+        /*
+            selector (선택자)
+            $("tag"): 태그 이름를 통해 요소 선택
+            $("*"): 모든 요소 선택
+            $(this): 현재 HTML 내의 모든 요소 선택
+            $("#id"): id를 통해 요소 선택
+            $(".class"): class를 통해 요소 선택
+        
+        */
+
+        $(function () {
+            $("#idbtn").click(function () {
+                $("#pa").hide();
+            });
+            $("#classbtn").click(function () {
+                $(".pb").hide();
+            });
+            $("#tagbtn").click(function () {
+                $("h2").hide();
+            });
+        });
+
+        // Arrow Function!
+        $(() => {
+            $("#idbtn").click(() => $("#pa").hide());
+            $("#classbtn").click(() => $(".pb").hide());
+            $("#tagbtn").click(() => $("h2").hide());
+        });
+
+        // css 적용
+        $(() => {
+            const css = {
+                "color": "red",
+                "background-color": "skyblue",
+                "width": "200px",
+                "text-align": "center"
+            };
+
+            $("h2").css(css);
+            $("#pa").css({
+                "font-size": "50px",
+                "font-family": "Times New Roman"
+            });
+            $(".list").css({
+                "list-style-type": "square",
+                "font-size": "20px",
+                "background-color": "pink",
+                "width": "200px"
+            });
+        });
+
+        /*
+            mouse event
+            click: 요소를 클릭했을 때
+            dblclick: 요소를 더블클릭했을 때
+
+            mouseenter: 요소 안으로 마우스를 가져갈 때
+            mouseleave: 요소 밖으로 마우스가 벗어날 때
+
+            mousedown: 마우스를 눌렀을 때 (클릭했을 때)
+            mouseup: 마우스를 놓았을 때 (클릭 해제했을 때)
+
+            mouseover: 요소 위에 있을 때
+            mouseout: 요소 밖으로 벗어날 때
+
+            mousemove: 요소 내에서 움직일 때
+        */
+
+        $(() => {
+            $("#header1").mouseenter
+                (() => $("#header1").css({ "color": "blue" }));
+            $("#header1").mouseleave
+                (() => $("#header1").css({ "color": "lightgray" }));
+
+            $("#header2").mousedown
+                (() => $("#header2").css({ "color": "blue" }));
+            $("#header2").mouseup
+                (() => $("#header2").css({ "color": "lightgray" }));
+
+            $("#header3").mouseover
+                (() => $("#header3").css({ "color": "blue" }));
+            $("#header3").mouseout
+                (() => $("#header3").css({ "color": "lightgray" }));
+
+        });
+
+        /*
+            keyboard event
+
+            keydown: 키를 누르기 시작 발생하는 이벤트
+            keypress: 키를 누르는 중 발생하는 이벤트
+            keyup: 키에서 놓으면 발생하는 이벤트
+        
+        */
+
+        $(() => {
+            $("#input1").keydown(() => $("#input1").
+                css("background-color", "yellow"));
+            $("#input1").keyup(() => $("#input1").
+                css("background-color", "pink"));
+
+            let counter = 0;
+
+            // keypress에서 control, shift, alt, BackSpace 키는 이벤트로 발생하지 않음
+            // print 가능한 값만 가능
+            $("#input2").keypress((event) => {
+                console.log(event.which);
+                if(event.which == 98){ // b를 누르면 감소
+                    $("span").text(--counter);    
+                }
+                else{
+                    $("span").text(++counter);
+                }
+            });
+        });
+
+        /*
+            browser event
+
+            resize: 브라우저의 창 크기 변경
+            scroll: 사용자의 지정 요소에서 스크롤할 때 발생
+        */
+
+        $(() => {
+            $(window).resize(() => {
+                $("#sp1").text(window.innerWidth);
+                $("#sp2").text(window.innerHeight);
+            });
+
+            $("#wrap").scroll(() => {
+                $(".scroll").text("scroll move!");
+            })
+        });
+
+        /*
+            animation event
+
+            hide(speed): 요소 사라짐
+            show(speed): 요소 생김
+            
+            slideToggle(speed): slideUp ↔ slideDown
+            fadeToggle(speed): fadeOut ↔ fadeIn
+            
+            slideUp(speed): 요소를 위로 사라지게 함
+            slideDown(speed): 요소를 아래로 보이게 함
+
+            fadeOut(speed): 요소가 서서히 사라짐
+            fadeIn(speed): 요소가 서서히 생김
+            stop()
+        */
+
+        $(()=>{
+            $("#hidebtn").click(()=>$("#panel").hide(3000));
+            $("#showbtn").click(()=>$("#panel").show(3000));
+            $("#togglebtn").click(()=>$("#panel").fadeToggle(3000));
+            $("#updownbtn").click
+            (()=>$("#panel").fadeOut(1000).fadeIn(1000)); 
+            // chaining (함수의 체이닝, 연결)
+            $("#stopbtn").click(()=>$("#panel").stop());
+
+        });
+
+    </script>
+
+    <h2>h2 tag</h2>
+    <p id="pa">pa tag</p>
+    <p class="pb">pb tag</p>
+    <button id="idbtn">id button hide</button>
+    <button id="classbtn">class button hide</button>
+    <button id="tagbtn">tag button hide</button>
+
+    <!-- list-style-type -->
+    <div class="list">
+        <ul>
+            <li>html</li>
+            <li>css</li>
+            <li>js</li>
+            <li>jquery</li>
+        </ul>
+    </div>
+
+    <h3 id="header1">Mouse Enter / Leave</h3>
+    <h3 id="header2">Mouse Down / UP</h3>
+    <h3 id="header3">Mouse Over / Out</h3>
+
+    이름: <input type="text" id="input1">
+    <br />
+    나이: <input type="text" id="input2">
+    <p>keypress count: <span>0</span></p>
+
+    <p>window size </p>
+    <div>
+        width: <span id="sp1"></span>
+    </div>
+    <div>
+        height: <span id="sp2"></span>
+    </div>
+
+    <br />
+    <br />
+
+    <div id="wrap" style="width: 150px; height:150px; overflow:auto">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl
+        tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem
+        ipsum dolor sit. Volutpat odio facilisis mauris sit amet massa.
+        Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Mi
+        eget mauris pharetra et. Non tellus orci ac auctor augue. Elit at
+        imperdiet dui accumsan sit. Ornare arcu dui vivamus arcu felis.
+        Egestas integer eget aliquet nibh praesent. In hac habitasse platea
+        dictumst quisque sagittis purus. Pulvinar elementum integer enim neque
+        volutpat ac.
+    </div>
+    <span class="scroll"></span>
+
+    <button type="button" id="hidebtn">Hide</button>
+    <button type="button" id="showbtn">Show</button>
+    <button type="button" id="togglebtn">Toggle</button>
+    <button type="button" id="updownbtn">Up/Down</button>
+    <button type="button" id="stopbtn">Stop</button>
+    <div id="panel" 
+    style="border:1px solid gray; 
+    background-color: aquamarine; 
+    width:200px; height:200px">Animation</div>
+
+</body>
+
+</html>
