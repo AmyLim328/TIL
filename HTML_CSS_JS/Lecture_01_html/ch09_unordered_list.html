@@ -1,0 +1,79 @@
+<!-- 
+	<ul>
+	
+	1. 순서가 없는 태그이다.
+	2. 목록을 나열하여 메뉴를 만드는 용도로도 사용한다.
+	3. type 속성
+		1) type="disc" ●
+		2) type="circle" ○
+		3) type="square" ■
+        4) 타입을 이모지로 줄 수도 있음
+        (https://unicode-table.com/en/)
+ -->
+ <!DOCTYPE html>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>unordered list</title>
+ </head>
+ <body>
+     <h1>&lt; 순서 없는 목록 &gt;</h1>
+     <ul type="disc">
+         <li>Tiger</li>
+         <li>Lion</li>
+         <li>Snake</li>
+         <li>Eagle</li>
+         <li>Dolphin</li>
+     </ul>
+     <hr />
+     <ul type="circle">
+         <li>C</li>
+         <li>JAVA</li>
+         <li>Database</li>
+         <li>Web</li>
+         <li>JSP</li>
+         <li>Spring</li>
+     </ul>
+     <hr />
+     <ul type="square">
+         <li>HTML</li>
+         <li>CSS</li>
+         <li>JavaScript</li>
+         <li>JQuery</li>
+     </ul>
+     <hr />
+     <ul style="list-style-type: circle; 
+            color:skyblue;">
+         <li>바닐라라떼 </li>
+         <li>카푸치노 </li>
+         <li>아메리카노 </li>
+     </ul>
+     
+     <hr/>
+     
+     <ul type="disc">
+         <li>운동
+             <ul type="square">
+                 <li>축구
+                     <ul type="circle">
+                         <li> 공격수</li>
+                         <li> 수비수</li>
+                     </ul>
+                 </li>
+                 <li>야구
+                     <ul type="circle">
+                         <li> 투수</li>
+                         <li> 포수</li>
+                         <li> 야수</li>
+                     </ul>
+                 </li>
+             </ul>
+         </li>
+     </ul>
+     
+     
+     
+ </body>
+ </html>

@@ -1,0 +1,188 @@
+<!-- 
+    <form> 태그
+    : 사용자로부터 정보 입력을 받을 때 사용 태그
+
+    주요 속성
+    1) action: 정보를 받아서 
+    어디서 처리할 것인지 처리할 장소 (경로, 위치) 지정
+    2) method: 정보 전달하는 방식
+        (1) get: default, 정보 header에 포함시켜서 보냄
+            ex) http://url/~~~~.html?id=5&pagenum=2
+            정보가 노출됨 (보안 처리 X)
+            검색할 때 빠름
+
+            * 검색시 많이 사용
+            * SELECT적인 성향
+
+        (2) post: 정보 body에 포함시켜서 보냄
+            정보 보안처리
+            느림
+
+            * 회원가입, 로그인
+            * 서버의 데이터/상태를 바꾸기 위해 사용
+    3) enctype: 파일 업로드시 해당 데이터의 인코딩 방식 명시
+ -->
+
+
+<!DOCTYPE html>
+<br lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<hr>
+
+<h1>GET 방식</h1>
+<h3>텍스트 상자</h3>
+<form method="get">
+
+    <!-- 1. 텍스트 상자 -->
+    <input type="text" placeholder="일반 텍스트 상자"><br />
+    <input type="password" placeholder="비밀번호"><br />
+    <input type="number"><br />
+    <input type="email"><br />
+    <input type="url"><br />
+    <input type="tel"><br />
+    <input type="date"><br />
+    <input type="time"><br />
+
+    <!-- 2. 버튼 -->
+    <h3>버튼</h3>
+    일반 버튼: <input type="button" value="전송1"><br />
+    일반 버튼: <button>전송2</button>
+    전송 버튼: <input type="submit" value="전송3"><br />
+    취소 버튼: <input type="reset" value="취소"><br />
+    이미지 버튼: <input type="image" src="./img/dog.jpg" width="200"><br />
+    숨김 버튼: <input type="hidden" name="age" value="20"><br />
+    <!-- age 변수에 20을 저장함 -->
+
+    <!-- 라디오 버튼 -->
+    <!-- 여러 선택 중에서 하나만 선택 가능 (남, 여, 해당없음) -->
+    <h3>라디오 버튼</h3>
+    <input type="radio" name="gender" value="M" checked="checked">남
+    <input type="radio" name="gender" value="F">여
+    <input type="radio" name="gender" value="N">해당없음
+    <hr />
+
+    <!-- 4. 체크 박스 -->
+    <!-- 여러 선택 중에서 다중 선택 가능 (영화, 음악, 운동) -->
+    <input type="checkbox" name="hobby" value="영화">영화
+    <input type="checkbox" name="hobby" value="음악">음악
+    <input type="checkbox" name="hobby" value="운동">운동
+
+    <!-- 5. 필드 셋 (field set) 
+            : 관련 필드 묶음
+        -->
+    <h3>필드 셋</h3>
+    <fieldset>
+        <legend>지역</legend>
+        <!-- 필드 셋의 제목은 lengend -->
+        <input type="checkbox" name="region" value="강남">강남<br />
+        <input type="checkbox" name="region" value="강북">강북<br />
+        <input type="checkbox" name="region" value="강동">강동<br />
+        <input type="checkbox" name="region" value="강서">강서<br />
+    </fieldset>
+
+    <!-- 6. textarea
+            : 많은 양의 텍스트를 처리하기 위한 태그
+            속성: 행: rows, 열: cols -->
+    <h3>text Area</h3>
+    <textarea rows="10" cols="100" placeholder="자기소개를 입력하시오." style="resize:none">
+        </textarea>
+
+    <!-- 7. 목록 상자 (선택만 가능) 
+        <select> 태그 목록을 만듦
+        <option> 태그 값 추가
+        -->
+    <h3>목록 상자</h3>
+    <select name="addr1">
+        <option value="seoul">서울</option>
+        <option value="gyeonggi">경기</option>
+        <option value="incheon">인천</option>
+    </select>
+    <!-- addr1 = gyeonggi -->
+
+    <!-- 8. 콤보 상자 (목록 상자 + 직접 입력)  -->
+    <h3>콤보 상자</h3>
+    <input type="text" list="animals">
+    <datallist id="animals">
+        <option value="개">개</option>
+        <option value="고양이">고양이</option>
+        <option value="햄스터">햄스터</option>
+    </datallist>
+
+    <!-- 9. 기타 -->
+    <!-- 진행바: 전체 100 중에서 50 진행상태 -->
+    50% 진행: <progress value="50" max="100"></progress><br />
+    <!-- 범위바: 0~100사이에 10단위로 표시 -->
+    범위: <input type="range" min="0" max="100" step="10"><br />
+    <!-- 색상표 -->
+    색상표: <input type="color"><br />
+    <!-- 파일 첨부 -->
+    첨부 파일: <input type="file">
+</form>
+
+</br>
+</br>
+
+<h1>POST 방식</h1>
+<h3>로그인 페이지</h3>
+<form action="#" method="post">
+    <!-- action="#": submit 처리 방법 (나중에 처리) -->
+    <!-- method="post": 아이디나 비밀번호 보안 위해 사용 -->
+    <label>아이디: <input type="text" size="15" id="uId" placeholder="아이디"></label>
+    <label>비밀번호: <input type="password" size="15" id="uPass" placeholder="비밀번호"></label>
+    <input type="submit" value="로그인"><br />
+</form>
+
+<!-- 회원가입 페이지 -->
+<h3>회원가입 페이지</h3>
+<form action="#" method="post">
+    <h4>로그인 정보</h4>
+    <table>
+        <tr>
+            <td><label for="uId">아이디</label></td>
+            <td><input type="text" size="15" id="uId" /></td>
+        </tr>
+        <tr>
+            <td><label for="pw1">비밀번호</label></td>
+            <td><input type="password" size="15" id="pw1" /></td>
+        </tr>
+        <tr>
+            <td><label for="pw2">비밀번호 확인</label></td>
+            <td><input type="password" size="15" id="pw2" /></td>
+        </tr>
+    </table>
+    <h4>개인 정보</h4>
+    <table>
+        <tr>
+            <td><label for="name">이름</label></td>
+            <td><input type="text" size="15" id="name" /></td>
+        </tr>
+        <tr>
+            <td><label for="mail">메일주소</label></td>
+            <td><input type="email" size="15" id="mail" /></td>
+        </tr>
+        <tr>
+            <td><label for="phone">연락처</label></td>
+            <td><input type="tel" size="15" id="phone" /></td>
+        </tr>
+        <tr>
+            <td><label for="homepage">블로그/홈페이지</label></td>
+            <td><input type="url" size="15" id="homepage" /></td>
+        </tr>
+    </table>
+    <input type="submit" value="가입하기" />
+</form>
+
+
+</form>
+
+
+
+</body>
+
+</html>
