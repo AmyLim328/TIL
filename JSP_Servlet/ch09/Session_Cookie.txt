@@ -1,0 +1,65 @@
+HTTP 프로토콜 (통신 약속)
+: 상태가 없는 프로토콜
+=> 사용자의 브라우저와 서버 간의 상태 보존 X
+=> HTTP 프로토콜 기반 
+상태 보존하기 위해 Session 사용
+
+//////////////////////
+
+Session (세션)
+: HttpSession 인터페이스 객체
+: 사용자의 브라우저와 서버 간의 논리적인 연결
+: (*) 서버가 클라이언트 정보를 가지고 있는 상태
+: 서버와 관련된 정보 노출하지 않기 위해서 
+쿠키보다는 세션 이용하는 게 좋음!
+
+1) 클라이언트 -> 서버 요청
+2) 서버에서는 가지고 있던 정보를 통해
+동일 클라이언트인지 알 수가 있음 (세션)
+
+
+Object getAttribute(String name): name이란 이름이 해당되는 속상값을 Object 타입으로 반환
+								 (해당되는 이름이 없을 경우 null 반환)
+Enumeration getAttributeNames(): 속성의 이름들을 Enumeration 타입으로 반환
+long getCreationTime(): 1970/1/1 자정을 기준으로 하여 현재 세션이 생성된 시간까지 
+						지난 시간을 계산하여 밀리세컨트로 반환
+String getId(): 세션에 할당된 유일한 식별자 (ID)를 String 타입으로 반환
+int getMaxInactiveInterval(): 현재 생성된 세션을 유지하기 위해 설정된 최대 시간을 정수형으로 반환
+void invalidate(): 현재 생성된 세션 무효화
+void removeAttribute(java.lang.String name): name으로 지정한 속성의 값을 지움
+void setAttribute(java.lang.String name, java.lang.Object value): name으로 지정한 값에 value 값 할당
+void setMaxInactiveInterval(int interval): 세션의 최대 유지시간을 초 단위로 설정
+
+1) 세션 생성: session.setAttribute("mySession", "session value");
+	>> mySession이란 이름을 가진 세션에 session value 값 설정
+	>> mySession이라는 이름을 가진 세션 객체 생성
+2) 세션 유지시간 설정: session.setMaxInactiveInterval(60*5); // 세션 유지시간 5분 설정
+	>> 생성된 세션 유지시간 설정
+	>> 세션은 기본적으로 유지시간 30분 (1800초)
+	>> 사용자 접속 후 세션이 생성되었을 때 이후에 아무런 동작이 없는 동안 세션을 유지하는 최대 시간을 설정
+	>> 사용자가 5분 동안 아무런 동작이 없는 경우 세션 최대 지속시간은 5분으로 설정 (세션 자동 종료)
+3) 세션 속성 삭제: session.removeAttribute("mySession");
+	>> mySession이란 이름을 가진 세션에 부여된 값 삭제
+4) 세션 삭제: session.invalidate()
+	>> 생성된 세션 삭제
+
+
+
+////////////////////
+
+Cookie (쿠키)
+: Cookie 클래스 객체
+: (*) 사용자한테 정보가 저장되는 것
+: 사용자가 먹고 남은 쿠키 부스러기 (연결 정보)를
+사용자에게 남겨둘게!
+
+1) 처음 연결하는 서버에서는 
+클라이언트한테 쿠키가 없기 때문에 
+서버 생성 -> 클라이언트 저장
+
+2) 다시 연결하면 쿠키에 담아둔 정보를 포함해
+서버 요청 
+(이전 연결했던 클라이언트인지 서버가 알게 됨)
+
+ex) 이전에 방문했던 사이트 
+로그인 아이디 기억 (자동완성)

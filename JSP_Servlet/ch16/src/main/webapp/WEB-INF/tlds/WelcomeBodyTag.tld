@@ -1,0 +1,15 @@
+<taglib xmlns="http://java.sun.com/xml/ns/javaee" version="2.1">
+  <tlib-version>1.0</tlib-version>
+  <jsp-version>2.2</jsp-version>
+  <short-name>JSPTag</short-name>
+  <tag>
+   <name>welcomeBody</name>
+   <tag-class>ex02.WelcomeBodyTag</tag-class>
+   <body-content>scriptless</body-content>
+   <!-- 
+   	empty: 본문을 허용하지 않음
+   	scriptless: 본문 허용함 (일반 html 텍스트 포함, 기본값)
+    tagdependent: 본문 허용함 (태그 포함)
+   -->
+  </tag>
+</taglib>

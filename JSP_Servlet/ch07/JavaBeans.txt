@@ -1,0 +1,37 @@
+< 자바 빈즈 (Java Beans) >
+: bean (콩), 소프트웨어 덩어리 (컴포넌트)
+==> 클래스로 구현
+
+: jsp 페이지를 단순화, 재활용
+
+"컴포넌트 (부품)을 만들어서 
+JSP 간단히 호출해서 사용하자!"
+
+ex) DB 연결, 사용자 관리 
+
+< JSP 파일 + 빈 (Beans) >
+- 액션 태그를 이용해서 빈 생성/접근/설정
+<jsp:useBean id="..." class="..." scope="..."/>
+: 빈 생성
+	- id: 빈 이름
+	- class: 클래스 이름
+	- scope: 빈이 살아있는 유효 영역
+		* page, request, session, application
+		
+<jsp:setProperty name="..." 
+property="..." value="..."/> == setXXXX(value)
+: 빈 값 설정 (setter 호출)
+	- name: useBean id값과 동일
+	- property: 빈의 변수 (속성) 선택
+
+<jsp:getProperty name="..." 
+property="..." /> == getXXXX()
+: 빈 값 반환 (getter 호출)
+	- name: useBean id값과 동일
+	- property: 빈의 변수 (속성) 선택
+
+
+
+
+
+

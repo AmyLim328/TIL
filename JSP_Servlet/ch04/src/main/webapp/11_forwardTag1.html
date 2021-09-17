@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- forward action tag
+	: 다른 페이지로 이동될 때 사용하는 태그
+	: jsp 페이지 내에서 forward를 만나면
+	기존 jsp 페이지의 모든 내용을 버림
+	forward 태그가 지정한 페이지로 이동
+	
+	ex) 사용자가 입력한 값에 따라 여러 페이지로 이동
+	
+	forward vs include
+	forward: 페이지 전환 (제어권 넘어감)
+	include: 페이지 포함
+	(기존 페이지에 결과 반환해서 출력)
+ -->
+<h1>Forward Tag Example</h1>
+<form method="post" action="12_forwardTag1_1.jsp">
+아이디: <input name="id"><br/>
+패스워드: <input type="password" name="pwd"><br/>
+<input type="submit" value="제출">
+</form>
+</body>
+</html>
