@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: burlywood;
+            margin-left: 200px;
+        }
+
+        .rotate-box{
+            transform: rotate(10deg) 
+            /* 시계방향 10도 */
+        }
+
+        .translate-box{
+            transform:translate(100px, 200px);
+            /* x 방향 100px, y 방향 200px */
+        }
+
+        .scale-box{
+            transform: scale(1.2, 1.2);
+            /* 가로, 세로 1.2배 */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>일반박스</h1>
+    <div class="box"></div>
+    <br/><br/><br/>
+
+    <h1>회전: rotate</h1>
+    <div class="rotate-box"></div>
+    <br/><br/><br/>
+
+    <h1>이동: translate</h1>
+    <div class="translate-box"></div>
+    <br/><br/><br/>
+    
+    <h1>크기: scale</h1>
+    <div class="scale-box"></div>
+    <br/><br/><br/>
+    
+</body>
+</html>

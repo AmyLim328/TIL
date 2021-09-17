@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            color: limegreen;
+            text-align: center;
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .info {
+            text-align: center;
+            background-color: lightgray;
+            width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        hr {
+            width: 600px;
+            border: solid gray;
+        }
+
+        .btn {
+            padding-top: 10px;
+            text-align: center;
+        }
+
+        tr {
+            text-align: left;
+        }
+
+        td {
+            padding-right: 80px;
+            padding-block: 10px;
+        }
+
+        #phone1 {
+            outline: 1px solid gray;
+        }
+
+        input[type=text] {
+            outline: 1px solid gray;
+        }
+
+        input[type=tel] {
+            outline: 1px solid gray;
+        }
+
+        input[type=email] {
+            outline: 1px solid gray;
+        }
+
+        input[type=password] {
+            outline: 1px solid gray;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#" method="post" id="sign_up">
+        <h1>회원가입 폼</h1>
+        <div class="info">
+            <hr>
+            <b>필수정보</b>
+            <hr>
+        </div>
+        <table>
+            <tr>
+                <td><label for="id">아이디</label></td>
+                <td><input type="text" size="40" id="id"></td>
+            </tr>
+            <tr>
+                <td><label for="pw1">비밀번호</label></td>
+                <td><input type="password" size="40" id="pw1"></td>
+            </tr>
+            <tr>
+                <td><label for="pw2">비밀번호 확인</label></td>
+                <td><input type="password" size="40" id="pw2"></td>
+            </tr>
+            <tr>
+                <td><label for="name">이름</label></td>
+                <td><input type="text" size="40" id="name"></td>
+            </tr>
+            <tr>
+                <td>성별</td>
+                <td>
+                    <input type="radio" name="gender" id="male" value="M" checked="checked">
+                    <label for="male">남자</label>
+                    <input type="radio" name="gender" id="female" value="F">
+                    <label for="female">여자</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="phone">연락처</label></td>
+                <td>
+                    <select name="phone" id="phone1">
+                        <option value="010">010</option>
+                        <option value="02">02</option>
+                    </select>
+                    - <input type="tel" size="8" id="phone2">
+                    - <input type="tel" size="8" id="phone3">
+                </td>
+            </tr>
+        </table>
+        <div class="info">
+            <hr>
+            <b>선택정보</b>
+            <hr>
+        </div>
+        <table>
+            <tr>
+                <td><label for="nickname">닉네임</label></td>
+                <td><input type="text" size="40" id="nickname"></td>
+            </tr>
+            <tr>
+                <td><label for="email">이메일</label></td>
+                <td><input type="email" size="20" id="email1">
+                    @ <input type="email" size="10" id="email2" placeholder="도메인 입력">
+                </td>
+            </tr>
+            <tr>
+                <td>이메일 수신</td>
+                <td>
+                    <input type="radio" name="email_reception" id="email_received" value="yes" checked="checked">
+                    <label for="email_received">수신</label>
+                    <input type="radio" name="email_reception" id="email_not_received" value="no">
+                    <label for="email_not_received">미수신</label>
+                </td>
+            </tr>
+            <tr>
+                <td>SMS 수신</td>
+                <td>
+                    <input type="radio" name="sms_reception" id="sms_received" value="yes" checked="checked">
+                    <label for="sms_received">수신</label>
+                    <input type="radio" name="sms_reception" id="sms_not_received" value="no">
+                    <label for="sms_not_received">미수신</label>
+                </td>
+            </tr>
+            <tr>
+                <td>취미 활동</td>
+                <td>
+                    <input type="checkbox" name="hobby1" value="reading" checked="checked"> 독서
+                    <input type="checkbox" name="hobby2" value="fishing"> 낚시
+                    <input type="checkbox" name="hobby3" value="swimming"> 수영
+                </td>
+            </tr>
+            <tr>
+                <td>프로필 사진</td>
+                <td><input type="file"></td>
+            </tr>
+        </table>
+        <hr>
+    </form>
+    <div class="btn">
+        <button type="submit" form="sign_up">회원가입</button>
+        <button type="reset" form="sign_up">다시작성</button>
+    </div>
+
+</body>
+
+</html>

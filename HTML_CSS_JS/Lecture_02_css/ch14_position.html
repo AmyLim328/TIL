@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width:100px;
+            height:100px;
+            border: 1px solid black;
+        }
+        #red{
+            background-color: red;
+            top: 100px;
+            left:100px;
+            position: relative;
+        }
+        #orange{
+            background-color: orange;
+            top: 100px;
+            left:100px;
+            position: relative;
+        }
+        #yellow{
+            background-color: yellow;
+            top: 100px;
+            left:100px;
+            position: relative;
+        }
+        #green{
+            background-color: green;
+            top: 100px;
+            left:100px;
+            position: relative;
+        }
+        /* position: relative
+        1. 기존 요소를 참고해서 알아서 배치
+        2. 기존 요소를 기준으로 top, left, bottom, right 값 사용 */
+    
+        .content{
+            position: absolute;
+            left: 220px;
+            top: 500px;
+        }
+
+        .top-menu{
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 2000px;
+            height: 100px;
+            border: 1px solid black;
+            background-color: aquamarine;
+        }
+
+        /* position: absolute
+        1. 원하는 위치를 직접 지정 (top, bottom, left, right) */
+
+        /* position: fixed
+        1. 원하는 위치를 직접 지정 (top, bottom, left, right)
+        2. 브라우저 스크롤이 움직여도 위치 고정  */
+
+    </style>
+</head>
+<body>
+    <div class="top-menu">상단메뉴</div>
+
+    <div class="box" id="red">
+        <div class="box" id="orange">
+            <div class="box" id="yellow">
+                <div class="box" id="green">
+                </div>
+            </div>
+        </div>    
+    </div>
+
+    <div class="box" id="red">
+    </div>
+    <div class="box" id="orange">
+    </div>    
+    <div class="box" id="yellow">
+    </div>
+    <div class="box" id="green">
+    </div>
+
+    <div class="content">
+        콘텐츠
+    </div>
+
+</body>
+</html>
