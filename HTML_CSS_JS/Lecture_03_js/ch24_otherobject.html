@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Date
+        let now = new Date(); // 현재 시스템 시간 저장
+
+        let date1 = new Date(2021, 7, 17, 17, 38); 
+        // Date(year, month, date, hour, minute, second, ms);
+        // year: 반드시 네자리 숫자
+        // month: 0 ~ 11 (1월 ~ 12월) 사이 숫자
+        // date: 기본값 1
+        // hour, minute, second, ms: 기본값 0
+
+        console.log(now);
+        console.log(date1);
+
+        // getter, setter 필요한 정보 추출
+        /*
+        getter : 날짜에서 필요한 정보 추출
+        
+        1. getFullYear()		년도(yyyy)
+        2. getMonth()			월(0 ~ 11)
+        3. getDate()			일(1 ~ 31)
+        4. getDay()				요일번호(0:일, 1:월, ..., 6:토 )
+        5. getHours()			시(0 ~ 23)
+        6. getMinutes()			분(0 ~ 59)
+        7. getSeconds()			초(0 ~ 59)
+        8. getMilliseconds()	밀리초(0 ~ 999)
+        9. getTime()			1970년 1월 1일 기준 몇 밀리초가 지났는지 추출
+        
+        setter : 날짜나 시간을 원하는 정보로 변경
+        
+        1. setFullYear(년도)		년도(yyyy)
+        2. setMonth(월)			    월 (0 ~11)
+        3. setDate(일)			    일(1 ~ 31)
+        4. setHours(시)			    시(0 ~ 23)
+        5. setMinutes(분)		    분(0 ~ 59)
+        6. setSecond(초)			초(0 ~ 59)
+        7. setMillisecond(밀리초)	밀리초(0 ~ 999)
+	 
+	    */
+
+
+        // Math
+        console.log(Math.PI);
+        console.log(Math.pow(2, 3)); // 2^3 
+        console.log(2 ** 3); // 2^3
+        console.log(Math.abs(-10));  // absolute (거리 함수, 양수로 반환)
+        console.log(Math.sqrt(4)); // sqrt(4) == 2
+        console.log(Math.max(1, 2, 3, 4, 5));
+        console.log(Math.min(1, 2, 3, 4, 5));
+        console.log(Math.round(12.34)); // 정수로 반올림 (12)
+        console.log(Math.ceil(12.34)); // 정수로 올림 (13)
+        console.log(Math.floor(12.34)); // 정수로 내림 (12)
+
+        // Random (난수)
+        console.log(Math.random()); // 0 <=     < 1
+        
+        // 0 ~ 99 사이 반환
+        console.log(Math.floor(Math.random() * 100)); 
+        // 0.xxxx <=     < 100.xxxx
+        // 0 <=     < 100
+
+        // 1 ~ 100 사이 반환 
+        console.log(Math.floor(Math.random() * 100) + 1); 
+        // 0.xxxx <=     < 100.xxxx
+        // 0 <=     < 100
+        // 1 <=     < 101
+        
+    </script>
+</body>
+</html>

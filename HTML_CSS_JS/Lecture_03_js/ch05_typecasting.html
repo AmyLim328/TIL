@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = true; 
+        let b = 100;
+        let c = "hello";
+        // a, b, c의 데이터 타입은 데이터가 들어올 때 결정
+
+        document.write(a + "<br/>");
+        document.write(b + "<br/>");
+        document.write(c + "<br/>");
+        document.write("------------------ <br/>");
+
+        // 숫자로 변환: Number(값);
+        document.write(Number(a) + "<br/>"); 
+        // true -> 1
+        document.write(Number(b) + "<br/>");
+        // 100 -> 100
+        document.write(Number(c) + "<br/>");
+        // "hello" -> x (Not a Number, NaN)
+        document.write("------------------ <br/>");
+
+        // 문자열로 변환: String(값);
+        document.write(String(a) + "<br/>");
+        // true -> "true"
+        document.write(String(b) + "<br/>");
+        // 100 -> "100"
+        document.write(String(c) + "<br/>");
+        // "hello" -> "hello"
+        document.write("------------------ <br/>");
+
+
+        // Boolean으로 변환: Boolean(값);
+        document.write(Boolean(a) + "<br/>");
+        // true -> true
+        document.write(Boolean(b) + "<br/>");
+        // 100 -> true
+        // why? 
+        // true: 0이 아닌 수 (-100, 100, 1 (대표), 2, -1000)
+        // false: 0
+        document.write(Boolean(c) + "<br/>");
+        // hello -> true
+        // why? 
+        // true: 데이터 존재
+        // false: 빈 문자열 ("")이거나 null
+        document.write("------------------ <br/>");
+
+
+    </script>
+</body>
+</html>

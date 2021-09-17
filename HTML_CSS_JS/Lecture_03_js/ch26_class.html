@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            JS 클래스 (class)
+            - ES6 소개
+            - 프로토타입의 언어이지만 간결하게 표현하기 위해 문법 추가 
+            (syntatic sugar)
+        */
+
+        class Person{
+            // 생성자
+
+            static type = 'Person';
+            
+            // 사파리 지원안함 ..
+            publicField = 2; // public
+            #privateField = 10; // private
+
+            constructor(name, age){
+                // 필드 정의
+                this.name = name;
+                this.age = age;
+            }
+
+            // 함수 정의
+            speak(){
+                console.log(this.name + ": hello!");
+            }
+
+            // getter, setter
+            // constructor 객체 생성될 때 호출
+            get age(){
+                return this._age;
+            }
+
+            set age(value){
+                // 캡슐화 (encapsulation)
+                this._age = value >= 0 ? value : 0;
+            }
+        }
+
+        const eunbin = new Person('eunbin', -1);
+        console.log(eunbin);
+        // console.log(eunbin.name);
+        // console.log(eunbin.age);
+        eunbin.speak();
+        console.log(eunbin);
+        
+        // 상속 (inheritance) (extends)
+        class Shape{
+            constructor(width, height){
+                this.width = width;
+                this.height = height;
+            }
+            draw(){
+                console.log('drawing shape');
+            }
+        }
+
+        class Rectangle extends Shape{
+            draw(){ // 재정의 (overriding)
+                super.draw(); // drawing shape
+                console.log('drawing rectangle');
+            }
+            getArea(){
+                return (this.width * this.height);
+            }
+            toString(){
+                return "Rectangle!";
+            }
+        }
+
+        const rect = new Rectangle(10, 10);
+        rect.draw();
+        const area = rect.getArea();
+        console.log(area);
+        console.log(rect.toString());
+
+        // 객체 속해있는 클래스 확인: instanceof
+        console.log(rect instanceof Rectangle); // true
+        console.log(rect instanceof Shape); // true
+        
+        
+
+
+    </script>
+</body>
+</html>

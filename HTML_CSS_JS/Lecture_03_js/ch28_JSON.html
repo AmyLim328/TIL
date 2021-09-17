@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            HTTP (HyperText Transfer Protocol (규약, 약속))
+            : HyperText: 하이퍼링크, 이미지, 문서 등 모든 리소스 포함
+            : 클라이언트와 서버 사이에 이루어진 
+              요청(request, client)/응답(response, server) 프로토콜
+
+            서버에서 데이터를 요청해서 받아올 수 있는 방법
+            : AJAX (Asynchronous Javascript and XML)
+            : 웹 전체 페이지를 로딩하지 않아도 일부분만 갱신할 수 있게 해줌
+            : XML: HTML과 같은 마크업 언어 
+            (데이터를 쉽게 주고 받을 때, 불필요한 태그 많음)
+        
+                ↓
+
+            JSON (JavaScript Object Notation)
+            : 데이터를 주고 받을 때 쓸 수 있는 간단한 포맷
+            : 텍스트 기반 가벼움
+            : {key:value} (string)
+            : 서버와 데이터를 주고 받을 때 serialization (직렬화) 
+            (데이터 전송시)
+            : 프로그래밍 언어, 플랫폼 제약 X
+
+            object --> serialize --> string "{key:value, key:value}"
+            object <-- deserialize <-- string
+        */
+
+
+        // 1) Object to JSON
+        let json = JSON.stringify(true);
+        // true (boolean) -> "true" (string)
+        console.log(json);
+        console.log(typeof(json));
+
+        json = JSON.stringify(['apple', 'banana']);
+        // ['apple', 'banana'] -> "['apple', 'banana']" (string)
+        console.log(json);
+        console.log(typeof(json));
+
+        const rabbit = {
+            name: 'tori',
+            color: 'white',
+            birthDate: new Date()
+        }
+
+        json = JSON.stringify(rabbit);
+        console.log(json);
+        console.log(typeof(json));
+
+        // 원하는 속성만 골라서 stringify
+        json = JSON.stringify(rabbit, ['name', 'color']);
+        console.log(json);
+        console.log(typeof(json));
+
+        // 2) JSON to Object
+        // parse(json)
+        const obj = JSON.parse(json);
+        console.log(obj);
+        console.log(typeof(obj));
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 디폴트 파라미터 (default parameters)
+        // : 매개변수의 기본값을 지정
+        // : 인자로 넘겨주지 않을 경우에 기본값으로 셋팅
+
+        function showMessage(msg, from = 'unknown'){
+            console.log(msg + " by " + from);
+        }
+        showMessage('Hello!');
+        showMessage('Hello!', 'Eunbin');
+
+        // Rest 매개변수 (ES6)
+        // : 가변 매개변수
+        function printAll(...args){ // 배열 형태 전달
+            // for(let i = 0; i < args.length; i ++){
+            //     console.log(args[i]);
+            // }
+
+            // for (let arg of args){
+            //     console.log(arg);
+            // }
+            
+            // 배열 객체 함수
+            args.forEach(function(arg){
+                console.log(arg);
+            });
+
+            // Arrow Function (ES6)
+            // : 익명함수 같이 사용 가능!
+            args.forEach(arg => console.log(arg));
+        }
+        printAll();
+        printAll('hello', 'js');
+        printAll('hello', 'js', 'jsp');
+        printAll('hello', 'js', 'jsp', 'spring');
+
+    </script>
+</body>
+</html>

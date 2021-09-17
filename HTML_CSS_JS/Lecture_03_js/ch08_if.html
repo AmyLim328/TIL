@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="output">dasdasdas</div>
+    <div id="grade">학점: </div>
+    <p>학점: <span id="grade-span"></span>점</p>
+    <!-- <p> 블록레벨, <span> 인라인레벨 -->
+    
+    <!-- "<ASDADASDASDASD>" -->
+    <!-- "<ASDA<DAD>ASD>" -->
+
+    <script>
+        // 자바스크립트 조건문
+
+        let x = 10;
+        if (x > 0){
+            document.write("양수 <br/>");
+        }
+        else if(x == 0){
+            document.write("0 <br/>");
+        }
+        else {
+            document.write("음수 <br/>");
+        }
+
+        let output = document.getElementById("output");
+        let age = "20";
+        if(age >= 19){
+            output.innerHTML += "성인 <br/>";
+        }
+        else if (age >= 8){
+            output.innerHTML += "학생 <br/>";
+        }
+        else {
+            output.innerHTML += "유치원생 <br/>";
+        }
+
+        // 1. 사용자에게 국어, 영어, 수학 점수를 입력받아서 (prompt)
+        // 평균이 90점 이상이면 A
+        // 평균이 80점 이상, 90점 미만 B
+        // 평균이 70점 이상, 80점 미만 C
+        // 평균이 60점 이상, 70점 미만 D
+        // 나머지 F
+        // html 요소 중에서 div 태그 요소에 출력
+
+       
+        let kor = parseInt(prompt("국어 점수 입력 "));
+        let eng = parseInt(prompt("영어 점수 입력 "));
+        let math = parseInt(prompt("수학 점수 입력 "));
+        let avg = (kor + eng + math) / 3;
+        let grade = document.getElementById("grade-span"); // "학점: "
+        // 정수 / 정수 => 실수
+
+        if(avg >= 90){grade.innerHTML+="A";}
+        else if(avg >= 80){grade.innerHTML+="B";}
+        else if(avg >= 70){grade.innerHTML+="C";}
+        else if(avg >= 60){grade.innerHTML+="D";}
+        else {grade.innerHTML+="F";}
+
+
+        // 학점: A로 출력
+        
+
+    </script>
+
+</body>
+</html>

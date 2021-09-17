@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        view1(); // 1)
+
+        function view1(){ // 1) 선언식 함수
+            console.log("hello view1()");
+        }
+        view1(); // 1)
+
+        const view1 = function(){ // 2) 표현식 함수
+            console.log("hello view1()");
+        }
+        view1(); // 2)
+
+        // hositing 결과
+        // ????
+        function view1(){ // 1) 선언식 함수
+            console.log("hello view1()");
+        }
+        const view1; 
+
+        view1(); // 1)
+        view1(); // 1)
+        view1 = function(){ // 2) 표현식 함수
+            console.log("hello view1()");
+        }
+        view1(); // 2)
+
+
+    </script>
+</body>
+</html>

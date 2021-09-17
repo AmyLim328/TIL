@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /*
+            중첩 함수 (nested function)
+            : 외부 함수 안에 내부 함수가 있는 구조 
+
+            외부 함수
+                내부 함수
+                : 함수 외부에서 호출 X
+                : 외부 함수에서 사용되는 함수
+       
+       */ 
+
+        // 원 넓이 반환 함수
+        function circle(r){ // 외부 함수
+            function square(r){ // 내부 함수 (r * r)
+                return Math.pow(r, 2);
+            }
+            return Math.PI * square(r);
+        }
+
+        const area = circle(3);
+        console.log(area);
+        
+        // 1. circle(r = 3);
+        // 2. square(r = 3); => r^2
+        // 3. circle(r = 3); => pi * r^2
+
+    </script>
+</body>
+</html>

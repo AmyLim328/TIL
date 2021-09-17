@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            1. while문
+            2. do while문
+        
+        */
+
+        let i = 0;
+        let text = ""; // undefined
+        // document.write(text);
+        // undefined (자료형 결정 X, 값 X)
+
+        while(i < 10){
+            text += "number : " + i + "<br/>";
+            i ++;
+        }
+        // let text;
+
+        document.write(text);
+        // 위에 반복문이 종료되었을 떄 i: 10
+
+        text = "";
+        i = 0;
+        do {
+            text += "number : " + i + "<br/>";
+            i ++;
+        }while(i < 10); 
+        //
+        // while 뒤에 세미콜론!
+        document.write(text);
+
+    </script>
+</body>
+</html>

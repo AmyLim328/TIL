@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 문자열 연결 연산자: +
+        let a = 1 + "234";
+        document.write(a + " ");
+        document.write(typeof(a));
+        document.write("<br/> ============= <br/>");
+
+        // 2. 산술 연산자: +, -, *, /, % (나머지, modulus, mod), **
+        document.write(10 + 20 + "<br/>");
+        document.write(10 - 20 + "<br/>");
+        document.write(10 * 20 + "<br/>");
+        document.write(10 / 20 + "<br/>"); 
+        // 정수/정수 = 실수
+        document.write(10 % 20 + "<br/>");
+        document.write(3 ** 3 + "<br/>"); 
+        document.write(3 ** 2 + "<br/>");
+        document.write(3 ** 5 + "<br/>");
+        document.write("============= <br/>");
+
+        // 3. 증감 연산자: ++, --
+        let b = 1;
+        document.write(b++ + "<br/>");
+        // 1. document.write(b); // 1
+        // 2. b++; // 2
+        document.write(++b + "<br/>");
+        // 1. ++b; // 3
+        // 2. document.write(b); // 3
+        document.write(b-- + "<br/>");
+        // 1. document.write(b); // 3
+        // 2. b--; // 2
+        document.write(--b + "<br/>");
+        // 1. --b; // 1
+        // 2. documentwrite(b); // 1
+
+        document.write("============= <br/>");
+
+        // 4. 관계 연산자: >, >=, <, <=, ==, !=
+        document.write(10 > 9)
+        document.write("<br/>");
+        document.write(10 >= 9);
+        document.write("<br/>");
+        document.write(10 < 9);
+        document.write("<br/>");
+        document.write(10 <= 9);
+        document.write("<br/>");
+        document.write(10 == 9);
+        document.write("<br/>");
+        document.write(10 != 9);
+        document.write("<br/>");
+        document.write(1 < 2 < 3);
+        document.write("<br/>");
+        document.write(1 <= 2 <= 3);
+        document.write("<br/>");
+        document.write(1 == 1 == 1);
+        document.write("<br/>");
+        document.write(1 < 3 < 2); // true (false)
+        
+        // 자바스크립트
+        // 1 < 3 < 2
+        // 1. (1 < 3) < 2
+        // 2. true(1) < 2
+        // 3. true
+
+        // 파이썬
+        // 1 < 3 < 2
+        // 1 < 3 and 3 < 2
+        // false
+
+        // 자바 (단축 계산)
+        // 3 < 1 && 1 < 2
+        // F         (T, F)  ==> F
+        // T         T, F    ==> T, F
+
+
+        // 1 < 3 || 1 < 2
+        // T         (T, F)  ==> T
+        // F     ||  T, F    ==> T, F
+        
+        // 5. 논리 연산자: && || !
+        document.write("<br/>");
+        document.write((1 < 2) && (2 < 3));
+        document.write("<br/>");
+        document.write((2 < 1) && (2 < 3));
+        document.write("<br/>");
+        document.write((1 < 2) || (2 < 3));
+        document.write("<br/>");
+        document.write((2 < 1) || (2 < 3));
+        document.write("<br/>");
+        document.write((2 < 1) || (3 < 2));
+        document.write("<br/>");
+
+        /*
+            X Y AND
+            T T  T
+            T F  F
+            F T  F
+            F F  F
+
+            X Y OR
+            T T  T
+            T F  T
+            F T  T
+            F F  F
+
+            X NOT
+            T  F
+            F  T
+        
+        */
+        document.write("<br/>");
+
+        // 6. 복합 대입 연산자: +=, -=, *=
+        let x = 1;
+        let y = 2;
+        x += y; // x = x + y;
+        document.write(x);
+        document.write("<br/>");
+
+        x = 1;
+        y = 2;
+        x -= y; // x = x - y;
+        document.write(x);
+        document.write("<br/>");
+
+        x = 1;
+        y = 2;
+        x *= y; // x = x * y;
+        document.write(x);
+        document.write("<br/>");
+
+
+        // 7. 삼항 연산자: () ? 참 결과:거짓 결과
+        x = 1;
+        y = 2;
+        document.write((x > y) ? "x : " + x : "y : " + y);
+        document.write("<br/>");
+        // if (x > y) => x
+        // if (x <= y) => y
+        // 둘 중에서 큰 놈을 출력
+
+
+        // 8. 비트 연산자
+
+        // 9. (관계 연산자 일부) 동등 연산자 (==, !=, ===, !==)
+        document.write(1 == "1"); // true
+        document.write("<br/>");
+        document.write(1 === "1"); // false (내용 + 데이터타입 같으면 true)
+        document.write("<br/>");
+        document.write(2 != "3"); // true
+        document.write("<br/>");
+        document.write(2 !== "3"); // true (내용이나 데이터타입이 다르면 true)
+
+    </script>
+</body>
+</html>

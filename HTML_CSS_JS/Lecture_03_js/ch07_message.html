@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            대화상자
+            1. alert("경고 메시지"): 경고 메시지 출력
+            2. confirm("확인 메시지"): 사용자에게 확인 받음
+                1) 확인: true
+                2) 취소: false
+            3. prompt("입력 메시지", "기본 입력값"): 사용자에게 입력받음
+        */
+
+        let msg1 = alert("경고!");
+        document.write("==================== <br/>");
+
+        let msg2 = confirm("continue ? ");
+        document.write(msg2 + "<br/>");
+        document.write(typeof(msg2) + "<br/>"); 
+        // boolean (true, false)
+        document.write(typeof(msg2 + "") + "<br/>"); 
+        // string
+        document.write("==================== <br/>");
+
+        let msg3 = prompt('number? ', '1');
+        // prompt를 통해 사용자 입력을 받으면 무조건 string 반환
+        document.write(msg3 + "<br/>");
+        document.write(typeof(msg3) + "<br/>"); 
+        // string
+        document.write("==================== <br/>");
+
+        // 숫자로 입력받는 방법?
+        // 1.
+        let msg4 = Number(prompt('number? ', '1')); // 실수, 정수
+        document.write(msg4 + "<br/>");
+        document.write(typeof(msg4) + "<br/>"); 
+        document.write("==================== <br/>");
+
+        // 2.
+        let msg5 = parseInt(prompt('number? ', '1')); // 정수
+        document.write(msg5 + "<br/>");
+        document.write(typeof(msg5) + "<br/>"); 
+        document.write("==================== <br/>");
+        
+    </script>
+</body>
+</html>

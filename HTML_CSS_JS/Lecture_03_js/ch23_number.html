@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let x1 = "10";
+        let x2 = 20;
+        let x3 = x1 + x2; // 1020
+        console.log(x3);
+        console.log(typeof(x3));
+
+        let x4 = 10;
+        let x5 = 20;
+        let x6 = "result: " + (x4 + x5); 
+        // () X : result: 1020
+        // () O : result: 30
+        console.log(x6);
+        console.log(typeof(x6));
+
+        // ※ JS 숫자 연산에서 내부적으로
+        //   문자열 → 숫자 변환 시도 (/, *, -)
+        let x7 = "10";
+        let x8 = "20";
+        let x9 = x7 / x8; // 0.5
+        console.log(x9);
+        console.log(typeof(x9)); // number
+
+        // +는 예외!
+        let x10 = "10";
+        let x11 = "20";
+        let x12 = x10 + x11; // 1020
+        console.log(x12);
+        console.log(typeof(x12)); // string
+
+        // NaN (Not a Number, 숫자가 아님)
+        // ex) 숫자 / 문자열;
+
+        // 무한대 (infinity)
+        // ex) 숫자 / 0;
+
+        // 숫자 객체가 될 수 있음 (new Number(123))
+        let x13 = 123;
+        let x14 = new Number(123);
+        console.log(typeof(x13)); // number
+        console.log(typeof(x14)); // object
+
+        // Quiz 1! 
+        console.log(x13 == x14); // true
+        console.log(x13 === x14); // false
+
+        // 객체 비교 => 주소값 비교
+        let x15 = new Number(567); // 주소 새롭게 할당
+        let x16 = new Number(567); // 주소 새롭게 할당
+        // Quiz 2! 
+        console.log(x15 == x16); // false
+        console.log(x15 === x16); // false
+
+        // 숫자 메서드 (toString())
+        // : 숫자 → 문자열
+        let x17 = 123;
+        let x18 = x17.toString(); // "123"
+        console.log(x17);
+        console.log(x18);
+        console.log(typeof(x17)); // number
+        console.log(typeof(x18)); // string
+
+
+    </script>
+</body>
+</html>
