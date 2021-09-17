@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- IoC 컨테이너 
+(객체 생성, 객체끼리 관계 맺는 부분 (wiring) -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+   <!-- 해당 객체를 재사용! 
+   		IoC 컨테이너가 만들어서 (외부에서 만들어서)
+   		나에게 제공함 -->
+   <bean id="spring" class="main.HelloSpring" /> 
+   
+</beans>

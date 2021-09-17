@@ -1,0 +1,13 @@
+ex19 프로젝트 문제
+
+1. Login 
+기존 회원인지 아닌지 확인하지 않고 LoginSuccess가 뜸
+
+loginFail.jsp 페이지를 만들어서
+기존 회원이 아니면 LoginFail로 넘어가게 만듦
+
+
+
+
+2. 회원정보 수정 (memModify())
+3. 회원정보 삭제 (memRemove())

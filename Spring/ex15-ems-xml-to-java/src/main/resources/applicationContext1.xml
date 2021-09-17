@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!-- 스프링 컨테이너 (IoC 컨테이너) -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+ 		http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+	
+	<!-- StudentAssembler.java -->
+	<!-- studentDao = new StudentDao(); 
+		객체가 계속 생성 (메모리에 할당 ...ㅠㅠ)-->
+		
+	<bean id="studentDao" class="ems.member.dao.StudentDao"/>
+	<!-- 객체를 재활용 (싱글톤 == 객체가 하나만 생성) -->
+	
+	<bean id="registerService" class="ems.member.service.StudentRegisterService">
+		<constructor-arg ref="studentDao"/>
+	</bean>
+	<!-- registerService <- studentDao (생성자를 통해) -->
+	
+	
+	<bean id="modifyService" class="ems.member.service.StudentModifyService">
+		<!-- 객체 주입 -->
+		<constructor-arg ref="studentDao"/>
+	</bean>
+	
+	<bean id="deleteService" class="ems.member.service.StudentDeleteService">
+		<!-- 객체 주입 -->
+		<constructor-arg ref="studentDao" ></constructor-arg>
+	</bean>
+	
+	<bean id="selectService" class="ems.member.service.StudentSelectService">
+		<!-- 객체 주입 -->
+		<constructor-arg ref="studentDao" ></constructor-arg>
+	</bean>
+	
+	<bean id="allSelectService" class="ems.member.service.StudentAllSelectService">
+		<!-- 객체 주입 -->
+		<constructor-arg ref="studentDao" ></constructor-arg>
+	</bean>
+	
+	
+</beans>
