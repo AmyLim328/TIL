@@ -38,13 +38,14 @@ print(3 / 5) # 정수 / 정수 = 실수
 print(3 ** 3) # 3의 3승
 
 # 사용자에게 데이터 입력 (input() => 무조건 string으로 들어옴!)
-name = input('name ? ')
+name = input('name ? ') 
 print(name)
 print(type(name)) # class 'str'
 
 age = int(input('age ? '))
 print(age)
 print(type(age)) # class 'int'
+
 
 # 변수 생성
 test = 10
@@ -60,7 +61,7 @@ tmp = x
 x = y
 y = tmp
 
-x, y = y, x # 가능
+x, y = y, x # 동시 치환 가능
 
 # 내장 함수 (built-in function)
 # 별도 모듈 추가 없이 기본 제공 함수

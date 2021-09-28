@@ -12,6 +12,10 @@ print(type(L))
 print(L[0]) # indexing
 print(L[0:2]) # slicing
 print(L[0:3:2]) # slicing
+print(len(L)) # length: 3
+print(L + L)
+print(L * 3)
+print(1 in L) # membership test
 
 L[0] = 10
 print(L)

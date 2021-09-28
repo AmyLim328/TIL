@@ -4,6 +4,11 @@
 a = 1
 # a = 1
 
+# if() {
+#   // block
+# 
+# }
+
 # if¹®
 score = 90
 if score >= 90:
@@ -14,6 +19,7 @@ elif score >= 70:
     print('C!')
 else:
     print('fail!')
+
 
 # for¹® (for each¹® Á» ´õ À¯»ç)
 li = ['a', 'b', 'c']
@@ -28,8 +34,11 @@ for i in li:
 # default: start - 0, stop - len(), step - 1
 ######################################################
 print(range(10))
-print(list(range(10)))
-print(list(range(1, 10, 2)))
+print(list(range(10))) # 0 ~ 10-1
+print(list(range(1, 10))) # 1 ~ 10-1
+print(list(range(1, 10, 2))) 
+# 1 ~ 10-1 (2Ä­¾¿ °Ç³Ê¶Ù¸ç)
+# 1 3 5 7 9
 
 # 1 ~ 10 ÃÑÇÕ
 sum = 0
@@ -37,10 +46,12 @@ for i in range(1, 11):
     sum = sum + i
 print(sum)
 
+# for each
 li = ['a', 'b', 'c']
 for i in li:
     print(i)
 
+# for using index
 for i in range(len(li)): # 0 ~ 2
     print(li[i]) 
 
