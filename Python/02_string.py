@@ -1,4 +1,4 @@
-#-*- Encoding: UTF-8 -*-#
+#-*- coding: euc-kr -*-#
 
 # 파이썬에서는 문자, 문자열의 구분이 없음
 # 'a' => type str

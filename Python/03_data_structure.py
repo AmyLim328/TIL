@@ -1,4 +1,4 @@
-#-*- Encoding: UTF-8 -*-#
+#-*- coding: euc-kr -*-#
 
 # 리스트 (list)
 # 정의: [], list()

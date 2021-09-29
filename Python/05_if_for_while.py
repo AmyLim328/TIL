@@ -1,4 +1,4 @@
-#-*- Encoding: UTF-8 -*-#
+#-*- coding: euc-kr -*-#
 # python은 들여쓰기 민감한 언어
 
 a = 1

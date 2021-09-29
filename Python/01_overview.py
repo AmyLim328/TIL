@@ -1,4 +1,4 @@
-#-*- Encoding: UTF-8 -*-#
+#-*- coding: euc-kr -*-#
 
 # single line comment
 """

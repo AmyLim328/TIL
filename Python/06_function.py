@@ -1,4 +1,4 @@
-#-*- Encoding: UTF-8 -*-#
+#-*- coding: euc-kr -*-#
 
 # 함수 (재사용, 가독성)
 def add(a, b=1): # 디폴트 값 지정 가능
@@ -19,13 +19,16 @@ def arithCalc(x, y):
     return x + y, x - y
 
 res = arithCalc(3, 5)
-print(type(res))
-print(res[0]) # +
-print(res[1]) # -
+print(type(res)) # tuple
+print(res[0]) # +, 8
+print(res[1]) # -, -2
 
 plus, minus = arithCalc(3, 5)
+# plus, minus = res # tuple unpacking
+
 # plus = res[0]
 # minus = res[1]
+
 print(plus)
 print(minus)
 
