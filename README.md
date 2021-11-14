@@ -1,6 +1,5 @@
-# TIL
-💻 Today I learned
-
+# Goott Academy
+💻 What I learned at goott academy (2021.05 ~ 2021.10)
 - [Java](https://github.com/AmyLim328/TIL/tree/main/Java)
 - [SQL](https://github.com/AmyLim328/TIL/tree/main/SQL)
 - [HTML & CSS & JavaScript](https://github.com/AmyLim328/TIL/tree/main/HTML_CSS_JS)
